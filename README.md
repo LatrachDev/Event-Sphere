@@ -1,206 +1,165 @@
+## **EventSphere**  
+**Specification Document for Event Management Application**  
 
-# **EventiFy**
+________________________________________  
 
-Specification Document for Event Management Application
+## **1. Project Overview**  
+EventSphere is an event management application designed to streamline the process of creating, organizing, and attending events. It caters to administrators managing event logistics and users seeking opportunities to explore and participate. The application adheres to web and mobile development standards.  
 
-________________________________________
+________________________________________  
 
-## **1. Project Overview**
+## **2. Functional Requirements**  
 
-The Event Management Application aims to facilitate the organization and management of events. It provides functionalities for administrators to manage events and for users to explore and participate in events by reserving tickets. The application will adhere to web and mobile development standards.
-________________________________________
+### **2.1 Admin Features**  
 
-## **2. Functional Requirements**
+#### **1. Create Events:**  
+##### Input fields:  
+- Event Name  
+- Event Description  
+- Event Date  
+- Number of Tickets  
+- Image of the Event  
+- Price  
+- Category  
 
-### **2.1 Admin Features**
+#### **2. Read Events:**  
+- View a list of all events.  
+- Sort and filter events by:  
+  - Name  
+  - Category  
 
-#### **1.	Create Events:**
+#### **3. Edit Events:**  
+- Update any event details, including name, description, date, etc.  
 
-##### Input fields:
+#### **4. Delete Events:**  
+- Permanently remove events from the database.  
+- Include a confirmation dialog to prevent accidental deletions.  
 
-	Event Name.
+#### **5. Manage Event Categories:**  
+- Add, update, or delete categories (e.g., Music, Tech, Sports).  
 
-	Event Description.
+#### **6. Manage Ticket Types:**  
+- Define ticket tiers (e.g., General, Silver, Gold, VIP).  
+- Assign pricing, availability, and perks for each tier.  
+- Manage inventory for each ticket type.  
 
-	Event Date.
+### **2.2 User Features**  
 
-	Number of Tickets.
+#### **1. Authentication:**  
+- Authentication, registration, and login system.  
 
-##### Validation rules: 
+#### **2. View Events:**  
+- Display all upcoming events in a list or grid format.  
+- Search and filter events by:  
+  - Category  
+  - Name  
 
-	Event Name: Required, max length 100 characters.
+#### **3. View Event Details:**  
+- Display detailed information for a selected event, including:  
+  - Pricing and benefits for each ticket type.  
+  - Availability for each ticket tier.  
+  - Number of Available Tickets.  
 
-	Event Description: Required, max length 500 characters.
+#### **4. Reserve a Ticket:**  
+- Select ticket types (e.g., General, Silver, Gold).  
+- Display a confirmation message upon successful reservation.  
 
-	Event Date: Required, valid date format.
+#### **5. User Profiles:**  
+- Save favorite events for quick access.  
 
-	Number of Tickets: Required, integer, minimum value 1.
+#### **6. Event Ratings and Reviews:**  
+- Allow users to rate and review events they attended.  
+- Display average ratings and reviews on event detail pages.  
 
-#### **2.	Read Events:**
+________________________________________  
 
-##### View a list of all events.
+## **3. Non-Functional Requirements**  
 
-##### Sort and filter events by: 
+#### **1. Performance:**  
+- Event loading time should not exceed 2 seconds.  
 
-	Date
+#### **2. Usability:**  
+- The interface should be responsive and optimized for both web and mobile platforms.  
 
-	Name
+#### **3. Security:**  
+- Implement user authentication for ticket reservation.  
 
-#### **3.	Edit Events:**
+________________________________________  
 
-##### Update any event details, including name, description, date, and ticket count.
+## **4. Technical Requirements**  
 
-#### **4.	Delete Events:**
+### **4.1 Back-End Development**  
+- **Language/Framework:** PHP MVC or Laravel  
+- **Database:** MySQL  
+- **Tools:** phpMyAdmin  
 
-##### Permanently remove events from the database.
-##### Confirmation dialog to prevent accidental deletions.
+### **4.2 Front-End Development**  
+- **Languages/Frameworks:**  
+  - HTML, CSS, Tailwind CSS, JavaScript  
+  - Frameworks TBD  
 
+- **Tools:** Figma for design and prototyping  
 
-### **2.2 User Features**
+### **4.3 Project Management and Design**  
+- **Tools:**  
+  - Jira for project tracking  
+  - Figma for charte graphique and prototyping  
 
-#### **1.	Authentification:**
+- **Design Artifacts:**  
+  - UML Diagrams (Class Diagram, Use Case Diagram)  
 
-##### Authentication, registration and login system.
+________________________________________  
 
-#### **2.	View Events:**
+## **5. User Stories**  
 
-##### Display all upcoming events in a list or grid format.
+### **Admin User Stories**  
+1. As an admin, I want to create an event with detailed information so that users can view and participate.  
+2. As an admin, I want to edit existing events to keep information up-to-date.  
+3. As an admin, I want to delete events to remove outdated or irrelevant entries.  
+4. As an admin, I want to view all events in a list format for easy management.  
 
-##### Search and filter events by: 
+### **User Stories**  
+1. As a user, I want to view a list of all events so that I can find events of interest.  
+2. As a user, I want to see detailed information about an event to understand its purpose and schedule.  
+3. As a user, I want to reserve tickets for an event to secure my participation.  
 
-	Date
+________________________________________  
 
-	Name
+## **6. UML Diagrams**  
 
+### **6.1 Use Case Diagram**  
+- **Actors:**  
+  - Admin  
+  - User  
 
-#### **3.	View Event Details:**
+- **Use Cases:**  
+  - Create Event, Read Events, Edit Event, Delete Event (Admin)  
+  - View Events, View Event Details, Reserve Ticket (User)  
 
-##### Display detailed information for a selected event: 
+### **6.2 Class Diagram**  
+- **Classes:**  
+  - **Event:** id, name, description, date, ticketsAvailable, category, price, image  
+  - **User:** id, name, email  
+  - **Reservation:** id, userId, eventId, ticketsReserved  
+  - **Category:** id, name  
+  - **TicketType:** id, name, price, perks  
 
+________________________________________  
 
-	Event Name
+## **7. Prototype Design**  
 
-	Event Description
+- **Wireframes:**  
+  - Authentication, secure registration, and login system  
+  - Home Page: Event list with search and filter options  
+  - Event Details Page: Event information and ticket reservation form  
+  - Admin Dashboard: CRUD interface for events  
 
-	Event Date
+________________________________________  
 
-	Number of Available Tickets
+## **8. Deployment**  
 
-#### **4.	Reserve a Ticket:**
+- **Environment:**  
+  - Local development using Laragon  
+  - Live deployment on a web hosting service with MySQL support  
 
-##### Functionality to reserve one ticket for an event.
-##### Decrease the available ticket count upon successful reservation.
-##### Confirmation message upon successful reservation.
-
-
-## **3. Non-Functional Requirements**
-
-#### **1.	Performance:**
-
-##### Event loading time should not exceed 2 seconds.
-
-#### **2.	Usability:**
-
-##### The interface should be responsive and optimized for both web and mobile platforms.
-
-#### **3.	Security:**
-
-##### Implement user authentication for ticket reservation.
-
-
-## **4. Technical Requirements**
-
-### **4.1 Back-End Development**
-
-* **Language/Framework:** PHP MVC or Laravel
-
-* **Database:** MySQL
-
-* **Tools:** phpMyAdmin
-
-
-### **4.2 Front-End Development**
-
-* **Languages/Frameworks:** HTML, CSS, Tailwind CSS, JavaScript.
-
-* **Tools:** Figma for design and prototyping
-
-### **4.3 Project Management and Design**
-
-* **Tools:** 
-
-    Jira for project tracking.
-
-    Figma for charte graphique and prototyping.
-
-* **Design Artifacts:** 
-
-    UML Diagrams (Class Diagram, Use Case Diagram).
-
-
-## **5. User Stories**
-
-### **Admin User Stories**
-
-    As an admin, I want to create an event with detailed information so that users can view and participate.
-
-    As an admin, I want to edit existing events to keep information up-to-date.
-
-    As an admin, I want to delete events to remove outdated or irrelevant entries.
-
-    As an admin, I want to view all events in a list format for easy management.
-
-
-### **User Stories**
-
-    As a user, I want to view a list of all events so that I can find events of interest.
-
-    As a user, I want to see detailed information about an event to understand its purpose and schedule.
-
-    As a user, I want to reserve tickets for an event to secure my participation.
-
-
-## **6. UML Diagrams**
-
-### **6.1 Use Case Diagram**
-
-* Actors: 
-    
-        Admin
-    
-        User
-
-* Use Cases: 
-        
-        Create Event, Read Events, Edit Event, Delete Event (Admin)
-        
-        View Events, View Event Details, Reserve Ticket (User)
-
-### **6.2 Class Diagram**
-
-* Classes:  
-
-* **Event:** id, name, description, date, ticketsAvailable.
-
-* **User:** id, name, email.
-
-* **Reservation: ** id, userId, eventId, ticketsReserved.
-
-## **7. Prototype Design**
-
-* Wireframes:
-
-        Authentication, Secure registration and login system.
-        
-        Home Page: Event list with search and filter options
-        
-        Event Details Page: Event information and ticket reservation form
-        
-        Admin Dashboard: CRUD interface for events
-
-## **8. Deployment**
-
-* Environment: 
-
-        Local development using Laragon
-        Live deployment on a web hosting service with MySQL support.
+________________________________________  
