@@ -35,7 +35,8 @@ export default {
                 },
             },
             fontFamily: {
-                sans: ['Poppins', ...defaultTheme.fontFamily.sans],
+                poppins: ['Poppins', ...defaultTheme.fontFamily.sans],
+                montserrat: ['Montserrat', ...defaultTheme.fontFamily.sans],
             },
         },
     },
