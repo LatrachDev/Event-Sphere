@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,36 +13,64 @@
 </head>
 <body class="bg-light-background dark:bg-dark-background dark:text-dark-text">
 
-    <header class="fixed top-0 w-full flex justify-between items-center px-10 py-5 font-poppins bg-light-background/50 bg-dark-background/50 backdrop-blur-xl z-50">
-        <img src="{{ asset('images/EventSphere_Logo.png') }}" alt="Logo" class="w-48">
-        <nav class="flex space-x-8 items-center">
-            <a href="" class="text-dark-text  hover:text-dark-accent dark:hover:text-dark-accent duration-300">Home</a>
+    <header class="fixed top-0 w-full flex justify-between items-center px-4 sm:px-10 py-5 font-poppins dark:bg-dark-background/50 backdrop-blur-xl z-50">
+        <img src="{{ asset('images/EventSphere_Logo.png') }}" alt="Logo" class="w-32 sm:w-48">
+        
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex space-x-6 lg:space-x-8 items-center">
+            <a href="" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Home</a>
             <a href="" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Explore</a>
             <a href="" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Contact</a>
-            <a href="" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">About</a>
+            <a href="#about" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">About</a>
             
-            <button href="" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300" onclick="toggleDarkMode()"><i class="fa-solid fa-sun"></i> Mode</button>
+            <button class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300" onclick="toggleDarkMode()">
+                <i class="fa-solid fa-sun"></i> <span class="hidden sm:inline">Mode</span>
+            </button>
 
-            <a href="" class="text-light-background bg-light-accent py-2 px-6 rounded-full dark:text-dark-text dark:bg-dark-accent hover:bg-light-primary dark:hover:bg-light-primary duration-300">Login</a>
+            <a href="" class="text-light-background bg-light-accent py-2 px-4 sm:px-6 rounded-full dark:text-dark-text dark:bg-dark-accent hover:bg-light-primary dark:hover:bg-light-primary duration-300">Login</a>
         </nav>
+        
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" class="md:hidden text-dark-text dark:text-dark-text text-2xl">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full h-screen bg-light-background dark:bg-dark-background shadow-lg md:hidden">
+            <div class="flex flex-col space-y-10 p-6 text-center">
+                <a href="" class="text-light-text dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Home</a>
+                <a href="" class="text-light-text dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Explore</a>
+                <a href="" class="text-light-text dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Contact</a>
+                <a href="#about" class="text-light-text dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">About</a>
+                
+                <button class="mx-auto text-light-text dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300 flex items-center" onclick="toggleDarkMode()">
+                    <i class="fa-solid fa-sun mr-2"></i> Dark Mode
+                </button>
+
+                <a href="" class=" text-light-background bg-light-accent py-2 px-6 rounded-full dark:text-dark-text dark:bg-dark-accent hover:bg-light-primary dark:hover:bg-light-primary duration-300 text-center">Login</a>
+            </div>
+        </div>
     </header>
 
     <main style="background-image: url({{ asset('images/main-background.jpg') }})" 
         class="bg-[{{ asset('images/main-background.jpg') }}] font-montserrat bg-cover bg-center bg-no-repeat h-screen flex flex-col justify-center items-center text-center">
         
-        <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-8xl uppercase font-extrabold text-dark-text">
+        <h1 class="text-2xl sm:text-4xl md:text-6xl lg:text-8xl uppercase font-extrabold text-dark-text">
             Discover & Book
         </h1>
 
-        <div class="w-[300px] md:w-[600px] lg:w-[950px] my-5">
+        <div class="w-[240px] md:w-[600px] lg:w-[950px] my-3 lg:my-5">
             <img src="{{ asset('images/Exciting Events.png') }}" alt="Logo">
         </div>
 
-        <p class="px-4 font-light sm:text-2xl text-dark-text ">
-            Explore a variety of events, from tech meetups to music concerts.
-        </p>
+        <div class="w-10/12 px-2 sm:px-0">
 
-        <button class="h-14 bg-linear-to-r from-cyan-500 to-blue-500">
+            <p class="px-2 font-light text-sm sm:text-2xl text-dark-text ">
+                Explore a variety of events, from tech meetups to music concerts.
+            </p>
+            
+        </div>
+        <button class="font-bold text-sm h-10 md:text-xl md:h-12 bg-gradient-to-r from-dark-accent to-dark-secondary text-light-background px-4 md:px-6 py-2 rounded-md mt-8 md:mt-10 transition-all hover:bg-gradient-to-r hover:from-dark-secondary hover:to-dark-secondary hover:shadow-lg duration-300">
             Discover Events
         </button>
         
@@ -51,19 +79,33 @@
 
     </main>
     
-    <div class="p-10 sm:p-20">
+    <div id="about" class="p-10 sm:p-20 font-poppins">
+        <h3 class="uppercase font-semibold text-center text-xl sm:text-2xl lg:text-4xl">The Sphere of Memorable Moments</h3>
+        <img src="{{ asset('images/EventSphere_Logo1.png') }}" alt="Logo" class="lg:w-80 w-48 sm:w-56 md:w-64 mx-auto">
+        <p class="text-justify p-4">EventSphere is designed to simplify event planning and participation. Whether you're an organizer looking to create seamless events or an attendee searching for memorable experiences, EventSphere has everything you need in one place.</p>
     </div>
 
-
     <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', (e) => {
+            
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // dark mode toggle
         function toggleDarkMode() {
             document.documentElement.classList.toggle("dark");
             localStorage.setItem("theme", document.documentElement.classList.contains("dark") ? "dark" : "light");
         }
 
-        if (localStorage.getItem("theme") === "dark") {
+        // check for saved theme preference
+        if (localStorage.getItem("theme") === "dark" || 
+            (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
             document.documentElement.classList.add("dark");
         }
     </script>
+    
 </body>
 </html>
