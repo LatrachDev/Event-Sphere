@@ -13,10 +13,10 @@
 </head>
 <body class="bg-light-background dark:bg-dark-background dark:text-dark-text">
 
-    <header class="fixed top-0 w-full flex justify-between items-center px-4 sm:px-10 py-5 font-poppins dark:bg-dark-background/50 backdrop-blur-xl z-50">
+    <header class="fixed top-0 w-full flex justify-between items-center px-4 sm:px-10 py-5 font-poppins bg-dark-background/50 backdrop-blur-xl z-50">
         <img src="{{ asset('images/EventSphere_Logo.png') }}" alt="Logo" class="w-32 sm:w-48">
         
-        <!-- Desktop Navigation -->
+        <!-- desktop -->
         <nav class="hidden md:flex space-x-6 lg:space-x-8 items-center">
             <a href="" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Home</a>
             <a href="" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Explore</a>
@@ -30,14 +30,19 @@
             <a href="" class="text-light-background bg-light-accent py-2 px-4 sm:px-6 rounded-full dark:text-dark-text dark:bg-dark-accent hover:bg-light-primary dark:hover:bg-light-primary duration-300">Login</a>
         </nav>
         
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-button" class="md:hidden text-dark-text dark:text-dark-text text-2xl">
+        <!-- mobile button -->
+        <button id="menu-button" class="md:hidden text-2xl text-dark-text">
             <i class="fa-solid fa-bars"></i>
         </button>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full h-screen bg-light-background dark:bg-dark-background shadow-lg md:hidden">
-            <div class="flex flex-col space-y-10 p-6 text-center">
+
+        <!-- mobile -->
+        <div id="mobile-menu" class="absolute top-0 left-0 w-full h-screen bg-light-background dark:bg-dark-background shadow-lg md:hidden transform -translate-y-full transition duration-500 ease-in-out">  
+            <div class="flex flex-col space-y-10 p-6 mt-16 text-center">
+                
+            <button id="close-button" class="absolute right-6 px-6 top-10 text-2xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
                 <a href="" class="text-light-text dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Home</a>
                 <a href="" class="text-light-text dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Explore</a>
                 <a href="" class="text-light-text dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Contact</a>
@@ -47,7 +52,8 @@
                     <i class="fa-solid fa-sun mr-2"></i> Dark Mode
                 </button>
 
-                <a href="" class=" text-light-background bg-light-accent py-2 px-6 rounded-full dark:text-dark-text dark:bg-dark-accent hover:bg-light-primary dark:hover:bg-light-primary duration-300 text-center">Login</a>
+                <a href="#" class="bg-light-accent px-6 py-2 rounded-full">Login</a>
+            
             </div>
         </div>
     </header>
@@ -82,16 +88,77 @@
     <div id="about" class="p-10 sm:p-20 font-poppins">
         <h3 class="uppercase font-semibold text-center text-xl sm:text-2xl lg:text-4xl">The Sphere of Memorable Moments</h3>
         <img src="{{ asset('images/EventSphere_Logo1.png') }}" alt="Logo" class="lg:w-80 w-48 sm:w-56 md:w-64 mx-auto">
-        <p class="text-justify p-4">EventSphere is designed to simplify event planning and participation. Whether you're an organizer looking to create seamless events or an attendee searching for memorable experiences, EventSphere has everything you need in one place.</p>
+        <p class="text-justify px-4 font-light">EventSphere is designed to simplify event planning and participation. Whether you're an organizer looking to create seamless events or an attendee searching for memorable experiences, EventSphere has everything you need in one place.</p>
+    </div>
+
+    <div class="p-10 sm:p-20 font-poppins">
+        <h3 class="uppercase font-semibold text-center text-xl sm:text-2xl lg:text-4xl">Trending Events</h3>
+        <p class="text-center px-4 font-light text-xl my-5">Stay updated with the most popular events happening around you.</p>
+        
+        <!-- cards -->
+        <div class="flex">
+
+            <!-- card1 --> 
+            <div class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-9/12 sm:5/12 lg:w-4/12 rounded-lg drop-shadow-md m-4 border-2 border-light-accent dark:border-dark-text">
+                <img src="{{ asset('images/live-music.jpg') }}" alt="Event" class="w-full h-48 object-cover rounded-t-lg">
+                <div class="p-4 flex justify-between items-end">
+                    <div>
+                        <h4 class=" font-semibold text-2xl mb-3 text-dark-text">Music Fest 2025</h4>
+                        <p class=" text-sm font-light w-9/12 text-dark-text">An unforgettable night of live performances and entertainment.</p>
+                    </div>
+                    
+                    <div class="">
+                        <p class=" text-lg font-light text-dark-text">27/05/2026</p>
+                        <a href="" class="font-semibold text-dark-text">View details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- card2 --> 
+            <div class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-9/12 sm:5/12 lg:w-4/12 rounded-lg drop-shadow-md m-4 border-2 border-light-accent dark:border-dark-text">
+                <img src="{{ asset('images/live-music.jpg') }}" alt="Event" class="w-full h-48 object-cover rounded-t-lg">
+                <div class="p-4 flex justify-between items-end">
+                    <div>
+                        <h4 class=" font-semibold text-2xl mb-3 text-dark-text">Music Fest 2025</h4>
+                        <p class=" text-sm font-light w-9/12 text-dark-text">An unforgettable night of live performances and entertainment.</p>
+                    </div>
+                    
+                    <div class="">
+                        <p class=" text-lg font-light text-dark-text">27/05/2026</p>
+                        <a href="" class="font-semibold text-dark-text">View details</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- card3 -->
+            <div class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-9/12 sm:5/12 lg:w-4/12 rounded-lg drop-shadow-md m-4 border-2 border-light-accent dark:border-dark-text">
+                <img src="{{ asset('images/live-music.jpg') }}" alt="Event" class="w-full h-48 object-cover rounded-t-lg">
+                <div class="p-4 flex justify-between items-end">
+                    <div>
+                        <h4 class=" font-semibold text-2xl mb-3 text-dark-text">Music Fest 2025</h4>
+                        <p class=" text-sm font-light w-9/12 text-dark-text">An unforgettable night of live performances and entertainment.</p>
+                    </div>
+                    
+                    <div class="">
+                        <p class=" text-lg font-light text-dark-text">27/05/2026</p>
+                        <a href="" class="font-semibold text-dark-text">View details</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
     </div>
 
     <script>
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+        const menu = document.getElementById('mobile-menu');
+        const menuLinks = document.querySelectorAll('#mobile-menu a');
         
-        mobileMenuButton.addEventListener('click', (e) => {
-            
-            mobileMenu.classList.toggle('hidden');
+        document.getElementById('menu-button').onclick = () => menu.classList.remove('-translate-y-full');
+        document.getElementById('close-button').onclick = () => menu.classList.add('-translate-y-full');
+        
+        menuLinks.forEach(link => {
+            link.onclick = () => menu.classList.add('-translate-y-full');
         });
         
         // dark mode toggle
