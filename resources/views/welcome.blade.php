@@ -93,12 +93,12 @@
 
     <div class="p-10 sm:p-20 font-poppins">
         <h3 class="uppercase font-semibold text-center text-xl sm:text-2xl lg:text-4xl">Trending Events</h3>
-        <p class="text-center px-4 font-light text-sm sm:text-xl my-5">Stay updated with the most popular events happening around you.</p>
+        <p class="text-center px-4 font-light text-sm sm:text-xl my-5 sm:my-10">Stay updated with the most popular events happening around you.</p>
         
-        <!-- Cards Container -->
+        <!-- cards container -->
         <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6 justify-center items-center">
 
-            <!-- Card 1 -->
+            <!-- card 1 -->
             <div class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-11/12 sm:w-8/12 lg:w-full rounded-lg drop-shadow-md mx-auto border border-light-accent dark:border-dark-text">
                 <img src="{{ asset('images/live-music.jpg') }}" alt="Event" class="w-full h-40 sm:h-44 object-cover rounded-t-lg">
                 
@@ -129,7 +129,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- card 3 -->
             <div class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-11/12 sm:w-8/12 lg:w-full rounded-lg drop-shadow-md mx-auto border border-light-accent dark:border-dark-text">
                 <img src="{{ asset('images/live-music.jpg') }}" alt="Event" class="w-full h-40 sm:h-44 object-cover rounded-t-lg">
@@ -146,10 +146,14 @@
                 </div>
             </div>
 
-           
-           
+            
         </div>
-
+        
+        <div class="w-full flex">
+             <button class="mx-auto font-bold text-sm h-10 md:text-xl md:h-12 bg-gradient-to-r from-dark-accent to-dark-secondary text-light-background px-4 md:px-6 py-2 rounded-full mt-8 md:mt-10 transition-all hover:bg-gradient-to-r hover:from-dark-secondary hover:to-dark-secondary hover:shadow-lg duration-300">
+                 View all Events
+             </button>
+        </div>
         
     </div>
 
