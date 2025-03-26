@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     @vite('resources/css/app.css')
 </head>
-<body class="bg-light-background dark:bg-dark-background dark:text-dark-text">
+<body class="bg-light-background dark:bg-dark-background dark:text-dark-text transition-colors duration-2000">
 
     <header class="fixed top-0 w-full flex justify-between items-center px-4 sm:px-10 py-5 font-poppins bg-dark-background/50 backdrop-blur-xl z-50">
         <img src="{{ asset('images/EventSphere_Logo.png') }}" alt="Logo" class="w-32 sm:w-48">
@@ -93,60 +93,63 @@
 
     <div class="p-10 sm:p-20 font-poppins">
         <h3 class="uppercase font-semibold text-center text-xl sm:text-2xl lg:text-4xl">Trending Events</h3>
-        <p class="text-center px-4 font-light text-xl my-5">Stay updated with the most popular events happening around you.</p>
+        <p class="text-center px-4 font-light text-sm sm:text-xl my-5">Stay updated with the most popular events happening around you.</p>
         
-        <!-- cards -->
-        <div class="flex">
+        <!-- Cards Container -->
+        <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6 justify-center items-center">
 
-            <!-- card1 --> 
-            <div class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-9/12 sm:5/12 lg:w-4/12 rounded-lg drop-shadow-md m-4 border-2 border-light-accent dark:border-dark-text">
-                <img src="{{ asset('images/live-music.jpg') }}" alt="Event" class="w-full h-48 object-cover rounded-t-lg">
-                <div class="p-4 flex justify-between items-end">
-                    <div>
-                        <h4 class=" font-semibold text-2xl mb-3 text-dark-text">Music Fest 2025</h4>
-                        <p class=" text-sm font-light w-9/12 text-dark-text">An unforgettable night of live performances and entertainment.</p>
-                    </div>
+            <!-- Card 1 -->
+            <div class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-11/12 sm:w-8/12 lg:w-full rounded-lg drop-shadow-md mx-auto border border-light-accent dark:border-dark-text">
+                <img src="{{ asset('images/live-music.jpg') }}" alt="Event" class="w-full h-40 sm:h-44 object-cover rounded-t-lg">
+                
+                <h4 class="px-3 pt-2 font-semibold text-lg w-full sm:text-xl text-dark-text">Music Fest 2025</h4>
+                
+                <div class="px-3 py-2 flex justify-between items-end text-xs sm:text-sm">   
+                    <p class="font-light text-[10px] text-dark-text pr-2">An unforgettable night of live performances and entertainment.</p>
                     
-                    <div class="">
-                        <p class=" text-lg font-light text-dark-text">27/05/2026</p>
-                        <a href="" class="font-semibold text-dark-text">View details</a>
+                    <div class="text-right">
+                        <p class="text-xs sm:text-sm font-light text-dark-text">27/05/2026</p>
+                        <a href="" class="text-[10px] sm:text-xs font-semibold text-dark-text">View details</a>
                     </div>
                 </div>
             </div>
 
-            <!-- card2 --> 
-            <div class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-9/12 sm:5/12 lg:w-4/12 rounded-lg drop-shadow-md m-4 border-2 border-light-accent dark:border-dark-text">
-                <img src="{{ asset('images/live-music.jpg') }}" alt="Event" class="w-full h-48 object-cover rounded-t-lg">
-                <div class="p-4 flex justify-between items-end">
-                    <div>
-                        <h4 class=" font-semibold text-2xl mb-3 text-dark-text">Music Fest 2025</h4>
-                        <p class=" text-sm font-light w-9/12 text-dark-text">An unforgettable night of live performances and entertainment.</p>
-                    </div>
+            <!-- card 2 -->
+            <div class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-11/12 sm:w-8/12 lg:w-full rounded-lg drop-shadow-md mx-auto border border-light-accent dark:border-dark-text">
+                <img src="{{ asset('images/live-music.jpg') }}" alt="Event" class="w-full h-40 sm:h-44 object-cover rounded-t-lg">
+                
+                <h4 class="px-3 pt-2 font-semibold text-lg w-full sm:text-xl text-dark-text">Music Fest 2025</h4>
+                
+                <div class="px-3 py-2 flex justify-between items-end text-xs sm:text-sm">   
+                    <p class="font-light text-[10px] text-dark-text pr-2">An unforgettable night of live performances and entertainment.</p>
                     
-                    <div class="">
-                        <p class=" text-lg font-light text-dark-text">27/05/2026</p>
-                        <a href="" class="font-semibold text-dark-text">View details</a>
+                    <div class="text-right">
+                        <p class="text-xs sm:text-sm font-light text-dark-text">27/05/2026</p>
+                        <a href="" class="text-[10px] sm:text-xs font-semibold text-dark-text">View details</a>
                     </div>
                 </div>
             </div>
             
-            <!-- card3 -->
-            <div class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-9/12 sm:5/12 lg:w-4/12 rounded-lg drop-shadow-md m-4 border-2 border-light-accent dark:border-dark-text">
-                <img src="{{ asset('images/live-music.jpg') }}" alt="Event" class="w-full h-48 object-cover rounded-t-lg">
-                <div class="p-4 flex justify-between items-end">
-                    <div>
-                        <h4 class=" font-semibold text-2xl mb-3 text-dark-text">Music Fest 2025</h4>
-                        <p class=" text-sm font-light w-9/12 text-dark-text">An unforgettable night of live performances and entertainment.</p>
-                    </div>
+            <!-- card 3 -->
+            <div class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-11/12 sm:w-8/12 lg:w-full rounded-lg drop-shadow-md mx-auto border border-light-accent dark:border-dark-text">
+                <img src="{{ asset('images/live-music.jpg') }}" alt="Event" class="w-full h-40 sm:h-44 object-cover rounded-t-lg">
+                
+                <h4 class="px-3 pt-2 font-semibold text-lg w-full sm:text-xl text-dark-text">Music Fest 2025</h4>
+                
+                <div class="px-3 py-2 flex justify-between items-end text-xs sm:text-sm">   
+                    <p class="font-light text-[10px] text-dark-text pr-2">An unforgettable night of live performances and entertainment.</p>
                     
-                    <div class="">
-                        <p class=" text-lg font-light text-dark-text">27/05/2026</p>
-                        <a href="" class="font-semibold text-dark-text">View details</a>
+                    <div class="text-right">
+                        <p class="text-xs sm:text-sm font-light text-dark-text">27/05/2026</p>
+                        <a href="" class="text-[10px] sm:text-xs font-semibold text-dark-text">View details</a>
                     </div>
                 </div>
             </div>
-            
+
+           
+           
         </div>
+
         
     </div>
 
