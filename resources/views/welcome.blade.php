@@ -86,28 +86,43 @@
     </main>
     
     <!-- about -->
-    <section id="about" class="p-10 sm:p-20 font-poppins">
-        <h3 class="uppercase font-semibold text-center text-xl sm:text-2xl lg:text-4xl">The Sphere of Memorable Moments</h3>
-        <img src="{{ asset('images/EventSphere_Logo1.png') }}" alt="Logo" class="lg:w-80 w-48 sm:w-56 md:w-64 mx-auto">
-        <p class="text-justify px-4 font-light">EventSphere is designed to simplify event planning and participation. Whether you're an organizer looking to create seamless events or an attendee searching for memorable experiences, EventSphere has everything you need in one place.</p>
+    <section id="about" class="px-10 sm:px-20 font-poppins mt-20">
+        <div class="max-w-4xl  mx-auto text-center">
+            <h3 class="uppercase font-semibold text-center text-xl sm:text-2xl lg:text-4xl">
+                The Sphere of Memorable Moments
+            </h3>
+            <div class="flex flex-col md:flex-row justify-center items-center">
+                <img src="{{ asset('images/EventSphere_Logo1.png') }}" 
+                    alt="EventSphere Logo" 
+                    class="w-40 sm:w-52 md:w-60 lg:w-72">
+                
+                <p class="text-xs sm:text-xl text-light-tex text-justify dark:text-dark-text font-light leading-relaxed px-6">
+                    EventSphere is designed to simplify event planning and participation. 
+                    Whether you're an organizer looking to create seamless events or an attendee 
+                    searching for memorable experiences, EventSphere has everything you need in one place.
+                </p>
+
+            </div>
+        </div>
     </section>
 
+
     <!-- trending events -->
-    <section id="events" class="p-10 sm:p-20 font-poppins">
+    <section id="events" class="px-5 md:px-10 py-10 sm:px-20 sm:py-10 font-poppins">
         <h3 class="uppercase font-semibold text-center text-xl sm:text-2xl lg:text-4xl">Trending Events</h3>
         <p class="text-center px-4 font-light text-sm sm:text-xl my-5 sm:my-10">Stay updated with the most popular events happening around you.</p>
         
         <!-- cards container -->
-        <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6 justify-center items-center">
+        <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6 justify-center items-center px-0 sm:px-6">
             
             <!-- card 1 -->
-            <div class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-11/12 sm:w-8/12 lg:w-full rounded-lg drop-shadow-md mx-auto border border-light-accent dark:border-dark-text">
-                <img src="{{ asset('images/live-music.jpg') }}" alt="Event" class="w-full h-40 sm:h-44 object-cover rounded-t-lg">
+            <div class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-11/12 sm:w-8/12 lg:w-full rounded-lg shadow-md mx-auto border border-light-accent dark:border-dark-text hover:scale-105 duration-300">
+                <img src="{{ asset('images/singers-singing-studio.jpg') }}" alt="Event" class="w-full h-40 sm:h-44 object-cover rounded-t-lg">
                 
-                <h4 class="px-3 pt-2 font-semibold text-lg w-full sm:text-xl text-dark-text">Music Fest 2025</h4>
+                <h4 class="px-3 pt-2 font-semibold text-lg w-full sm:text-xl text-dark-text">Rock & Roll Live Night</h4>
                 
-                <div class="px-3 py-2 flex justify-between items-end text-xs sm:text-sm">   
-                    <p class="font-light text-[10px] text-dark-text pr-2">An unforgettable night of live performances and entertainment.</p>
+                <div class="px-4 py-2 flex justify-between items-end text-xs sm:text-sm">   
+                    <p class="font-light text-[10px] lg:text-[0.8rem] text-dark-text pr-2">An unforgettable night of live performances and entertainment.</p>
                     
                     <div class="text-right">
                         <p class="text-xs sm:text-sm font-light text-dark-text">27/05/2026</p>
@@ -117,13 +132,13 @@
             </div>
             
             <!-- card 2 -->
-            <div class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-11/12 sm:w-8/12 lg:w-full rounded-lg drop-shadow-md mx-auto border border-light-accent dark:border-dark-text">
-                <img src="{{ asset('images/live-music.jpg') }}" alt="Event" class="w-full h-40 sm:h-44 object-cover rounded-t-lg">
+            <div class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-11/12 sm:w-8/12 lg:w-full rounded-lg shadow-md mx-auto border border-light-accent dark:border-dark-text hover:scale-105 duration-300">
+                <img src="{{ asset('images/crowd-people-concert-with-their-hands-air.jpg') }}" alt="Event" class="w-full h-40 sm:h-44 object-cover rounded-t-lg">
                 
                 <h4 class="px-3 pt-2 font-semibold text-lg w-full sm:text-xl text-dark-text">Music Fest 2025</h4>
                 
                 <div class="px-3 py-2 flex justify-between items-end text-xs sm:text-sm">   
-                    <p class="font-light text-[10px] text-dark-text pr-2">An unforgettable night of live performances and entertainment.</p>
+                    <p class="font-light text-[10px] lg:text-[0.8rem] text-dark-text pr-2">An unforgettable night of live performances and entertainment.</p>
                     
                     <div class="text-right">
                         <p class="text-xs sm:text-sm font-light text-dark-text">27/05/2026</p>
@@ -133,13 +148,13 @@
             </div>
             
             <!-- card 3 -->
-            <div class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-11/12 sm:w-8/12 lg:w-full rounded-lg drop-shadow-md mx-auto border border-light-accent dark:border-dark-text">
-                <img src="{{ asset('images/live-music.jpg') }}" alt="Event" class="w-full h-40 sm:h-44 object-cover rounded-t-lg">
+            <div class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-11/12 sm:w-8/12 lg:w-full rounded-lg shadow-md mx-auto border border-light-accent dark:border-dark-text hover:scale-105 duration-300">
+                <img src="{{ asset('images/people.jpg') }}" alt="Event" class="w-full h-40 sm:h-44 object-cover rounded-t-lg">
                 
-                <h4 class="px-3 pt-2 font-semibold text-lg w-full sm:text-xl text-dark-text">Music Fest 2025</h4>
+                <h4 class="px-3 pt-2 font-semibold text-lg w-full sm:text-xl text-dark-text">Street Football Cup</h4>
                 
                 <div class="px-3 py-2 flex justify-between items-end text-xs sm:text-sm">   
-                    <p class="font-light text-[10px] text-dark-text pr-2">An unforgettable night of live performances and entertainment.</p>
+                    <p class="font-light text-[10px]  lg:text-[0.8rem] text-dark-text pr-2">An unforgettable night of live performances and entertainment.</p>
                     
                     <div class="text-right">
                         <p class="text-xs sm:text-sm font-light text-dark-text">27/05/2026</p>
@@ -166,7 +181,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 text-light-text dark:text-dark-text">
         
             <!-- Card 1 -->
-            <div class="flex flex-col items-left gap-4 p-6 bg-light-half dark:bg-dark-half drop-shadow-md rounded-xl">
+            <div class="flex flex-col items-left gap-4 p-6 bg-light-half dark:bg-dark-half drop-shadow-md rounded-xl hover:scale-105 duration-300">
                 <div class="w-3/12 lg:w-[20%] drop-shadow-[0_0_5px_rgba(210,139,234,0.4)] text-light-primary shadow-light-primary dark:fill-light-primary text-4xl">
                 <svg  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="secure" class="icon glyph fill-light-primary dark:fill-dark-primary"><path d="M19.42,3.83,12.24,2h0A.67.67,0,0,0,12,2a.67.67,0,0,0-.2,0h0L4.58,3.83A2,2,0,0,0,3.07,5.92l.42,5.51a12,12,0,0,0,7.24,10.11l.88.38h0a.91.91,0,0,0,.7,0h0l.88-.38a12,12,0,0,0,7.24-10.11l.42-5.51A2,2,0,0,0,19.42,3.83ZM15.71,9.71l-4,4a1,1,0,0,1-1.42,0l-2-2a1,1,0,0,1,1.42-1.42L11,11.59l3.29-3.3a1,1,0,0,1,1.42,1.42Z"></path></svg>
                 </div>
@@ -174,7 +189,7 @@
             </div>
 
             <!-- Card 2 -->
-            <div class="flex flex-col items-left gap-4 p-6 bg-light-half dark:bg-dark-half drop-shadow-md rounded-xl">
+            <div class="flex flex-col items-left gap-4 p-6 bg-light-half dark:bg-dark-half drop-shadow-md rounded-xl hover:scale-105 duration-300">
                 <div class="text-[#D892F9] text-4xl">
                 <svg class="w-3/12 lg:w-[20%] drop-shadow-[0_0_5px_rgba(210,139,234,0.4)] fill-light-primary dark:fill-dark-primary"  viewBox="0 0 155 169" xmlns="http://www.w3.org/2000/svg">
                     <path d="M139.5 48.8252V130.2C139.5 143.375 129.425 153.45 116.25 153.45H30.2251C30.2251 161.975 37.2001 168.95 45.7251 168.95H124C141.05 168.95 155 155 155 137.95V64.3252C155 55.8002 148.025 48.8252 139.5 48.8252Z"/>
@@ -187,7 +202,7 @@
             </div>
 
             <!-- Card 3 -->
-            <div class="flex flex-col items-left gap-4 p-6 bg-light-half dark:bg-dark-half drop-shadow-md rounded-xl">
+            <div class="flex flex-col items-left gap-4 p-6 bg-light-half dark:bg-dark-half drop-shadow-md rounded-xl hover:scale-105 duration-300">
                 <div class="w-3/12 lg:w-[20%] drop-shadow-[0_0_5px_rgba(210,139,234,0.4)] text-[#D892F9] text-4xl">
                     <svg class="fill-light-primary dark:fill-dark-primary"  viewBox="0 -3.5 39 39" version="1.1" xmlns="http://www.w3.org/2000/svg">
                     <title>ticket2</title>
@@ -198,7 +213,7 @@
             </div>
 
             <!-- Card 4 -->
-            <div class="flex flex-col items-left gap-4 p-6 bg-light-half dark:bg-dark-half drop-shadow-md rounded-xl">
+            <div class="flex flex-col items-left gap-4 p-6 bg-light-half dark:bg-dark-half drop-shadow-md rounded-xl hover:scale-105 duration-300">
                 <div class="w-3/12 lg:w-[20%] drop-shadow-[0_0_5px_rgba(210,139,234,0.2)] fill-light-primary dark:fill-dark-primary text-4xl">
                     <svg class="stroke-light-primary drop-shadow-[0_0_5px_rgba(210,139,234,0.2)] dark:stroke-dark-primary"  viewBox="0 0 167 152" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5 130V122.125C5 91.6803 28.7289 67 58 67"  stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
@@ -223,13 +238,13 @@
     <!-- container -->
     <div class="lg:flex px-10 mt-3 sm:px-20 font-poppins lg:space-x-5 lg:space-y-0">
         <!-- review1 -->
-        <div class="px-5 py-3 sm:p-10 bg-light-half dark:bg-dark-half  drop-shadow-md mx-auto text-light-text dark:text-dark-text hover:scale-105 duration-300">
+        <div class="border border-gray-200 dark:border-gray-700 px-5 py-3 sm:p-10 bg-light-half dark:bg-dark-half  drop-shadow-md mx-auto text-light-text dark:text-dark-text hover:scale-105 duration-300">
            <div class="flex space-x-3 mb-5 items-center">
                <!-- quote -->
                <svg width="41" height="35" viewBox="0 0 41 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                    <path d="M10.3301 15.2802L10.3612 15.747H10.829H15.7122V33.9011H0.5L0.5 16.499C0.5 16.499 0.5 16.4989 0.5 16.4988C0.50286 9.53046 3.04697 5.86029 6.39401 3.83253C9.66308 1.852 13.7688 1.38966 17.318 1.12933L18.6853 7.41905C16.5675 7.9028 14.4796 8.49643 12.9242 9.57368C12.0765 10.1608 11.3748 10.8989 10.912 11.849C10.4491 12.7991 10.2401 13.9302 10.3301 15.2802ZM32.0507 15.2802L32.0819 15.747H32.5496H37.4329V33.9011H22.2206V16.499C22.2206 16.499 22.2206 16.4989 22.2206 16.4988C22.2234 9.53048 24.7675 5.8603 28.1146 3.83254C31.3836 1.85201 35.4894 1.38966 39.0386 1.12933L40.4059 7.41905C38.2882 7.9028 36.2002 8.49644 34.6448 9.57368C33.7971 10.1608 33.0954 10.8989 32.6326 11.849C32.1697 12.7991 31.9607 13.9302 32.0507 15.2802Z" stroke="#D28BEA"/>
                </svg>
-               <h4 class="font-semibold text-xs sm:text-sm">Aya B.</h4>
+               <h4 class="font-semibold text-xs sm:text-sm">Latrach M.</h4>
                <!-- 5 stars -->
                <p class="text-xs flex items-center w-20 h-20 space-x-1">
                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="drop-shadow-md text-yellow-500 inline-block" viewBox="0 0 24 24">
@@ -260,7 +275,7 @@
                 <svg class="stroke-light-half dark:stroke-dark-half" width="41" height="35" viewBox="0 0 41 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10.3301 15.2802L10.3612 15.747H10.829H15.7122V33.9011H0.5L0.5 16.499C0.5 16.499 0.5 16.4989 0.5 16.4988C0.50286 9.53046 3.04697 5.86029 6.39401 3.83253C9.66308 1.852 13.7688 1.38966 17.318 1.12933L18.6853 7.41905C16.5675 7.9028 14.4796 8.49643 12.9242 9.57368C12.0765 10.1608 11.3748 10.8989 10.912 11.849C10.4491 12.7991 10.2401 13.9302 10.3301 15.2802ZM32.0507 15.2802L32.0819 15.747H32.5496H37.4329V33.9011H22.2206V16.499C22.2206 16.499 22.2206 16.4989 22.2206 16.4988C22.2234 9.53048 24.7675 5.8603 28.1146 3.83254C31.3836 1.85201 35.4894 1.38966 39.0386 1.12933L40.4059 7.41905C38.2882 7.9028 36.2002 8.49644 34.6448 9.57368C33.7971 10.1608 33.0954 10.8989 32.6326 11.849C32.1697 12.7991 31.9607 13.9302 32.0507 15.2802Z"/>
                 </svg>
-                <h4 class="font-semibold text-xs sm:text-sm">Aya B.</h4>
+                <h4 class="font-semibold text-xs sm:text-sm">Latrach M.</h4>
                 <!-- 5 stars -->
                 <p class="text-xs flex items-center w-20 h-20 space-x-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="drop-shadow-md w-5 h-5 text-yellow-500 inline-block" viewBox="0 0 24 24">
@@ -285,13 +300,13 @@
          </div>
 
          <!-- review3 -->
-         <div class="px-5 py-3 sm:p-10 bg-light-half dark:bg-dark-half  drop-shadow-md mx-auto text-light-text dark:text-dark-text hover:scale-105 duration-300">
+         <div class="border border-gray-200 dark:border-gray-700 px-5 py-3 sm:p-10 bg-light-half dark:bg-dark-half  drop-shadow-md mx-auto text-light-text dark:text-dark-text hover:scale-105 duration-300">
             <div class="flex space-x-3 mb-5 items-center">
                 <!-- quote -->
                 <svg width="41" height="35" viewBox="0 0 41 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10.3301 15.2802L10.3612 15.747H10.829H15.7122V33.9011H0.5L0.5 16.499C0.5 16.499 0.5 16.4989 0.5 16.4988C0.50286 9.53046 3.04697 5.86029 6.39401 3.83253C9.66308 1.852 13.7688 1.38966 17.318 1.12933L18.6853 7.41905C16.5675 7.9028 14.4796 8.49643 12.9242 9.57368C12.0765 10.1608 11.3748 10.8989 10.912 11.849C10.4491 12.7991 10.2401 13.9302 10.3301 15.2802ZM32.0507 15.2802L32.0819 15.747H32.5496H37.4329V33.9011H22.2206V16.499C22.2206 16.499 22.2206 16.4989 22.2206 16.4988C22.2234 9.53048 24.7675 5.8603 28.1146 3.83254C31.3836 1.85201 35.4894 1.38966 39.0386 1.12933L40.4059 7.41905C38.2882 7.9028 36.2002 8.49644 34.6448 9.57368C33.7971 10.1608 33.0954 10.8989 32.6326 11.849C32.1697 12.7991 31.9607 13.9302 32.0507 15.2802Z" stroke="#D28BEA"/>
                 </svg>
-                <h4 class="font-semibold text-xs sm:text-sm">Aya B.</h4>
+                <h4 class="font-semibold text-xs sm:text-sm">Latrach M.</h4>
                 <!-- 5 stars -->
                 <p class="text-xs flex items-center w-20 h-20 space-x-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="drop-shadow-md w-5 h-5 text-yellow-500 inline-block" viewBox="0 0 24 24">
