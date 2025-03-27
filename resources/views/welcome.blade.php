@@ -159,9 +159,10 @@
     </div>
 
     <!-- why choose eventsphere -->
-    <div class="p-10 sm:p-20 font-poppins">
+    <div class="px-10 sm:px-20 font-poppins">
         <h3 class=" font-semibold text-center text-xl sm:text-2xl lg:text-4xl mb-10">Why choose EventSphere?</h3>
         
+        <!-- cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 text-light-text dark:text-dark-text">
         
             <!-- Card 1 -->
@@ -198,8 +199,8 @@
 
             <!-- Card 4 -->
             <div class="flex flex-col items-left gap-4 p-6 bg-light-half dark:bg-dark-half drop-shadow-md rounded-xl">
-                <div class="w-3/12 lg:w-[20%] drop-shadow-[0_0_5px_rgba(210,139,234,0.4)] fill-light-primary dark:fill-dark-primary text-4xl">
-                    <svg class="stroke-light-primary drop-shadow-[0_0_5px_rgba(210,139,234,0.3)] dark:stroke-dark-primary"  viewBox="0 0 167 152" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <div class="w-3/12 lg:w-[20%] drop-shadow-[0_0_5px_rgba(210,139,234,0.2)] fill-light-primary dark:fill-dark-primary text-4xl">
+                    <svg class="stroke-light-primary drop-shadow-[0_0_5px_rgba(210,139,234,0.2)] dark:stroke-dark-primary"  viewBox="0 0 167 152" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5 130V122.125C5 91.6803 28.7289 67 58 67"  stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M111.596 69.1552C116.641 63.6149 125.359 63.6149 130.404 69.1552C132.955 71.9556 136.62 73.4737 140.403 73.2969C147.888 72.947 154.053 79.1115 153.703 86.5968C153.526 90.38 155.044 94.0452 157.845 96.5956C163.385 101.641 163.385 110.359 157.845 115.404C155.044 117.955 153.526 121.62 153.703 125.403C154.053 132.888 147.888 139.053 140.403 138.703C136.62 138.526 132.955 140.044 130.404 142.845C125.359 148.385 116.641 148.385 111.596 142.845C109.045 140.044 105.38 138.526 101.597 138.703C94.1115 139.053 87.947 132.888 88.2969 125.403C88.4737 121.62 86.9556 117.955 84.1552 115.404C78.6149 110.359 78.6149 101.641 84.1552 96.5956C86.9556 94.0452 88.4737 90.38 88.2969 86.5968C87.947 79.1115 94.1115 72.947 101.597 73.2969C105.38 73.4737 109.045 71.9556 111.596 69.1552Z"  stroke-width="10"/>
                         <path d="M109 105.5L117.667 114L135 97"  stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
@@ -213,7 +214,113 @@
         
     </div>
         
+    <!-- reviews -->
+    
+    <div class="p-10 font-poppins">
+        <h3 class=" font-semibold text-center text-xl sm:text-2xl lg:text-4xl ">What Our Users Say</h3>
+    </div>
+    
+    <!-- container -->
+    <div class="lg:flex px-10 mt-3 sm:px-20 font-poppins space-y-8 lg:space-x-5 lg:space-y-0">
+        <!-- review1 -->
+        <div class="px-5 py-3 sm:p-10 bg-light-half dark:bg-dark-half  drop-shadow-md mx-auto text-light-text dark:text-dark-text">
+           <div class="flex space-x-3 mb-5 items-center">
+               <!-- quote -->
+               <svg width="41" height="35" viewBox="0 0 41 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                   <path d="M10.3301 15.2802L10.3612 15.747H10.829H15.7122V33.9011H0.5L0.5 16.499C0.5 16.499 0.5 16.4989 0.5 16.4988C0.50286 9.53046 3.04697 5.86029 6.39401 3.83253C9.66308 1.852 13.7688 1.38966 17.318 1.12933L18.6853 7.41905C16.5675 7.9028 14.4796 8.49643 12.9242 9.57368C12.0765 10.1608 11.3748 10.8989 10.912 11.849C10.4491 12.7991 10.2401 13.9302 10.3301 15.2802ZM32.0507 15.2802L32.0819 15.747H32.5496H37.4329V33.9011H22.2206V16.499C22.2206 16.499 22.2206 16.4989 22.2206 16.4988C22.2234 9.53048 24.7675 5.8603 28.1146 3.83254C31.3836 1.85201 35.4894 1.38966 39.0386 1.12933L40.4059 7.41905C38.2882 7.9028 36.2002 8.49644 34.6448 9.57368C33.7971 10.1608 33.0954 10.8989 32.6326 11.849C32.1697 12.7991 31.9607 13.9302 32.0507 15.2802Z" stroke="#D28BEA"/>
+               </svg>
+               <h4 class="font-semibold text-xs sm:text-sm">Sarah M.</h4>
+               <!-- 5 stars -->
+               <p class="text-xs flex items-center w-20 h-20 space-x-1">
+                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="drop-shadow-md text-yellow-500 inline-block" viewBox="0 0 24 24">
+                   <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.857 1.428 8.837-7.364-3.868-7.364 3.868 1.428-8.837-6.064-5.857 8.332-1.151z"/>
+                   </svg>
+                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="drop-shadow-md text-yellow-500 inline-block" viewBox="0 0 24 24">
+                   <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.857 1.428 8.837-7.364-3.868-7.364 3.868 1.428-8.837-6.064-5.857 8.332-1.151z"/>
+                   </svg>
+                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="drop-shadow-md text-yellow-500 inline-block" viewBox="0 0 24 24">
+                   <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.857 1.428 8.837-7.364-3.868-7.364 3.868 1.428-8.837-6.064-5.857 8.332-1.151z"/>
+                   </svg>
+                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="drop-shadow-md text-yellow-500 inline-block" viewBox="0 0 24 24">
+                   <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.857 1.428 8.837-7.364-3.868-7.364 3.868 1.428-8.837-6.064-5.857 8.332-1.151z"/>
+                   </svg>
+                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="drop-shadow-md text-yellow-500 inline-block" viewBox="0 0 24 24">
+                   <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.857 1.428 8.837-7.364-3.868-7.364 3.868 1.428-8.837-6.064-5.857 8.332-1.151z"/>
+                   </svg>
+                   </svg>
+               </p>
+           </div>
+           <p class="text-xs sm:text-sm">EventSphere made it so easy to find and book events. I loved the seamless experience!</p>
+        </div>
         
+         <!-- review2 -->
+         <div class="px-5 py-3 sm:p-10 lg:scale-105 dark:bg-dark-primary bg-light-primary drop-shadow-md mx-auto text-dark-text dark:text-light-text">
+            <div class="flex space-x-3 mb-5 items-center">
+                <!-- quote -->
+                <svg class="stroke-light-half dark:stroke-dark-half" width="41" height="35" viewBox="0 0 41 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.3301 15.2802L10.3612 15.747H10.829H15.7122V33.9011H0.5L0.5 16.499C0.5 16.499 0.5 16.4989 0.5 16.4988C0.50286 9.53046 3.04697 5.86029 6.39401 3.83253C9.66308 1.852 13.7688 1.38966 17.318 1.12933L18.6853 7.41905C16.5675 7.9028 14.4796 8.49643 12.9242 9.57368C12.0765 10.1608 11.3748 10.8989 10.912 11.849C10.4491 12.7991 10.2401 13.9302 10.3301 15.2802ZM32.0507 15.2802L32.0819 15.747H32.5496H37.4329V33.9011H22.2206V16.499C22.2206 16.499 22.2206 16.4989 22.2206 16.4988C22.2234 9.53048 24.7675 5.8603 28.1146 3.83254C31.3836 1.85201 35.4894 1.38966 39.0386 1.12933L40.4059 7.41905C38.2882 7.9028 36.2002 8.49644 34.6448 9.57368C33.7971 10.1608 33.0954 10.8989 32.6326 11.849C32.1697 12.7991 31.9607 13.9302 32.0507 15.2802Z"/>
+                </svg>
+                <h4 class="font-semibold text-xs sm:text-sm">Sarah M.</h4>
+                <!-- 5 stars -->
+                <p class="text-xs flex items-center w-20 h-20 space-x-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="drop-shadow-md w-5 h-5 text-yellow-500 inline-block" viewBox="0 0 24 24">
+                    <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.857 1.428 8.837-7.364-3.868-7.364 3.868 1.428-8.837-6.064-5.857 8.332-1.151z"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="drop-shadow-md w-5 h-5 text-yellow-500 inline-block" viewBox="0 0 24 24">
+                    <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.857 1.428 8.837-7.364-3.868-7.364 3.868 1.428-8.837-6.064-5.857 8.332-1.151z"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="drop-shadow-md w-5 h-5 text-yellow-500 inline-block" viewBox="0 0 24 24">
+                    <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.857 1.428 8.837-7.364-3.868-7.364 3.868 1.428-8.837-6.064-5.857 8.332-1.151z"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="drop-shadow-md w-5 h-5 text-yellow-500 inline-block" viewBox="0 0 24 24">
+                    <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.857 1.428 8.837-7.364-3.868-7.364 3.868 1.428-8.837-6.064-5.857 8.332-1.151z"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="drop-shadow-md w-5 h-5 text-yellow-500 inline-block" viewBox="0 0 24 24">
+                    <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.857 1.428 8.837-7.364-3.868-7.364 3.868 1.428-8.837-6.064-5.857 8.332-1.151z"/>
+                    </svg>
+                    </svg>
+                </p>
+            </div>
+            <p class="text-xs sm:text-sm">I attended the Tech Summit and it was incredible! Booking was hassle-free.</p>
+         </div>
+
+         <!-- review3 -->
+         <div class="px-5 py-3 sm:p-10 bg-light-half dark:bg-dark-half  drop-shadow-md mx-auto text-light-text dark:text-dark-text">
+            <div class="flex space-x-3 mb-5 items-center">
+                <!-- quote -->
+                <svg width="41" height="35" viewBox="0 0 41 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.3301 15.2802L10.3612 15.747H10.829H15.7122V33.9011H0.5L0.5 16.499C0.5 16.499 0.5 16.4989 0.5 16.4988C0.50286 9.53046 3.04697 5.86029 6.39401 3.83253C9.66308 1.852 13.7688 1.38966 17.318 1.12933L18.6853 7.41905C16.5675 7.9028 14.4796 8.49643 12.9242 9.57368C12.0765 10.1608 11.3748 10.8989 10.912 11.849C10.4491 12.7991 10.2401 13.9302 10.3301 15.2802ZM32.0507 15.2802L32.0819 15.747H32.5496H37.4329V33.9011H22.2206V16.499C22.2206 16.499 22.2206 16.4989 22.2206 16.4988C22.2234 9.53048 24.7675 5.8603 28.1146 3.83254C31.3836 1.85201 35.4894 1.38966 39.0386 1.12933L40.4059 7.41905C38.2882 7.9028 36.2002 8.49644 34.6448 9.57368C33.7971 10.1608 33.0954 10.8989 32.6326 11.849C32.1697 12.7991 31.9607 13.9302 32.0507 15.2802Z" stroke="#D28BEA"/>
+                </svg>
+                <h4 class="font-semibold text-xs sm:text-sm">Sarah M.</h4>
+                <!-- 5 stars -->
+                <p class="text-xs flex items-center w-20 h-20 space-x-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="drop-shadow-md w-5 h-5 text-yellow-500 inline-block" viewBox="0 0 24 24">
+                    <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.857 1.428 8.837-7.364-3.868-7.364 3.868 1.428-8.837-6.064-5.857 8.332-1.151z"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="drop-shadow-md w-5 h-5 text-yellow-500 inline-block" viewBox="0 0 24 24">
+                    <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.857 1.428 8.837-7.364-3.868-7.364 3.868 1.428-8.837-6.064-5.857 8.332-1.151z"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="drop-shadow-md w-5 h-5 text-yellow-500 inline-block" viewBox="0 0 24 24">
+                    <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.857 1.428 8.837-7.364-3.868-7.364 3.868 1.428-8.837-6.064-5.857 8.332-1.151z"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="drop-shadow-md w-5 h-5 text-yellow-500 inline-block" viewBox="0 0 24 24">
+                    <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.857 1.428 8.837-7.364-3.868-7.364 3.868 1.428-8.837-6.064-5.857 8.332-1.151z"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="drop-shadow-md w-5 h-5 text-yellow-500 inline-block" viewBox="0 0 24 24">
+                    <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.857 1.428 8.837-7.364-3.868-7.364 3.868 1.428-8.837-6.064-5.857 8.332-1.151z"/>
+                    </svg>
+                    </svg>
+                </p>
+            </div>
+            <p class="text-xs sm:text-sm">Finally, an intuitive platform that helps me discover and attend amazing events hassle-free.</p>
+         </div>
+    </div>
+
+    <!-- how works -->
+
+    <!-- contact -->
+
+    <!-- footer -->
 
     
     <script>
