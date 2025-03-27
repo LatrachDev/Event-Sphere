@@ -223,7 +223,7 @@
     <!-- container -->
     <div class="lg:flex px-10 mt-3 sm:px-20 font-poppins lg:space-x-5 lg:space-y-0">
         <!-- review1 -->
-        <div class="px-5 py-3 sm:p-10 bg-light-half dark:bg-dark-half  drop-shadow-md mx-auto text-light-text dark:text-dark-text">
+        <div class="px-5 py-3 sm:p-10 bg-light-half dark:bg-dark-half  drop-shadow-md mx-auto text-light-text dark:text-dark-text hover:scale-105 duration-300">
            <div class="flex space-x-3 mb-5 items-center">
                <!-- quote -->
                <svg width="41" height="35" viewBox="0 0 41 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -254,7 +254,7 @@
         </div>
         
          <!-- review2 -->
-         <div class="px-5 py-3 my-4 sm:p-10 lg:scale-105 dark:bg-dark-primary bg-light-primary drop-shadow-md mx-auto text-dark-text dark:text-light-text">
+         <div class="px-5 py-3 my-4 sm:p-10 lg:scale-105 dark:bg-dark-primary bg-light-primary drop-shadow-md mx-auto text-dark-text dark:text-light-text hover:scale-105 duration-300">
             <div class="flex space-x-3 mb-5 items-center">
                 <!-- quote -->
                 <svg class="stroke-light-half dark:stroke-dark-half" width="41" height="35" viewBox="0 0 41 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -285,7 +285,7 @@
          </div>
 
          <!-- review3 -->
-         <div class="px-5 py-3 sm:p-10 bg-light-half dark:bg-dark-half  drop-shadow-md mx-auto text-light-text dark:text-dark-text">
+         <div class="px-5 py-3 sm:p-10 bg-light-half dark:bg-dark-half  drop-shadow-md mx-auto text-light-text dark:text-dark-text hover:scale-105 duration-300">
             <div class="flex space-x-3 mb-5 items-center">
                 <!-- quote -->
                 <svg width="41" height="35" viewBox="0 0 41 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -425,12 +425,12 @@
         style="background-image: url({{ asset('images/main-background.jpg') }})" 
         class="flex flex-col text-dark-text justify-center bg-cover items-center p-10 font-poppins text-[F4E9F7] h-[90vh]">
         <div>
-            <h3 class="text-xl md:text-4xl font-semibold">
+            <h3 class="tracking-wide text-xl md:text-4xl font-semibold">
                 Ready To Join the Fun?
             </h3>
             <div class="flex justify-between mt-5 font-montserrat">
-                <button class="font-bold px-2 py-1 text-xs md:text-sm md:px-8 md:py-3 bg-[#a409d7]">SIGN UP NOW</button>
-                <button class="font-bold px-2 py-1 text-xs md:text-sm md:px-8 md:py-3 border-[#a409d7] border-2">CONTACT US</button>
+                <button class="tracking-wide font-bold px-2 py-1 text-xs md:text-sm md:px-8 md:py-3 bg-[#a409d7] hover:bg-[#721093] duration-300">SIGN UP NOW</button>
+                <button class="tracking-wide font-bold px-2 py-1 text-xs md:text-sm md:px-8 md:py-3 border-[#a409d7] border-2 hover:bg-[#a409d7] duration-300">CONTACT US</button>
             </div>
         </div>
     </section>
@@ -454,7 +454,7 @@
                 </a>
             </div>
         </div>
-    </footer></a>
+    </footer>
     
     <script>
         const menu = document.getElementById('mobile-menu');
