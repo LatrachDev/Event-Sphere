@@ -76,7 +76,7 @@
             </p>
             
         </div>
-        <button class="font-bold text-sm h-10 md:text-xl md:h-12 bg-gradient-to-r from-dark-accent to-dark-secondary text-light-background px-4 md:px-6 py-2 rounded-md mt-8 md:mt-10 transition-all hover:bg-gradient-to-r hover:from-dark-secondary hover:to-dark-secondary hover:shadow-lg duration-300">
+        <button class="font-bold text-sm h-10 md:text-xl md:h-12 bg-gradient-to-r from-dark-accent to-dark-secondary text-light-background px-4 px-2 py-1 text-xs md:text-sm md:px-6 md:py-2 rounded-md mt-8 md:mt-10 transition-all hover:bg-gradient-to-r hover:from-dark-secondary hover:to-dark-secondary hover:shadow-lg duration-300">
             Discover Events
         </button>
         
@@ -373,7 +373,6 @@
             <p class="text-center mt-8 font-medium">Attend & enjoy!</p>
         </div>
 
-        
 
         <!-- mobile -->
         <div class="mt-5 flex flex-col items-center justify-center sm:hidden"> 
@@ -422,9 +421,40 @@
     </section>
 
     <!-- contact -->
+    <section 
+        style="background-image: url({{ asset('images/main-background.jpg') }})" 
+        class="flex flex-col text-dark-text justify-center bg-cover items-center p-10 font-poppins text-[F4E9F7] h-[90vh]">
+        <div>
+            <h3 class="text-xl md:text-4xl font-semibold">
+                Ready To Join the Fun?
+            </h3>
+            <div class="flex justify-between mt-5 font-montserrat">
+                <button class="font-bold px-2 py-1 text-xs md:text-sm md:px-8 md:py-3 bg-[#a409d7]">SIGN UP NOW</button>
+                <button class="font-bold px-2 py-1 text-xs md:text-sm md:px-8 md:py-3 border-[#a409d7] border-2">CONTACT US</button>
+            </div>
+        </div>
+    </section>
 
     <!-- footer -->
-
+    <footer class="bg-[#721093] text-dark-text py-6 font-poppins">
+        <div class="text-center text-sm">
+            <p>Copyright: EventSphere © 2025</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="https://facebook.com" target="_blank" class="hover:text-dark-accent">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="hover:text-dark-accent">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" class="hover:text-dark-accent">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="hover:text-dark-accent">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+    </footer></a>
     
     <script>
         const menu = document.getElementById('mobile-menu');
