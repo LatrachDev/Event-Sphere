@@ -18,9 +18,9 @@
         
         <!-- desktop -->
         <nav class="hidden md:flex space-x-6 lg:space-x-8 items-center">
-            <a href="" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Home</a>
-            <a href="" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Explore</a>
-            <a href="" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Contact</a>
+            <a href="#main" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Home</a>
+            <a href="#events" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Explore</a>
+            <a href="#contact" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Contact</a>
             <a href="#about" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">About</a>
             
             <button class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300" onclick="toggleDarkMode()">
@@ -58,7 +58,7 @@
         </div>
     </header>
 
-    <main style="background-image: url({{ asset('images/main-background.jpg') }})" 
+    <main id="main" style="background-image: url({{ asset('images/main-background.jpg') }})" 
         class="bg-[{{ asset('images/main-background.jpg') }}] font-montserrat bg-cover bg-center bg-no-repeat h-screen flex flex-col justify-center items-center text-center">
         
         <h1 class="text-2xl sm:text-4xl md:text-6xl lg:text-8xl uppercase font-extrabold text-dark-text">
@@ -93,7 +93,7 @@
     </section>
 
     <!-- trending events -->
-    <section class="p-10 sm:p-20 font-poppins">
+    <section id="events" class="p-10 sm:p-20 font-poppins">
         <h3 class="uppercase font-semibold text-center text-xl sm:text-2xl lg:text-4xl">Trending Events</h3>
         <p class="text-center px-4 font-light text-sm sm:text-xl my-5 sm:my-10">Stay updated with the most popular events happening around you.</p>
         
@@ -229,7 +229,7 @@
                <svg width="41" height="35" viewBox="0 0 41 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                    <path d="M10.3301 15.2802L10.3612 15.747H10.829H15.7122V33.9011H0.5L0.5 16.499C0.5 16.499 0.5 16.4989 0.5 16.4988C0.50286 9.53046 3.04697 5.86029 6.39401 3.83253C9.66308 1.852 13.7688 1.38966 17.318 1.12933L18.6853 7.41905C16.5675 7.9028 14.4796 8.49643 12.9242 9.57368C12.0765 10.1608 11.3748 10.8989 10.912 11.849C10.4491 12.7991 10.2401 13.9302 10.3301 15.2802ZM32.0507 15.2802L32.0819 15.747H32.5496H37.4329V33.9011H22.2206V16.499C22.2206 16.499 22.2206 16.4989 22.2206 16.4988C22.2234 9.53048 24.7675 5.8603 28.1146 3.83254C31.3836 1.85201 35.4894 1.38966 39.0386 1.12933L40.4059 7.41905C38.2882 7.9028 36.2002 8.49644 34.6448 9.57368C33.7971 10.1608 33.0954 10.8989 32.6326 11.849C32.1697 12.7991 31.9607 13.9302 32.0507 15.2802Z" stroke="#D28BEA"/>
                </svg>
-               <h4 class="font-semibold text-xs sm:text-sm">Sarah M.</h4>
+               <h4 class="font-semibold text-xs sm:text-sm">Aya B.</h4>
                <!-- 5 stars -->
                <p class="text-xs flex items-center w-20 h-20 space-x-1">
                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="drop-shadow-md text-yellow-500 inline-block" viewBox="0 0 24 24">
@@ -260,7 +260,7 @@
                 <svg class="stroke-light-half dark:stroke-dark-half" width="41" height="35" viewBox="0 0 41 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10.3301 15.2802L10.3612 15.747H10.829H15.7122V33.9011H0.5L0.5 16.499C0.5 16.499 0.5 16.4989 0.5 16.4988C0.50286 9.53046 3.04697 5.86029 6.39401 3.83253C9.66308 1.852 13.7688 1.38966 17.318 1.12933L18.6853 7.41905C16.5675 7.9028 14.4796 8.49643 12.9242 9.57368C12.0765 10.1608 11.3748 10.8989 10.912 11.849C10.4491 12.7991 10.2401 13.9302 10.3301 15.2802ZM32.0507 15.2802L32.0819 15.747H32.5496H37.4329V33.9011H22.2206V16.499C22.2206 16.499 22.2206 16.4989 22.2206 16.4988C22.2234 9.53048 24.7675 5.8603 28.1146 3.83254C31.3836 1.85201 35.4894 1.38966 39.0386 1.12933L40.4059 7.41905C38.2882 7.9028 36.2002 8.49644 34.6448 9.57368C33.7971 10.1608 33.0954 10.8989 32.6326 11.849C32.1697 12.7991 31.9607 13.9302 32.0507 15.2802Z"/>
                 </svg>
-                <h4 class="font-semibold text-xs sm:text-sm">Sarah M.</h4>
+                <h4 class="font-semibold text-xs sm:text-sm">Aya B.</h4>
                 <!-- 5 stars -->
                 <p class="text-xs flex items-center w-20 h-20 space-x-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="drop-shadow-md w-5 h-5 text-yellow-500 inline-block" viewBox="0 0 24 24">
@@ -291,7 +291,7 @@
                 <svg width="41" height="35" viewBox="0 0 41 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10.3301 15.2802L10.3612 15.747H10.829H15.7122V33.9011H0.5L0.5 16.499C0.5 16.499 0.5 16.4989 0.5 16.4988C0.50286 9.53046 3.04697 5.86029 6.39401 3.83253C9.66308 1.852 13.7688 1.38966 17.318 1.12933L18.6853 7.41905C16.5675 7.9028 14.4796 8.49643 12.9242 9.57368C12.0765 10.1608 11.3748 10.8989 10.912 11.849C10.4491 12.7991 10.2401 13.9302 10.3301 15.2802ZM32.0507 15.2802L32.0819 15.747H32.5496H37.4329V33.9011H22.2206V16.499C22.2206 16.499 22.2206 16.4989 22.2206 16.4988C22.2234 9.53048 24.7675 5.8603 28.1146 3.83254C31.3836 1.85201 35.4894 1.38966 39.0386 1.12933L40.4059 7.41905C38.2882 7.9028 36.2002 8.49644 34.6448 9.57368C33.7971 10.1608 33.0954 10.8989 32.6326 11.849C32.1697 12.7991 31.9607 13.9302 32.0507 15.2802Z" stroke="#D28BEA"/>
                 </svg>
-                <h4 class="font-semibold text-xs sm:text-sm">Sarah M.</h4>
+                <h4 class="font-semibold text-xs sm:text-sm">Aya B.</h4>
                 <!-- 5 stars -->
                 <p class="text-xs flex items-center w-20 h-20 space-x-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="drop-shadow-md w-5 h-5 text-yellow-500 inline-block" viewBox="0 0 24 24">
@@ -421,7 +421,7 @@
     </section>
 
     <!-- contact -->
-    <section 
+    <section id="contact" 
         style="background-image: url({{ asset('images/main-background.jpg') }})" 
         class="flex flex-col text-dark-text justify-center bg-cover items-center p-10 font-poppins text-[F4E9F7] h-[90vh]">
         <div>
