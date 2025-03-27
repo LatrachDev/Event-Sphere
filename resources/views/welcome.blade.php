@@ -52,7 +52,7 @@
                     <i class="fa-solid fa-sun mr-2"></i> Dark Mode
                 </button>
 
-                <a href="#" class="bg-light-accent px-6 py-2 rounded-full">Login</a>
+                <a href="#" class="bg-light-accent text-dark-text px-6 py-2 rounded-full">Login</a>
             
             </div>
         </div>
@@ -85,19 +85,21 @@
 
     </main>
     
+    <!-- about -->
     <div id="about" class="p-10 sm:p-20 font-poppins">
         <h3 class="uppercase font-semibold text-center text-xl sm:text-2xl lg:text-4xl">The Sphere of Memorable Moments</h3>
         <img src="{{ asset('images/EventSphere_Logo1.png') }}" alt="Logo" class="lg:w-80 w-48 sm:w-56 md:w-64 mx-auto">
         <p class="text-justify px-4 font-light">EventSphere is designed to simplify event planning and participation. Whether you're an organizer looking to create seamless events or an attendee searching for memorable experiences, EventSphere has everything you need in one place.</p>
     </div>
 
+    <!-- trending events -->
     <div class="p-10 sm:p-20 font-poppins">
         <h3 class="uppercase font-semibold text-center text-xl sm:text-2xl lg:text-4xl">Trending Events</h3>
         <p class="text-center px-4 font-light text-sm sm:text-xl my-5 sm:my-10">Stay updated with the most popular events happening around you.</p>
         
         <!-- cards container -->
         <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6 justify-center items-center">
-
+            
             <!-- card 1 -->
             <div class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-11/12 sm:w-8/12 lg:w-full rounded-lg drop-shadow-md mx-auto border border-light-accent dark:border-dark-text">
                 <img src="{{ asset('images/live-music.jpg') }}" alt="Event" class="w-full h-40 sm:h-44 object-cover rounded-t-lg">
@@ -113,7 +115,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <!-- card 2 -->
             <div class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-11/12 sm:w-8/12 lg:w-full rounded-lg drop-shadow-md mx-auto border border-light-accent dark:border-dark-text">
                 <img src="{{ asset('images/live-music.jpg') }}" alt="Event" class="w-full h-40 sm:h-44 object-cover rounded-t-lg">
@@ -129,7 +131,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <!-- card 3 -->
             <div class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-11/12 sm:w-8/12 lg:w-full rounded-lg drop-shadow-md mx-auto border border-light-accent dark:border-dark-text">
                 <img src="{{ asset('images/live-music.jpg') }}" alt="Event" class="w-full h-40 sm:h-44 object-cover rounded-t-lg">
@@ -145,18 +147,75 @@
                     </div>
                 </div>
             </div>
-
+            
             
         </div>
         
         <div class="w-full flex">
-             <button class="mx-auto font-bold text-sm h-10 md:text-xl md:h-12 bg-gradient-to-r from-dark-accent to-dark-secondary text-light-background px-4 md:px-6 py-2 rounded-full mt-8 md:mt-10 transition-all hover:bg-gradient-to-r hover:from-dark-secondary hover:to-dark-secondary hover:shadow-lg duration-300">
-                 View all Events
-             </button>
+            <button class="mx-auto font-bold text-sm h-10 md:text-xl md:h-12 bg-gradient-to-r from-dark-accent to-dark-secondary text-light-background px-4 md:px-6 py-2 rounded-full mt-8 md:mt-10 transition-all hover:bg-gradient-to-r hover:from-dark-secondary hover:to-dark-secondary hover:shadow-lg duration-300">
+                View all Events
+            </button>
+        </div> 
+    </div>
+
+    <!-- why choose eventsphere -->
+    <div class="p-10 sm:p-20 font-poppins">
+        <h3 class=" font-semibold text-center text-xl sm:text-2xl lg:text-4xl mb-10">Why choose EventSphere?</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 text-light-text dark:text-dark-text">
+        
+            <!-- Card 1 -->
+            <div class="flex flex-col items-left gap-4 p-6 bg-light-half dark:bg-dark-half drop-shadow-md rounded-xl">
+                <div class="w-3/12 lg:w-[20%] drop-shadow-[0_0_5px_rgba(210,139,234,0.4)] text-light-primary shadow-light-primary dark:fill-light-primary text-4xl">
+                <svg  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="secure" class="icon glyph fill-light-primary dark:fill-dark-primary"><path d="M19.42,3.83,12.24,2h0A.67.67,0,0,0,12,2a.67.67,0,0,0-.2,0h0L4.58,3.83A2,2,0,0,0,3.07,5.92l.42,5.51a12,12,0,0,0,7.24,10.11l.88.38h0a.91.91,0,0,0,.7,0h0l.88-.38a12,12,0,0,0,7.24-10.11l.42-5.51A2,2,0,0,0,19.42,3.83ZM15.71,9.71l-4,4a1,1,0,0,1-1.42,0l-2-2a1,1,0,0,1,1.42-1.42L11,11.59l3.29-3.3a1,1,0,0,1,1.42,1.42Z"></path></svg>
+                </div>
+                <p class="sm:text-lg font-light text-sm">Secure and fast booking process.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="flex flex-col items-left gap-4 p-6 bg-light-half dark:bg-dark-half drop-shadow-md rounded-xl">
+                <div class="text-[#D892F9] text-4xl">
+                <svg class="w-3/12 lg:w-[20%] drop-shadow-[0_0_5px_rgba(210,139,234,0.4)] fill-light-primary dark:fill-dark-primary"  viewBox="0 0 155 169" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M139.5 48.8252V130.2C139.5 143.375 129.425 153.45 116.25 153.45H30.2251C30.2251 161.975 37.2001 168.95 45.7251 168.95H124C141.05 168.95 155 155 155 137.95V64.3252C155 55.8002 148.025 48.8252 139.5 48.8252Z"/>
+                    <path d="M23.25 0V15.5H15.5C6.975 15.5 0 22.475 0 31V124C0 132.525 6.975 139.5 15.5 139.5H110.05C118.575 139.5 125.55 132.525 125.55 124V31C125.55 22.475 118.575 15.5 110.05 15.5H102.3V0H86.8V15.5H38.75V0H23.25ZM15.5 54.25H110.05V124H15.5V54.25Z" "/>
+                    <path d="M90.675 117.8L72.075 106.95L54.25 117.8L58.9 96.8751L42.625 82.9251L64.325 81.3751L72.85 61.2251L81.375 80.6001L103.075 82.9251L86.8 96.8751L90.675 117.8Z"/>
+                </svg>
+
+                </div>
+                <p class="sm:text-lg font-light text-sm">Wide range of categories including music, sports, and tech.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="flex flex-col items-left gap-4 p-6 bg-light-half dark:bg-dark-half drop-shadow-md rounded-xl">
+                <div class="w-3/12 lg:w-[20%] drop-shadow-[0_0_5px_rgba(210,139,234,0.4)] text-[#D892F9] text-4xl">
+                    <svg class="fill-light-primary dark:fill-dark-primary"  viewBox="0 -3.5 39 39" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <title>ticket2</title>
+                    <path d="M39 19.438v5.562c0 1.104-0.896 2-2 2h-35c-1.104 0-2-0.896-2-2v-5.5c1.657 0 3-1.344 3-3 0-1.657-1.343-3-3-3v-5.5c0-1.104 0.896-2 2-2h35c1.104 0 2 0.896 2 2v5.438c-1.657 0-3 1.343-3 3 0 1.656 1.343 3 3 3zM34 11c0-1.104-0.896-2-2-2h-25c-1.104 0-2 0.896-2 2v11c0 1.104 0.896 2 2 2h25c1.104 0 2-0.896 2-2v-11zM32 23h-25c-0.553 0-1-0.448-1-1v-11c0-0.553 0.447-1 1-1h25c0.552 0 1 0.447 1 1v11c0 0.552-0.448 1-1 1zM12.47 15.538l-0.907-2.58-0.907 2.58-2.614 0.11 2.054 1.704-0.709 2.648 2.176-1.526 2.175 1.526-0.708-2.647 2.053-1.704-2.613-0.111zM20.47 15.538l-0.907-2.58-0.907 2.58-2.614 0.11 2.054 1.704-0.709 2.648 2.176-1.526 2.175 1.526-0.708-2.647 2.053-1.704-2.613-0.111zM28.47 15.538l-0.907-2.58-0.907 2.58-2.613 0.11 2.053 1.704-0.709 2.648 2.176-1.526 2.175 1.526-0.708-2.647 2.053-1.704-2.613-0.111z"></path>
+                    </svg>
+                </div>
+                <p class="sm:text-lg font-light text-sm">Easy event browsing and ticket reservations.</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="flex flex-col items-left gap-4 p-6 bg-light-half dark:bg-dark-half drop-shadow-md rounded-xl">
+                <div class="w-3/12 lg:w-[20%] drop-shadow-[0_0_5px_rgba(210,139,234,0.4)] fill-light-primary dark:fill-dark-primary text-4xl">
+                    <svg class="stroke-light-primary drop-shadow-[0_0_5px_rgba(210,139,234,0.3)] dark:stroke-dark-primary"  viewBox="0 0 167 152" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 130V122.125C5 91.6803 28.7289 67 58 67"  stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M111.596 69.1552C116.641 63.6149 125.359 63.6149 130.404 69.1552C132.955 71.9556 136.62 73.4737 140.403 73.2969C147.888 72.947 154.053 79.1115 153.703 86.5968C153.526 90.38 155.044 94.0452 157.845 96.5956C163.385 101.641 163.385 110.359 157.845 115.404C155.044 117.955 153.526 121.62 153.703 125.403C154.053 132.888 147.888 139.053 140.403 138.703C136.62 138.526 132.955 140.044 130.404 142.845C125.359 148.385 116.641 148.385 111.596 142.845C109.045 140.044 105.38 138.526 101.597 138.703C94.1115 139.053 87.947 132.888 88.2969 125.403C88.4737 121.62 86.9556 117.955 84.1552 115.404C78.6149 110.359 78.6149 101.641 84.1552 96.5956C86.9556 94.0452 88.4737 90.38 88.2969 86.5968C87.947 79.1115 94.1115 72.947 101.597 73.2969C105.38 73.4737 109.045 71.9556 111.596 69.1552Z"  stroke-width="10"/>
+                        <path d="M109 105.5L117.667 114L135 97"  stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M59 67C76.6728 67 91 53.1205 91 36C91 18.8792 76.6728 5 59 5C41.3269 5 27 18.8792 27 36C27 53.1205 41.3269 67 59 67Z"  stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <p class="sm:text-lg font-light text-sm">User-friendly experience with intuitive navigation.</p>
+            </div>
+
         </div>
         
     </div>
+        
+        
 
+    
     <script>
         const menu = document.getElementById('mobile-menu');
         const menuLinks = document.querySelectorAll('#mobile-menu a');
