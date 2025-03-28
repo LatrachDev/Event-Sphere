@@ -13,98 +13,75 @@
 </head>
 <body class="bg-light-background dark:bg-dark-background dark:text-dark-text transition-colors duration-2000 overflow-x-hidden">
 
-    <header class="fixed top-0 w-full flex justify-between items-center px-4 sm:px-10 py-5 font-poppins bg-dark-background/50 backdrop-blur-xl z-50">
-        <img src="{{ asset('images/EventSphere_Logo.png') }}" alt="Logo" class="w-32 sm:w-48">
+   <section style="background-image: url({{ asset('images/mainBGlogin.jpg') }})" 
+        class="flex flex-col md:flex-row w-full min-h-screen text-dark-text justify-center items-center bg-cover bg-center p-4 font-montserrat">
         
-        <!-- desktop -->
-        <nav class="hidden md:flex space-x-6 lg:space-x-8 items-center">
-            <a href="#main" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Home</a>
-            <a href="#events" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Explore</a>
-            <a href="#contact" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Contact</a>
-            <a href="#about" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">About</a>
+        <!-- left image - hidden on mobile -->
+        <div class="hidden md:block md:w-full lg:w-4/12 h-[400px] md:h-[500px] lg:h-[600px] mr-0 md:mr-2">
+            <img src="{{ asset('images/left-image-login.jpg') }}" alt="Logo of EventSphere" 
+            class="w-full h-full object-cover rounded-lg">
+        </div>
+
+        <!-- right form -->
+        <div class="w-full sm:w-3/4 md:w-2/3 lg:w-4/12 h-auto min-h-[500px] md:h-[500px] lg:h-[600px] rounded-md bg-[#741295]/50 backdrop-blur-xl border px-4 py-6 sm:px-8 sm:py-8 md:px-4 md:py-0 md:ml-2 my-4 overflow-y-auto">
+            <div class="flex flex-col h-full">
+                <div>
+                    <div class="text-center mb-4 sm:mb-4 lg:mb-6">
+                        <img src="{{ asset('images/EventSphere_Logo1.png') }}" alt="Eventsphere Logo" class="mx-auto w-24 md:w-40 drop-shadow-md">
+                        <h2 class="text-sm sm:text-xl md:text-xl font-semibold text-dark-text">Create an account</h2>
+                        <p class="text-dark-text text-xs sm:text-sm md:text-xs font-medium mt-1">Let's get you started</p>
+                    </div>
+
+                    <form method="POST" class="space-y-2 text-xs sm:space-y-2 md:px-10">
+                        @csrf
+                        <!-- full name -->
+                        <div>
+                            <label for="email" class="block text-xs sm:text-sm font-medium text-dark-text mb-1">Full name</label>
+                            <input type="email" name="email" id="email" required 
+                                   class="w-full px-4 py-2 text-xs rounded-[4px] bg-transparent border text-dark-text placeholder-white/80 placeholder:font-light focus:outline-none" 
+                                   placeholder="Mohammed Latrach">
+                        </div>
+
+                        <!-- email -->
+                        <div>
+                            <label for="email" class="block text-xs sm:text-sm font-medium text-dark-text mb-1">Email Address</label>
+                            <input type="email" name="email" id="email" required 
+                                   class="w-full px-4 py-2 text-xs rounded-[4px] bg-transparent border text-dark-text placeholder-white/80 placeholder:font-light focus:outline-none" 
+                                   placeholder="m.latrach@example.com">
+                        </div>
             
-            <button class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300" onclick="toggleDarkMode()">
-                <i class="fa-solid fa-sun"></i> <span class="hidden sm:inline">Mode</span>
-            </button>
-
-            <a href="{{ route('show.register') }}" class="text-light-background bg-light-accent py-2 px-4 sm:px-6 rounded-full dark:text-dark-text dark:bg-dark-accent hover:bg-light-primary dark:hover:bg-light-primary duration-300">Login</a>
-        </nav>
-        
-        <!-- mobile button -->
-        <button id="menu-button" class="md:hidden text-2xl text-dark-text">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-
-        <!-- mobile -->
-        <div id="mobile-menu" class="absolute top-0 left-0 w-full h-screen bg-light-background dark:bg-dark-background shadow-lg md:hidden transform -translate-y-full transition duration-500 ease-in-out">  
-            <div class="flex flex-col space-y-10 p-6 mt-16 text-center">
-                
-            <button id="close-button" class="absolute right-6 px-6 top-10 text-2xl">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-
-                <a href="" class="text-light-text dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Home</a>
-                <a href="" class="text-light-text dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Explore</a>
-                <a href="" class="text-light-text dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Contact</a>
-                <a href="#about" class="text-light-text dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">About</a>
-                
-                <button class="mx-auto text-light-text dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300 flex items-center" onclick="toggleDarkMode()">
-                    <i class="fa-solid fa-sun mr-2"></i> Dark Mode
-                </button>
-
-                <a href="{{ route('show.register') }}" class="bg-light-accent text-dark-text px-6 py-2 rounded-full">Login</a>
+                        <!-- password -->
+                        <div>
+                            <label for="password" class="block text-xs sm:text-sm font-medium text-dark-text mb-1">Create a password</label>
+                            <input type="password" name="password" id="password" required 
+                                   class="w-full px-4 py-2 text-xs rounded-[4px] bg-transparent border text-dark-text placeholder-white/80 placeholder:font-light focus:outline-none" 
+                                   placeholder="Password">
+                        </div>
             
+                        <!-- remember me -->
+                        <div class="flex items-center mt-3">
+                            <input type="checkbox" name="remember" id="remember" class="h-2 w-2 sm:h-3 sm:w-3 text-[#721093] focus:ring-[#721093] border-gray-300 rounded">
+                            <label for="remember" class="ml-2 block text-xs text-dark-text">
+                            I agree to the Terms of service and Privacy Policy
+                            </label>
+                        </div>
+            
+                        <div class="pt-2">
+                            <button type="submit" 
+                                    class="w-full flex justify-center px-4 py-2 text-xs sm:text-sm rounded-[4px] border shadow-sm font-semibold text-dark-text bg-[#721093] hover:bg-[#511366] focus:outline-none transition duration-300">
+                                Login
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="text-center mt-2 sm:mt-5 pt-2">
+                    <p class="text-dark-text text-xs">Already have an account? 
+                    <a href="{{ route('show.login') }}" class="font-semibold text-dark-text hover:underline">Login</a></p>
+                </div>
             </div>
         </div>
-    </header>
-
-    
-    <h1>signup</h1>
-
-    <!-- footer -->
-    <footer class="bg-[#721093] text-dark-text py-6 font-poppins">
-        <div class="text-center text-sm">
-            <p>Copyright: EventSphere © 2025</p>
-            <div class="flex justify-center space-x-4 mt-4">
-                <a href="https://facebook.com" target="_blank" class="hover:text-dark-accent">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://instagram.com" target="_blank" class="hover:text-dark-accent">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://twitter.com" target="_blank" class="hover:text-dark-accent">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://linkedin.com" target="_blank" class="hover:text-dark-accent">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-            </div>
-        </div>
-    </footer>
-    
-    <script>
-        const menu = document.getElementById('mobile-menu');
-        const menuLinks = document.querySelectorAll('#mobile-menu a');
-        
-        document.getElementById('menu-button').onclick = () => menu.classList.remove('-translate-y-full');
-        document.getElementById('close-button').onclick = () => menu.classList.add('-translate-y-full');
-        
-        menuLinks.forEach(link => {
-            link.onclick = () => menu.classList.add('-translate-y-full');
-        });
-        
-        // dark mode toggle
-        function toggleDarkMode() {
-            document.documentElement.classList.toggle("dark");
-            localStorage.setItem("theme", document.documentElement.classList.contains("dark") ? "dark" : "light");
-        }
-
-        // check for saved theme preference
-        if (localStorage.getItem("theme") === "dark" || 
-            (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-            document.documentElement.classList.add("dark");
-        }
-    </script>
+    </section>
 
 </body>
 </html>
