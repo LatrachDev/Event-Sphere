@@ -18,7 +18,7 @@
         
         <!-- left image - hidden on mobile -->
         <div class="hidden md:block md:w-full lg:w-4/12 h-[400px] md:h-[500px] lg:h-[600px] mr-0 md:mr-2">
-            <img src="{{ asset('images/left-image-login.jpg') }}" alt="" 
+            <img src="{{ asset('images/left-image-login.jpg') }}" alt="Logo of EventSphere" 
             class="w-full h-full object-cover rounded-lg">
         </div>
 
@@ -69,37 +69,11 @@
 
                 <div class="text-center mt-2 sm:mt-5 pt-2">
                     <p class="text-dark-text text-xs">Don't have an account? 
-                    <a href="" class="font-semibold text-dark-text hover:underline">Register</a></p>
+                    <a href="{{ route('show.register') }}" class="font-semibold text-dark-text hover:underline">Register</a></p>
                 </div>
             </div>
         </div>
-</section>
-
-    
-    
-    <script>
-        const menu = document.getElementById('mobile-menu');
-        const menuLinks = document.querySelectorAll('#mobile-menu a');
-        
-        document.getElementById('menu-button').onclick = () => menu.classList.remove('-translate-y-full');
-        document.getElementById('close-button').onclick = () => menu.classList.add('-translate-y-full');
-        
-        menuLinks.forEach(link => {
-            link.onclick = () => menu.classList.add('-translate-y-full');
-        });
-        
-        // dark mode toggle
-        function toggleDarkMode() {
-            document.documentElement.classList.toggle("dark");
-            localStorage.setItem("theme", document.documentElement.classList.contains("dark") ? "dark" : "light");
-        }
-
-        // check for saved theme preference
-        if (localStorage.getItem("theme") === "dark" || 
-            (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-            document.documentElement.classList.add("dark");
-        }
-    </script>
+    </section>
 
 </body>
 </html>
