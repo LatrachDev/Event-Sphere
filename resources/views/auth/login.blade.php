@@ -27,37 +27,49 @@
             <div class="flex flex-col h-full">
                 <div>
                     <div class="text-center mb-4 sm:mb-4 lg:mb-6">
-                        <img src="{{ asset('images/EventSphere_Logo1.png') }}" alt="Eventsphere Logo" class="mx-auto w-24 md:w-40 drop-shadow-md">
+                        <a href="{{ route('index') }}"><img src="{{ asset('images/EventSphere_Logo1.png') }}" alt="Eventsphere Logo" class="mx-auto w-24 md:w-40 drop-shadow-md"></a>
                         <h2 class="text-sm sm:text-xl md:text-xl font-semibold text-dark-text">Welcome Back</h2>
                         <p class="text-dark-text text-xs sm:text-sm md:text-xs font-medium mt-1">Let's get you started</p>
                     </div>
 
-                    <form method="POST" class="space-y-2 text-xs sm:space-y-2 md:px-10">
+                    <form action="{{ route('login') }}" method="POST" class="space-y-2 text-xs sm:space-y-2 md:px-10">
                         @csrf
+
+                        
+                        <!-- validation errors -->
+                        @if ($errors->any())
+                            <div class="bg-red-100 text-light-error p-2 text-xs mt-2">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+    
                         <!-- email -->
                         <div>
                             <label for="email" class="block text-xs sm:text-sm font-medium text-dark-text mb-1">Email Address</label>
                             <input type="email" name="email" id="email" required 
-                                   class="w-full px-4 py-2 text-xs rounded-[4px] bg-transparent border text-dark-text placeholder-white/80 placeholder:font-light focus:outline-none" 
-                                   placeholder="m.latrach@example.com">
+                            class="w-full px-4 py-2 text-xs rounded-[4px] bg-transparent border text-dark-text placeholder-white/80 placeholder:font-light focus:outline-none" 
+                            placeholder="m.latrach@example.com">
                         </div>
-            
+                        
                         <!-- password -->
                         <div>
                             <label for="password" class="block text-xs sm:text-sm font-medium text-dark-text mb-1">Password</label>
                             <input type="password" name="password" id="password" required 
-                                   class="w-full px-4 py-2 text-xs rounded-[4px] bg-transparent border text-dark-text placeholder-white/80 placeholder:font-light focus:outline-none" 
+                            class="w-full px-4 py-2 text-xs rounded-[4px] bg-transparent border text-dark-text placeholder-white/80 placeholder:font-light focus:outline-none" 
                                    placeholder="Password">
-                        </div>
-            
-                        <!-- remember me -->
-                        <div class="flex items-center mt-3">
-                            <input type="checkbox" name="remember" id="remember" class="h-2 w-2 sm:h-3 sm:w-3 text-[#721093] focus:ring-[#721093] border-gray-300 rounded">
-                            <label for="remember" class="ml-2 block text-xs text-dark-text">
-                                Remember me
+                                </div>
+                                <!-- remember me -->
+                                <div class="flex items-center mt-3">
+                                    <input type="checkbox" name="remember" id="remember" class="h-2 w-2 sm:h-3 sm:w-3 text-[#721093] focus:ring-[#721093] border-gray-300 rounded">
+                                    <label for="remember" class="ml-2 block text-xs text-dark-text">
+                                        Remember me
                             </label>
                         </div>
-            
+                        
                         <div class="pt-2">
                             <button type="submit" 
                                     class="w-full flex justify-center px-4 py-2 text-xs sm:text-sm rounded-[4px] border shadow-sm font-semibold text-dark-text bg-[#721093] hover:bg-[#511366] focus:outline-none transition duration-300">
