@@ -18,8 +18,8 @@
         
         <!-- left image - hidden on mobile -->
         <div class="hidden md:block md:w-full lg:w-4/12 h-[400px] md:h-[500px] lg:h-[600px] mr-0 md:mr-2">
-            <img src="{{ asset('images/left-image-login.jpg') }}" alt="Logo of EventSphere" 
-            class="w-full h-full object-cover rounded-lg">
+                <img src="{{ asset('images/left-image-login.jpg') }}" alt="Logo of EventSphere" 
+                class="w-full h-full object-cover rounded-lg">
         </div>
 
         <!-- right form -->
@@ -27,17 +27,29 @@
             <div class="flex flex-col h-full">
                 <div>
                     <div class="text-center mb-4 sm:mb-4 lg:mb-6">
-                        <img src="{{ asset('images/EventSphere_Logo1.png') }}" alt="Eventsphere Logo" class="mx-auto w-24 md:w-40 drop-shadow-md">
+                        <a href="{{ route('index') }}"><img src="{{ asset('images/EventSphere_Logo1.png') }}" alt="Eventsphere Logo" class="mx-auto w-24 md:w-40 drop-shadow-md"></a>
                         <h2 class="text-sm sm:text-xl md:text-xl font-semibold text-dark-text">Create an account</h2>
                         <p class="text-dark-text text-xs sm:text-sm md:text-xs font-medium mt-1">Let's get you started</p>
                     </div>
 
-                    <form method="POST" class="space-y-2 text-xs sm:space-y-2 md:px-10">
+                    <form action="{{ route('register') }}" method="POST" class="space-y-2 text-xs sm:space-y-2 md:px-10">
                         @csrf
+
+                         <!-- validation errors -->
+                         @if ($errors->any())
+                            <div class="bg-light-error rounded-md p-2 text-xs mt-2">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <!-- full name -->
                         <div>
-                            <label for="email" class="block text-xs sm:text-sm font-medium text-dark-text mb-1">Full name</label>
-                            <input type="email" name="email" id="email" required 
+                            <label for="name" class="block text-xs sm:text-sm font-medium text-dark-text mb-1">Full name</label>
+                            <input type="text" name="name" id="name"  
                                    class="w-full px-4 py-2 text-xs rounded-[4px] bg-transparent border text-dark-text placeholder-white/80 placeholder:font-light focus:outline-none" 
                                    placeholder="Mohammed Latrach">
                         </div>
@@ -45,7 +57,7 @@
                         <!-- email -->
                         <div>
                             <label for="email" class="block text-xs sm:text-sm font-medium text-dark-text mb-1">Email Address</label>
-                            <input type="email" name="email" id="email" required 
+                            <input type="email" name="email" id="email"  
                                    class="w-full px-4 py-2 text-xs rounded-[4px] bg-transparent border text-dark-text placeholder-white/80 placeholder:font-light focus:outline-none" 
                                    placeholder="m.latrach@example.com">
                         </div>
@@ -53,7 +65,7 @@
                         <!-- password -->
                         <div>
                             <label for="password" class="block text-xs sm:text-sm font-medium text-dark-text mb-1">Create a password</label>
-                            <input type="password" name="password" id="password" required 
+                            <input type="password" name="password" id="password"  
                                    class="w-full px-4 py-2 text-xs rounded-[4px] bg-transparent border text-dark-text placeholder-white/80 placeholder:font-light focus:outline-none" 
                                    placeholder="Password">
                         </div>
