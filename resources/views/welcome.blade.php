@@ -1,16 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth overflow-x-hidden">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EventSphere</title>
-
-    <style>
-        html, body {
-            overflow-x: hidden;
-        }
-    </style>
-
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +11,7 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     @vite('resources/css/app.css')
 </head>
-<body class="bg-light-background dark:bg-dark-background dark:text-dark-text transition-colors duration-2000">
+<body class="bg-light-background dark:bg-dark-background dark:text-dark-text transition-colors duration-2000 overflow-x-hidden">
 
     <header class="fixed top-0 w-full flex justify-between items-center px-4 sm:px-10 py-5 font-poppins bg-dark-background/50 backdrop-blur-xl z-50">
         <img src="{{ asset('images/EventSphere_Logo.png') }}" alt="Logo" class="w-32 sm:w-48">
@@ -34,7 +27,7 @@
                 <i class="fa-solid fa-sun"></i> <span class="hidden sm:inline">Mode</span>
             </button>
 
-            <a href="" class="text-light-background bg-light-accent py-2 px-4 sm:px-6 rounded-full dark:text-dark-text dark:bg-dark-accent hover:bg-light-primary dark:hover:bg-light-primary duration-300">Login</a>
+            <a href="{{ route('show.login') }}" class="text-light-background bg-light-accent py-2 px-4 sm:px-6 rounded-full dark:text-dark-text dark:bg-dark-accent hover:bg-light-primary dark:hover:bg-light-primary duration-300">Login</a>
         </nav>
         
         <!-- mobile button -->
@@ -59,7 +52,7 @@
                     <i class="fa-solid fa-sun mr-2"></i> Dark Mode
                 </button>
 
-                <a href="#" class="bg-light-accent text-dark-text px-6 py-2 rounded-full">Login</a>
+                <a href="{{ route('show.login') }}" class="bg-light-accent text-dark-text px-6 py-2 rounded-full">Login</a>
             
             </div>
         </div>
@@ -72,7 +65,7 @@
             Discover & Book
         </h1>
 
-        <div class="w-[240px] md:w-[600px] lg:w-[950px] my-3 lg:my-5" data-aos="zoom-in">
+        <div class="w-[240px] sm:w-[360px] md:w-[600px] lg:w-[950px] my-3 lg:my-5" data-aos="zoom-in">
             <img src="{{ asset('images/Exciting Events.png') }}" alt="Logo">
         </div>
 
