@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -7,6 +8,8 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
 
 Route::middleware('guest')->controller(AuthController::class)->group(function (){
     Route::get('/register', [AuthController::class, 'showRegister'])->name('show.register');
