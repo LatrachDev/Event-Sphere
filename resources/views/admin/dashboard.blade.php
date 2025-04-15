@@ -50,10 +50,15 @@
                     <i class="fas fa-sun w-5 text-center mr-3 text-yellow-400"></i>
                     <span>LIGHT MODE</span>
                 </button>
-                <button class="flex items-center text-sm text-gray-400">
+
+                <form action="{{ route('logout') }}" method="POST" class="flex items-center text-sm text-gray-400">
+                    @csrf
                     <i class="fas fa-sign-out-alt w-5 text-center mr-3"></i>
-                    <span>LOGOUT</span>
-                </button>
+                    <button>LOGOUT</button>
+                </form>
+
+          
+
             </div>
         </div>
         

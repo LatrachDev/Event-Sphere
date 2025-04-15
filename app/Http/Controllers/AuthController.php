@@ -52,9 +52,12 @@ class AuthController extends Controller
             'password' => 'required|string',
         ]);
 
-        if (Auth::attempt($validated))
-        {
+        if (Auth::attempt($validated)) {
             $request->session()->regenerate();
+
+            if (Auth::user()->role === 'admin') {
+            return redirect()->route('dashboard');
+            }
 
             return redirect()->route('home');
         }
