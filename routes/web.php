@@ -26,3 +26,20 @@ Route::middleware('auth')->controller(AuthController::class)->group(function (){
     Route::get('/home', [AuthController::class, 'home'])->name('home');
 
 });
+
+
+Route::get('/dashboard', function () {
+    return view('admin.dashboard');
+})->name('dashboard');
+
+Route::get('/users', function () {
+    return view('admin.users');
+})->name('users.index');
+
+Route::get('/events', function () {
+    return view('admin.events');
+})->name('events.index');
+
+Route::get('/categories', function () {
+    return view('admin.categories');
+})->name('categories.index');

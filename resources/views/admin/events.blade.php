@@ -16,7 +16,7 @@
         @include('partials.sidebar')
         <!-- Main content -->
         <div class="flex-1 p-8 font-montserrat">
-            <h1 class="text-3xl font-semibold my-10">Admin Dashboard</h1>
+            <h1 class="text-3xl font-semibold my-10">Event</h1>
             
             <h2 class="text-lg mb-6">Statistics</h2>
             
