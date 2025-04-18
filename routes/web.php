@@ -9,7 +9,7 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+// Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
 
 Route::middleware('guest')->controller(AuthController::class)->group(function (){
     Route::get('/register', [AuthController::class, 'showRegister'])->name('show.register');
@@ -22,15 +22,18 @@ Route::middleware('guest')->controller(AuthController::class)->group(function ()
     
 });
 
+Route::get('/home', [AuthController::class, 'home'])->name('home');
 Route::middleware('auth')->controller(AuthController::class)->group(function (){
-    Route::get('/home', [AuthController::class, 'home'])->name('home');
 
 });
 
+Route::middleware('admin')->controller(AdminController::class)->group(function (){
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+});
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('admin.dashboard');
+// })->name('dashboard');
 
 Route::get('/users', function () {
     return view('admin.users');
