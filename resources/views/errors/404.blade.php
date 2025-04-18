@@ -24,7 +24,21 @@
             Sorry, the page you're looking for doesn't exist or may have been moved.
         </p>
 
-        <a href="/home" class="px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-lg font-bold bg-dark-accent text-white rounded-md hover:bg-opacity-90 transition-all duration-300 flex items-center">
+    @php
+        if (Auth::check()) {
+            $role = Auth::user()->role;
+
+            if ($role == 'admin') {
+                $url = route('dashboard');
+            } else {
+                $url = route('home');
+            }
+        } else {
+            $url = route('home');
+        }
+        
+    @endphp
+        <a href="{{ $url }}" class="px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-lg font-bold bg-dark-accent text-white rounded-md hover:bg-opacity-90 transition-all duration-300 flex items-center">
             <i class="fas fa-home mr-2"></i> Back to Home
         </a>
     </div>
