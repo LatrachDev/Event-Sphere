@@ -34,7 +34,7 @@
                 $url = route('home');
             }
         } else {
-            $url = route('home');
+            $url = route('login');
         }
         
     @endphp

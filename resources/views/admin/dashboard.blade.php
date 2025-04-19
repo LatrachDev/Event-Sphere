@@ -1,4 +1,3 @@
-{{-- resources/views/admin/dashboard.blade.php --}}
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
