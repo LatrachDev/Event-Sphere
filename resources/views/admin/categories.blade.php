@@ -52,7 +52,13 @@
                 <td class="p-4">{{ $category->name }}</td>
                 <td class="p-4 text-right">
                   <button onclick="openEditPopup('{{ $category->name }}', {{ $category->id }})" class="text-light-primary dark:text-dark-primary hover:underline">Edit</button>
-                  <button class="ml-4 text-red-500 hover:underline">Delete</button>
+                  
+                  <form action="{{ route('categories.destroy', $category) }}" method="POST" class="inline-block">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="ml-4 text-red-500 hover:underline">Delete</button>
+                  </form>
+                
                 </td>
               </tr>
               
