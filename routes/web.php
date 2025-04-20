@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
@@ -38,9 +39,7 @@ Route::middleware('admin')->controller(AdminController::class)->group(function (
     Route::get('/events', function () {
         return view('admin.events');
     })->name('events.index');
-    
-    Route::get('/categories', function () {
-        return view('admin.categories');
-    })->name('categories.index');
+
+    Route::resource(('/categories'), CategoryController::class)->except(['show', 'edit']);
 });
 

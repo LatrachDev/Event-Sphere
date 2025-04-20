@@ -11,7 +11,10 @@
 <body class="bg-light-background text-center dark:bg-dark-background font-montserrat min-h-screen flex flex-col justify-between">
 
     <div class="w-full overflow-hidden whitespace-nowrap">
-        <p class="w-full font-poppins text-2xl sm:text-4xl lg:text-6xl uppercase font-bold tracking-wider text-transparent mt-5 text-center" style="-webkit-text-stroke: 1px #c228f6;">
+        <!-- <p class="w-full font-poppins text-2xl sm:text-4xl lg:text-6xl uppercase font-bold tracking-wider text-transparent mt-5 text-center" style="-webkit-text-stroke: 1px #c228f6;">
+            ERROR - Event Sphere - ERROR - Event Sphere - ERROR
+        </p> -->
+        <p class="w-full font-poppins text-4xl sm:text-6xl uppercase font-bold tracking-wider text-transparent mt-5 text-center" style="-webkit-text-stroke: 1px #c228f6;">
             ERROR - Event Sphere - ERROR - Event Sphere - ERROR
         </p>
     </div>
@@ -23,8 +26,8 @@
         <p class="text-xs px-4 sm:text-lg uppercase text-dark-text opacity-80 dark:text-dark-text">
             Sorry, the page you're looking for doesn't exist or may have been moved.
         </p>
-
-    @php
+        
+        @php
         if (Auth::check()) {
             $role = Auth::user()->role;
 
@@ -44,8 +47,12 @@
     </div>
 
     <div class="w-full overflow-hidden whitespace-nowrap">
-        <p class="w-full font-poppins text-2xl sm:text-4xl lg:text-6xl uppercase font-bold tracking-wider text-transparent mb-5 text-center" style="-webkit-text-stroke: 1px #c228f6;">
-        ERROR - Event Sphere - ERROR - Event Sphere - ERROR
+        <p class="w-full font-poppins text-4xl sm:text-6xl uppercase font-bold tracking-wider text-transparent mb-5 text-center" style="-webkit-text-stroke: 1px #c228f6;">
+            Event Sphere - ERROR - Event Sphere - ERROR - Event Sphere
+        </p>
+        <!-- <p class="w-full font-poppins text-2xl sm:text-4xl lg:text-6xl uppercase font-bold tracking-wider text-transparent mb-5 text-center" style="-webkit-text-stroke: 1px #c228f6;">
+            ERROR - Event Sphere - ERROR - Event Sphere - ERROR
+        </p> -->
     </div>
 
 </body>

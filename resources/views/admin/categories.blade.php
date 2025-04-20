@@ -21,6 +21,19 @@
         <button onclick="openAddPopup()" class="bg-light-accent dark:bg-dark-accent text-white px-4 py-2 rounded-lg hover:bg-opacity-80">+ Add New Category</button>
       </div>
 
+      @if (session('success'))
+        <div id="successMessage" class="bg-green-100 border border-green-400 text-dark-success px-4 py-3 rounded mb-4">
+          {{ session('success') }}
+        </div>
+
+        <script>
+          setTimeout(() => {
+              const msg = document.getElementById('successMessage');
+              if (msg) msg.style.display = 'none';
+          }, 5000);
+        </script>
+      @endif
+
       <!-- Table -->
       <div class="overflow-x-auto">
         <table class="w-full table-auto border-collapse bg-white dark:bg-dark-half rounded-lg">
@@ -31,58 +44,70 @@
               <th class="p-4 text-right">Actions</th>
             </tr>
           </thead>
+          @forelse ($categories as $category)
           <tbody>
-            <tr class="border-b border-gray-200 dark:border-gray-700">
-              <td class="p-4">1</td>
-              <td class="p-4">Music</td>
-              <td class="p-4 text-right">
-                <button onclick="openEditPopup('Music')" class="text-light-primary dark:text-dark-primary hover:underline">Edit</button>
-                <button class="ml-4 text-red-500 hover:underline">Delete</button>
-              </td>
-            </tr>
-            <tr class="border-b border-gray-200 dark:border-gray-700">
-              <td class="p-4">2</td>
-              <td class="p-4">Technology</td>
-              <td class="p-4 text-right">
-                <button onclick="openEditPopup('Technology')" class="text-light-primary dark:text-dark-primary hover:underline">Edit</button>
-                <button class="ml-4 text-red-500 hover:underline">Delete</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+     
+              <tr class="border-b border-gray-200 dark:border-gray-700">
+                <td class="p-4">{{ $category->id }}</td>
+                <td class="p-4">{{ $category->name }}</td>
+                <td class="p-4 text-right">
+                  <button onclick="openEditPopup('{{ $category->name }}', {{ $category->id }})" class="text-light-primary dark:text-dark-primary hover:underline">Edit</button>
+                  <button class="ml-4 text-red-500 hover:underline">Delete</button>
+                </td>
+              </tr>
+              
+          @empty
+          <div class="bg-white dark:bg-dark-half shadow-md rounded-lg p-6">
+            <p class="text-center text-gray-500">No categories found.</p>
+          </div> 
+          @endforelse
+
+            </tbody>
+          </table>
+        </div>
 
       <!-- Edit Modal -->
       <div id="editModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
-        <div class="bg-white dark:bg-dark-half p-6 rounded-lg shadow-lg w-96">
+        <form id="editForm" method="POST" class="bg-white dark:bg-dark-half p-6 rounded-lg shadow-lg w-96">
+          @csrf
+          @method('PUT')
           <h2 class="text-xl font-semibold mb-4">Edit Category</h2>
-          <input type="text" id="editCategoryName" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-4" />
+          <input type="text" name="name" id="editCategoryName" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-4" />
           <div class="flex justify-end space-x-2">
             <button onclick="closeEditPopup()" class="px-4 py-2 bg-gray-300 dark:bg-gray-700 rounded-lg">Cancel</button>
             <button class="px-4 py-2 bg-dark-primary text-white rounded-lg">Save</button>
           </div>
-        </div>
+        </form>
       </div>
 
       <!-- Add Modal -->
       <div id="addModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
-        <div class="bg-white dark:bg-dark-half p-6 rounded-lg shadow-lg w-96">
+        
+        <form action="{{ route('categories.store') }}" method="POST" class="bg-white dark:bg-dark-half p-6 rounded-lg shadow-lg w-96">
+          @csrf
           <h2 class="text-xl font-semibold mb-4">Add New Category</h2>
-          <input type="text" id="newCategoryName" placeholder="Enter category name" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-4" />
+
+          <input type="text" name="name" id="newCategoryName" placeholder="Enter category name" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-4" />
+          
           <div class="flex justify-end space-x-2">
             <button onclick="closeAddPopup()" class="px-4 py-2 bg-gray-300 dark:bg-gray-700 rounded-lg">Cancel</button>
-            <button class="px-4 py-2 bg-dark-primary text-white rounded-lg">Add</button>
+            <button type="submit" class="px-4 py-2 bg-light-primary dark:bg-dark-accent text-white rounded-lg">Add</button>
           </div>
-        </div>
-      </div>
 
+        </form>
+        
+      </div>
     </div>
   </div>
 
   <!-- JS Modal Functions -->
   <script>
-    function openEditPopup(name) {
+    function openEditPopup(name, id) {
       document.getElementById('editCategoryName').value = name;
+
+      const form = document.getElementById('editForm');
+      form.action = `/categories/${id}`;
+
       document.getElementById('editModal').classList.remove('hidden');
     }
     function closeEditPopup() {
