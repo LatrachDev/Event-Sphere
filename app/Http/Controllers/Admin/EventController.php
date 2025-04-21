@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\EventStoreRequest;
-use App\Http\Requests\EventUpdateRequest;
 use App\Models\Category;
 use App\Models\Event;
 use Illuminate\Http\Request;
@@ -32,21 +30,27 @@ class EventController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(EventStoreRequest $request)
+    public function store(Request $request)
     {
-        dd($request->all());
+        $data = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'start_time' => 'required|date',
+            'category_id' => 'required|exists:categories,id',
+            'price' => 'required|numeric|min:0',
+            'number_of_tickets' => 'required|integer|min:0',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+        ]);
         
-        $data = $request->validated();
-        $data['status'] = 'pending'; 
         if ($request->hasFile(('image'))) {
-            // $path = $request->file('image')->store('public/storage/image');
+            
             $path = $request->file('image')->store('images', 'public');
             
             $data['image'] = $path;
         }
         
         $events = Event::create($data);
-        dd($data);
+
         return redirect()->back()->with('success', 'Event created successfully');
     }
 
@@ -69,7 +73,7 @@ class EventController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(EventUpdateRequest $request, string $id)
+    public function update(Request $request, string $id)
     {
         $event = Event::findOrFail($id);
         $data = $request->validated();
@@ -90,5 +94,24 @@ class EventController extends Controller
     {
         $event->delete();
         return redirect()->back()->with('success', 'Event deleted successfully');
+    }
+
+    public function test(Request $request)
+    {
+
+        dd($request->all());
+
+        $data = $request->validated();
+        $data['status'] = 'pending'; 
+        if ($request->hasFile(('image'))) {
+            // $path = $request->file('image')->store('public/storage/image');
+            $path = $request->file('image')->store('images', 'public');
+            
+            $data['image'] = $path;
+        }
+        
+        $events = Event::create($data);
+        dd($data);
+        return redirect()->back()->with('success', 'Event created successfully');
     }
 }

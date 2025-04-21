@@ -38,9 +38,8 @@ Route::middleware('admin')->controller(AdminController::class)->group(function (
     })->name('users.index');
 
     Route::resource(('/categories'), CategoryController::class)->except(['show', 'edit']);
-    // Route::resource('/events', EventController::class)->except(['show', 'edit']);
-    
+    Route::resource('/even  ts', EventController::class)->except(['show', 'edit']);
+    // Route::post('events/test', [EventController::class, 'test'])->name('events.test');
     
 });
-Route::post('/events/store', [EventController::class, 'store']);
 

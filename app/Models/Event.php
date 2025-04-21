@@ -13,7 +13,6 @@ class Event extends Model
         'category_id',
         'price',
         'number_of_tickets',
-        'status',
         'image'
     ];
 

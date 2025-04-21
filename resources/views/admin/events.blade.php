@@ -32,6 +32,17 @@
             </script>
         @endif
 
+        @if ($errors->any())
+            <div class="bg-red-100 text-red-700 p-4 mb-4 rounded">
+                <ul class="list-disc pl-5">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+
         <!-- Events Table -->
         <div class="overflow-x-auto">
             <table class="w-full table-auto border-collapse bg-light-half dark:bg-dark-half rounded-lg">
@@ -113,7 +124,7 @@
 
         <!-- Add Modal -->
         <div id="addModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
-            <form action="/events/store" method="post" enctype="multipart/form-data" class="bg-white dark:bg-dark-half p-6 rounded-lg shadow-lg w-96">
+            <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data" class="bg-white dark:bg-dark-half p-6 rounded-lg shadow-lg w-96">
                 @csrf
                 <h2 class="text-xl font-semibold mb-4">Add New Event</h2>
 
@@ -130,10 +141,10 @@
                 </select>
 
                 <!-- Price -->
-                <input type="text" name="price" placeholder="Leave empty for Free" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2" />
+                <input type="number" name="price" placeholder="Leave empty for Free" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2">
 
                 <!-- Number of Tickets -->
-                <input type="number" name="number_of_tickets" min="0" placeholder="Number of Tickets" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2" />
+                <input type="number" name="number_of_tickets" placeholder="Number of Tickets" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2">
 
                 <!-- Image Upload -->
                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Upload Image</label>
