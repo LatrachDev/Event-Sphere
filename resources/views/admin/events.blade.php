@@ -77,7 +77,8 @@
                         <td class="p-4">{{ $event->price ?? 'Free' }}</td>
                         <td class="p-4">{{ $event->number_of_tickets }}</td>
                         <td class="p-4 text-right">
-                            <button onclick="openEditPopup(@json($event))" class="text-light-primary dark:text-dark-primary hover:underline">Edit</button>
+
+                        <button onclick='openEditPopup(@json($event))' class="text-light-primary dark:text-dark-primary hover:underline">Edit</button>
                             <form action="{{ route('events.destroy', $event) }}" method="POST" class="inline-block">
                                 @csrf
                                 @method('DELETE')
@@ -101,7 +102,7 @@
 
         <!-- Edit Modal -->
         <div id="editModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
-            <form id="editForm" method="POST" class="bg-white dark:bg-dark-half p-6 rounded-lg shadow-lg w-96">
+            <form id="editForm" method="POST" enctype="multipart/form-data" class="bg-white dark:bg-dark-half p-6 rounded-lg shadow-lg w-96">
                 @csrf
                 @method('PUT')
                 <h2 class="text-xl font-semibold mb-4">Edit Event</h2>
@@ -115,6 +116,8 @@
                 </select>
                 <input type="text" name="price" id="editPrice" placeholder="Leave empty for Free" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2" />
                 <input type="number" name="number_of_tickets" id="editTickets" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-4" />
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Upload Image</label>
+                <input type="file" name="image" accept="image/*" class="w-full mb-4 dark:bg-dark-background dark:text-dark-text" /> 
                 <div class="flex justify-end space-x-2">
                     <button onclick="closeEditPopup()" class="px-4 py-2 bg-gray-300 dark:bg-gray-700 rounded-lg">Cancel</button>
                     <button class="px-4 py-2 bg-dark-primary text-white rounded-lg">Save</button>
@@ -198,16 +201,17 @@
     function openEditPopup(event) {
         document.getElementById('editTitle').value = event.title;
         document.getElementById('editDescription').value = event.description;
-        document.getElementById('editStartTime').value = event.start_time;
+        document.getElementById('editStartTime').value = event.start_time.slice(0, 16); // fixes datetime-local input
         document.getElementById('editCategory').value = event.category_id;
         document.getElementById('editPrice').value = event.price;
         document.getElementById('editTickets').value = event.number_of_tickets;
 
         const form = document.getElementById('editForm');
-        form.action = `/events/${event.id}`;
+        form.action = `/events/${event.id}`; // Uses your resource route
 
         document.getElementById('editModal').classList.remove('hidden');
     }
+
     function closeEditPopup() {
         document.getElementById('editModal').classList.add('hidden');
     }

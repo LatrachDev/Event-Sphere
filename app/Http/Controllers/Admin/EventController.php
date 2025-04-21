@@ -43,7 +43,7 @@ class EventController extends Controller
         ]);
         
         if ($request->hasFile(('image'))) {
-            
+
             $path = $request->file('image')->store('images', 'public');
             
             $data['image'] = $path;
@@ -73,16 +73,25 @@ class EventController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Event $event)
     {
-        $event = Event::findOrFail($id);
-        $data = $request->validated();
+        $data = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'start_time' => 'required|date',
+            'category_id' => 'required|exists:categories,id',
+            'price' => 'required|numeric|min:0',
+            'number_of_tickets' => 'required|integer|min:0',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+        ]);
 
-        if ($request->hasFile('image')) {
+        if ($request->hasFile(('image'))) {
+
             $path = $request->file('image')->store('images', 'public');
+            
             $data['image'] = $path;
         }
-
+        
         $event->update($data);
         return redirect()->back()->with('success', 'Event updated successfully');
     }
@@ -94,24 +103,5 @@ class EventController extends Controller
     {
         $event->delete();
         return redirect()->back()->with('success', 'Event deleted successfully');
-    }
-
-    public function test(Request $request)
-    {
-
-        dd($request->all());
-
-        $data = $request->validated();
-        $data['status'] = 'pending'; 
-        if ($request->hasFile(('image'))) {
-            // $path = $request->file('image')->store('public/storage/image');
-            $path = $request->file('image')->store('images', 'public');
-            
-            $data['image'] = $path;
-        }
-        
-        $events = Event::create($data);
-        dd($data);
-        return redirect()->back()->with('success', 'Event created successfully');
     }
 }
