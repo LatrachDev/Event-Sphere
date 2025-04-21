@@ -44,7 +44,7 @@
 
 
         <!-- Events Table -->
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto shadow-md">
             <table class="w-full table-auto border-collapse bg-light-half dark:bg-dark-half rounded-lg">
                 <thead>
                 <tr class="text-left border-b border-gray-300 dark:border-gray-700">
@@ -65,7 +65,7 @@
 
                         <td class="p-4">
                             @if ($event->image)
-                                <img src="{{ asset('storage/' . str_replace('public/', '', $event->image)) }}" alt="{{ $event->title }}" class="w-20 h-20 object-cover rounded">
+                                <img src="{{ asset('storage/' . str_replace('public/', '', $event->image)) }}" alt="{{ $event->title }}" class="w-20 h-10 object-cover rounded">
                             @else
                                 <span class="text-gray-400 italic">No image</span>
                             @endif
@@ -159,41 +159,6 @@
                 </div>
             </form>
         </div>
-
-
-        <!-- Requested Events Table -->
-        <h2 class="text-2xl font-semibold mt-10 mb-4">Requested Events</h2>
-        <div class="overflow-x-auto">
-            <table class="w-full table-auto border-collapse bg-light-half dark:bg-dark-half rounded-lg">
-                <thead>
-                <tr class="text-left border-b border-gray-300 dark:border-gray-700">
-                    <th class="p-4">#</th>
-                    <th class="p-4">Title</th>
-                    <th class="p-4">Submitted By</th>
-                    <th class="p-4">Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <!-- foreach ($requestedEvents as $request) -->
-                    <tr class="border-b border-gray-200 dark:border-gray-700">
-                        <td class="p-4">id</td>
-                        <td class="p-4">title</td>
-                        <td class="p-4">name</td>
-                        <td class="p-4">
-                            <form  method="POST" class="inline">
-                                @csrf
-                                <button type="submit" class="text-green-500 hover:underline">Approve</button>
-                            </form>
-                            <form  method="POST" class="inline ml-4">
-                                @csrf
-                                <button type="submit" class="text-red-500 hover:underline">Reject</button>
-                            </form>
-                        </td>
-                    </tr>
-                <!-- endforeach -->
-                </tbody>
-            </table>
-        </div>
     </div>
 </div>
 
@@ -221,6 +186,20 @@
     function closeAddPopup() {
         document.getElementById('addModal').classList.add('hidden');
     }
+
+    // dark mode toggle
+    function toggleDarkMode() {
+        document.documentElement.classList.toggle("dark");
+        localStorage.setItem("theme", document.documentElement.classList.contains("dark") ? "dark" : "light");
+    }
+
+    // check for saved theme preference
+    if (localStorage.getItem("theme") === "dark" || 
+        (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        document.documentElement.classList.add("dark");
+    }
 </script>
+
+
 </body>
 </html>
