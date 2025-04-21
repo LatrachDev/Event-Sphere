@@ -3,180 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EventSphere - Admin Dashboard</title>
+    <title>EventSphere - Events</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-light-background text-light-text dark:bg-dark-background dark:text-dark-text font-poppins">
+<div class="flex min-h-screen">
 
-    <div class="flex min-h-screen">
+    @include('partials.sidebar')
 
-        @include('partials.sidebar')
-        <!-- Main content -->
-        <div class="flex-1 p-8 font-montserrat">
-            <h1 class="text-3xl font-semibold my-10">Event</h1>
-            
-            <h2 class="text-lg mb-6">Statistics</h2>
-            
-            <!-- Stat cards -->
-            <div class="grid grid-cols-4 gap-4 mb-6">
-                <!-- Total Users -->
-                <div class="bg-dark-accent bg-opacity-90 rounded-lg p-4 flex flex-col">
-                    <div class="flex justify-between mb-2">
-                        <span class="text-[#ddeffa] opacity-80">Total Users</span>
-                        <i class="fas fa-users text-[#ddeffa] opacity-80"></i>
-                    </div>
-                    <div class="text-4xl text-[#ddeffa] font-bold">92,680</div>
-                </div>
-                
-                <!-- Total Events -->
-                <div class="bg-dark-half rounded-lg p-4 flex flex-col">
-                    <div class="flex justify-between mb-2">
-                        <span class="text-dark-text opacity-80">Total Events</span>
-                        <i class="fas fa-eye text-dark-text opacity-80"></i>
-                    </div>
-                    <div class="text-4xl font-bold text-dark-primary">580.5K</div>
-                </div>
-                
-                <!-- Incoming Events -->
-                <div class="bg-dark-half rounded-lg p-4 flex flex-col">
-                    <div class="flex justify-between mb-2">
-                        <span class="text-dark-text opacity-80">Incomming events</span>
-                        <i class="fas fa-chart-line text-dark-text opacity-80"></i>
-                    </div>
-                    <div class="text-4xl font-bold text-dark-primary">15.43%</div>
-                </div>
-                
-                <!-- Closed Events -->
-                <div class="bg-dark-half rounded-lg p-4 flex flex-col">
-                    <div class="flex justify-between mb-2">
-                        <span class="text-dark-text opacity-80">Closed event</span>
-                        <i class="fas fa-chart-line text-dark-text opacity-80"></i>
-                    </div>
-                    <div class="text-4xl font-bold text-dark-primary">15.43%</div>
-                </div>
+    <div class="flex-1 p-8 font-montserrat">
+        <h1 class="text-3xl font-semibold my-10">Manage Events</h1>
+
+        <div class="mb-6 flex justify-between">
+            <button onclick="openAddPopup()" class="bg-light-accent dark:bg-dark-accent text-white px-4 py-2 rounded-lg hover:bg-opacity-80">+ Add New Event</button>
+        </div>
+
+        @if (session('success'))
+            <div id="successMessage" class="bg-green-100 border border-green-400 text-dark-success px-4 py-3 rounded mb-4">
+                {{ session('success') }}
             </div>
-            
-            <!-- Charts Row -->
-            <div class="grid grid-cols-3 gap-4">
-                <!-- Pie Chart -->
-                <div class="bg-white rounded-lg p-4">
-                    <h3 class="text-light-text mb-4">Chapter Wise Status</h3>
-                    <div class="flex justify-center">
-                        <!-- SVG Donut chart implementation -->
-                        <svg viewBox="0 0 100 100" width="200" height="200">
-                            <!-- Main donut segments -->
-                            <circle cx="50" cy="50" r="25" fill="transparent" stroke="#F3E5F5" stroke-width="25" stroke-dasharray="157" stroke-dashoffset="0" />
-                            
-                            <!-- Chapter A - Purple -->
-                            <circle cx="50" cy="50" r="25" fill="transparent" stroke="#d28bea" stroke-width="25" stroke-dasharray="157" stroke-dashoffset="0" stroke-dashoffset="0" />
-                            <circle cx="50" cy="50" r="25" fill="transparent" stroke="#d28bea" stroke-width="25" stroke-dasharray="157" stroke-dashoffset="118" />
-                            
-                            <!-- Chapter B - Light Purple -->
-                            <circle cx="50" cy="50" r="25" fill="transparent" stroke="#E1BEE7" stroke-width="25" stroke-dasharray="157" stroke-dashoffset="118" />
-                            <circle cx="50" cy="50" r="25" fill="transparent" stroke="#E1BEE7" stroke-width="25" stroke-dasharray="157" stroke-dashoffset="85" />
-                            
-                            <!-- Chapter C - Medium Purple -->
-                            <circle cx="50" cy="50" r="25" fill="transparent" stroke="#721093" stroke-width="25" stroke-dasharray="157" stroke-dashoffset="85" />
-                            <circle cx="50" cy="50" r="25" fill="transparent" stroke="#721093" stroke-width="25" stroke-dasharray="157" stroke-dashoffset="54" />
-                            
-                            <!-- Haven't Started - Lightest Purple -->
-                            <circle cx="50" cy="50" r="25" fill="transparent" stroke="#F3E5F5" stroke-width="25" stroke-dasharray="157" stroke-dashoffset="54" />
-                            <circle cx="50" cy="50" r="25" fill="transparent" stroke="#F3E5F5" stroke-width="25" stroke-dasharray="157" stroke-dashoffset="43" />
-                            
-                            <!-- Center white circle for donut look -->
-                            <circle cx="50" cy="50" r="12.5" fill="white" />
-                            
-                            <!-- Percentage labels -->
-                            <text x="40" y="42" font-size="4" fill="#666">34%</text>
-                            <text x="60" y="42" font-size="4" fill="#666">22%</text>
-                            <text x="60" y="60" font-size="4" fill="#666">20%</text>
-                            <text x="42" y="60" font-size="4" fill="#666">7%</text>
-                            
-                            <!-- Center label -->
-                            <text x="40" y="48" font-size="3" fill="#666">Finished</text>
-                            <text x="40" y="52" font-size="3" fill="#666">Training</text>
-                        </svg>
-                    </div>
-                    
-                    <!-- Legend -->
-                    <div class="mt-4 grid grid-cols-2 gap-2 text-xs text-light-text">
-                        <div class="flex items-center">
-                            <span class="w-3 h-3 inline-block bg-blue-600 mr-1 rounded-full"></span>
-                            Finished Training
-                        </div>
-                        <div class="flex items-center">
-                            <span class="w-3 h-3 inline-block bg-dark-primary mr-1 rounded-full"></span>
-                            Chapter A
-                        </div>
-                        <div class="flex items-center">
-                            <span class="w-3 h-3 inline-block bg-purple-300 mr-1 rounded-full"></span>
-                            Chapter B
-                        </div>
-                        <div class="flex items-center">
-                            <span class="w-3 h-3 inline-block bg-dark-secondary mr-1 rounded-full"></span>
-                            Chapter C
-                        </div>
-                        <div class="flex items-center">
-                            <span class="w-3 h-3 inline-block bg-dark-error mr-1 rounded-full"></span>
-                            Haven't Started Yet
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Bar Chart - Span 2 columns -->
-                <div class="bg-dark-half rounded-lg p-4 col-span-2">
-                    <!-- Bar chart implementation -->
-                    <div class="h-64">
-                        <div class="flex h-full items-end justify-between space-x-2">
-                            <!-- Bar for each date -->
-                            @foreach(['3 Jun', '4 Jun', '5 Jun', '6 Jun', '7 Jun', '8 Jun', '9 Jun', '10 Jun', '11 Jun', '12 Jun', '13 Jun', '14 Jun'] as $date)
-                                <div class="w-full flex flex-col items-center">
-                                    <!-- White bar -->
-                                    <div class="w-8 bg-white {{ $date === '3 Jun' ? 'h-24' : ($date === '4 Jun' ? 'h-32' : ($date === '5 Jun' ? 'h-28' : ($date === '6 Jun' ? 'h-32' : ($date === '7 Jun' ? 'h-32' : ($date === '8 Jun' ? 'h-32' : ($date === '9 Jun' ? 'h-32' : ($date === '10 Jun' ? 'h-32' : ($date === '11 Jun' ? 'h-24' : ($date === '12 Jun' ? 'h-32' : ($date === '13 Jun' ? 'h-36' : 'h-40')))))))))) }}"></div>
-                                    
-                                    <!-- Purple overlay bar -->
-                                    <div class="w-8 bg-dark-primary -mt-{{ $date === '3 Jun' ? '16' : ($date === '4 Jun' ? '24' : ($date === '5 Jun' ? '16' : ($date === '6 Jun' ? '24' : ($date === '7 Jun' ? '16' : ($date === '8 Jun' ? '24' : ($date === '9 Jun' ? '16' : ($date === '10 Jun' ? '8' : ($date === '11 Jun' ? '16' : ($date === '12 Jun' ? '24' : ($date === '13 Jun' ? '32' : '36')))))))))) }}">
-                                        <div class="h-{{ $date === '3 Jun' ? '16' : ($date === '4 Jun' ? '24' : ($date === '5 Jun' ? '16' : ($date === '6 Jun' ? '24' : ($date === '7 Jun' ? '16' : ($date === '8 Jun' ? '24' : ($date === '9 Jun' ? '16' : ($date === '10 Jun' ? '8' : ($date === '11 Jun' ? '16' : ($date === '12 Jun' ? '24' : ($date === '13 Jun' ? '32' : '36')))))))))) }}"></div>
-                                    </div>
-                                    
-                                    <!-- Date label -->
-                                    <div class="text-xs mt-2 text-gray-400">{{ $date }}</div>
-                                </div>
-                            @endforeach
-                        </div>
-                        
+            <script>
+                setTimeout(() => {
+                    const msg = document.getElementById('successMessage');
+                    if (msg) msg.style.display = 'none';
+                }, 5000);
+            </script>
+        @endif
 
-                    </div>
-                </div>
+        <!-- Events Table -->
+        <div class="overflow-x-auto">
+            <table class="w-full table-auto border-collapse bg-light-half dark:bg-dark-half rounded-lg">
+                <thead>
+                <tr class="text-left border-b border-gray-300 dark:border-gray-700">
+                    <th class="p-4">#</th>
+                    <th class="p-4">Image</th>
+                    <th class="p-4">Title</th>
+                    <th class="p-4">Category</th>
+                    <th class="p-4">Start Time</th>
+                    <th class="p-4">Price</th>
+                    <th class="p-4">Tickets</th>
+                    <th class="p-4 text-right">Actions</th>
+                </tr>
+                </thead>
+                @forelse ($events as $event)
+                    <tbody>
+                    <tr class="border-b border-gray-200 dark:border-gray-700">
+                        <td class="p-4">{{ $event->id }}</td>
+
+                        <td class="p-4">
+                            @if ($event->image)
+                                <img src="{{ asset('storage/' . str_replace('public/', '', $event->image)) }}" alt="{{ $event->title }}" class="w-20 h-20 object-cover rounded">
+                            @else
+                                <span class="text-gray-400 italic">No image</span>
+                            @endif
+                        </td>
+
+                        <td class="p-4">{{ $event->title }}</td>
+                        <td class="p-4">{{ $event->category->name }}</td>
+                        <td class="p-4">{{ $event->start_time }}</td>
+                        <td class="p-4">{{ $event->price ?? 'Free' }}</td>
+                        <td class="p-4">{{ $event->number_of_tickets }}</td>
+                        <td class="p-4 text-right">
+                            <button onclick="openEditPopup(@json($event))" class="text-light-primary dark:text-dark-primary hover:underline">Edit</button>
+                            <form action="{{ route('events.destroy', $event) }}" method="POST" class="inline-block">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="ml-4 text-red-500 hover:underline">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+
+                    @empty
+                        <div class="bg-white dark:bg-dark-half shadow-md rounded-lg p-6">
+                            <p class="text-center text-gray-500">No events found.</p>
+                        </div>
+                    @endforelse
+                    
+                    </tbody>
+            </table>
+            <div class="mt-4">
+                {{ $events->links() }}
             </div>
         </div>
+
+        <!-- Edit Modal -->
+        <div id="editModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+            <form id="editForm" method="POST" class="bg-white dark:bg-dark-half p-6 rounded-lg shadow-lg w-96">
+                @csrf
+                @method('PUT')
+                <h2 class="text-xl font-semibold mb-4">Edit Event</h2>
+                <input type="text" name="title" id="editTitle" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2" />
+                <textarea name="description" id="editDescription" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2"></textarea>
+                <input type="datetime-local" name="start_time" id="editStartTime" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2" />
+                <select name="category_id" id="editCategory" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2">
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+                <input type="text" name="price" id="editPrice" placeholder="Leave empty for Free" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2" />
+                <input type="number" name="number_of_tickets" id="editTickets" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-4" />
+                <div class="flex justify-end space-x-2">
+                    <button onclick="closeEditPopup()" class="px-4 py-2 bg-gray-300 dark:bg-gray-700 rounded-lg">Cancel</button>
+                    <button class="px-4 py-2 bg-dark-primary text-white rounded-lg">Save</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Add Modal -->
+        <div id="addModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+            <form action="/events/store" method="post" enctype="multipart/form-data" class="bg-white dark:bg-dark-half p-6 rounded-lg shadow-lg w-96">
+                @csrf
+                <h2 class="text-xl font-semibold mb-4">Add New Event</h2>
+
+                <input type="text" name="title" placeholder="Title" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2" />
+
+                <textarea name="description" placeholder="Description" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2"></textarea>
+
+                <input type="datetime-local" name="start_time" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2" />
+
+                <select name="category_id" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2">
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+
+                <!-- Price -->
+                <input type="text" name="price" placeholder="Leave empty for Free" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2" />
+
+                <!-- Number of Tickets -->
+                <input type="number" name="number_of_tickets" min="0" placeholder="Number of Tickets" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2" />
+
+                <!-- Image Upload -->
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Upload Image</label>
+                <input type="file" name="image" accept="image/*" class="w-full mb-4 dark:bg-dark-background dark:text-dark-text" />
+
+                <div class="flex justify-end space-x-2">
+                    <button type="button" onclick="closeAddPopup()" class="px-4 py-2 bg-gray-300 dark:bg-gray-700 rounded-lg">Cancel</button>
+                    <button type="submit" class="px-4 py-2 bg-light-primary dark:bg-dark-accent text-white rounded-lg">Add</button>
+                </div>
+            </form>
+        </div>
+
+
+        <!-- Requested Events Table -->
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Requested Events</h2>
+        <div class="overflow-x-auto">
+            <table class="w-full table-auto border-collapse bg-light-half dark:bg-dark-half rounded-lg">
+                <thead>
+                <tr class="text-left border-b border-gray-300 dark:border-gray-700">
+                    <th class="p-4">#</th>
+                    <th class="p-4">Title</th>
+                    <th class="p-4">Submitted By</th>
+                    <th class="p-4">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- foreach ($requestedEvents as $request) -->
+                    <tr class="border-b border-gray-200 dark:border-gray-700">
+                        <td class="p-4">id</td>
+                        <td class="p-4">title</td>
+                        <td class="p-4">name</td>
+                        <td class="p-4">
+                            <form  method="POST" class="inline">
+                                @csrf
+                                <button type="submit" class="text-green-500 hover:underline">Approve</button>
+                            </form>
+                            <form  method="POST" class="inline ml-4">
+                                @csrf
+                                <button type="submit" class="text-red-500 hover:underline">Reject</button>
+                            </form>
+                        </td>
+                    </tr>
+                <!-- endforeach -->
+                </tbody>
+            </table>
+        </div>
     </div>
+</div>
 
-    <script>
-        const menu = document.getElementById('mobile-menu');
-        const menuLinks = document.querySelectorAll('#mobile-menu a');
-        
-        document.getElementById('menu-button').onclick = () => menu.classList.remove('-translate-y-full');
-        document.getElementById('close-button').onclick = () => menu.classList.add('-translate-y-full');
-        
-        menuLinks.forEach(link => {
-            link.onclick = () => menu.classList.add('-translate-y-full');
-        });
-        
-        // dark mode toggle
-        function toggleDarkMode() {
-            document.documentElement.classList.toggle("dark");
-            localStorage.setItem("theme", document.documentElement.classList.contains("dark") ? "dark" : "light");
-        }
+<script>
+    function openEditPopup(event) {
+        document.getElementById('editTitle').value = event.title;
+        document.getElementById('editDescription').value = event.description;
+        document.getElementById('editStartTime').value = event.start_time;
+        document.getElementById('editCategory').value = event.category_id;
+        document.getElementById('editPrice').value = event.price;
+        document.getElementById('editTickets').value = event.number_of_tickets;
 
-        // check for saved theme preference
-        if (localStorage.getItem("theme") === "dark" || 
-            (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-            document.documentElement.classList.add("dark");
-        }
-    </script>
-    
+        const form = document.getElementById('editForm');
+        form.action = `/events/${event.id}`;
+
+        document.getElementById('editModal').classList.remove('hidden');
+    }
+    function closeEditPopup() {
+        document.getElementById('editModal').classList.add('hidden');
+    }
+    function openAddPopup() {
+        document.getElementById('addModal').classList.remove('hidden');
+    }
+    function closeAddPopup() {
+        document.getElementById('addModal').classList.add('hidden');
+    }
+</script>
 </body>
 </html>
