@@ -74,7 +74,7 @@
                         <td class="p-4">{{ $event->title }}</td>
                         <td class="p-4">{{ $event->category->name }}</td>
                         <td class="p-4">{{ $event->start_time }}</td>
-                        <td class="p-4">{{ $event->price ?? 'Free' }}</td>
+                        <td class="p-4">{{ $event->price ?? 'Free' }} $</td>
                         <td class="p-4">{{ $event->number_of_tickets }}</td>
                         <td class="p-4 text-right">
 

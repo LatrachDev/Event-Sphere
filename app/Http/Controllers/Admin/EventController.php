@@ -48,9 +48,16 @@ class EventController extends Controller
             
             $data['image'] = $path;
         }
+
+        if (auth()->user()->role == 'admin') {
+            $data['status'] = 'approved';
+            
+        } else {
+            $data['status'] = 'pending';
+        }
         
         $events = Event::create($data);
-
+        
         return redirect()->back()->with('success', 'Event created successfully');
     }
 
