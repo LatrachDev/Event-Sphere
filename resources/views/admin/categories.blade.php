@@ -36,7 +36,7 @@
 
       <!-- Table -->
       <div class="overflow-x-auto">
-        <table class="w-full table-auto border-collapse bg-white dark:bg-dark-half rounded-lg">
+        <table class="w-full table-auto border-collapse bg-light-half dark:bg-dark-half rounded-lg">
           <thead>
             <tr class="text-left border-b border-gray-300 dark:border-gray-700">
               <th class="p-4">#</th>
@@ -70,7 +70,12 @@
 
             </tbody>
           </table>
+          <div class="mt-4">
+            {{ $categories->links() }}
+          </div>
         </div>
+        
+
 
       <!-- Edit Modal -->
       <div id="editModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">

@@ -26,7 +26,7 @@
             <!-- Stat cards -->
             <div class="grid grid-cols-4 gap-4 mb-6">
                 <!-- Total Users -->
-                <div class="bg-dark-accent bg-opacity-90 rounded-lg p-4 flex flex-col">
+                <div class="bg-dark-accent bg-opacity-90 rounded-lg p-4 flex flex-col transition-all duration-300 hover:scale-[1.02] dark:hover:bg-dark-accent hover:bg-light-accent">
                     <div class="flex justify-between mb-2">
                         <span class="text-[#ddeffa] opacity-80">Total Users</span>
                         <i class="fas fa-users text-[#ddeffa] opacity-80"></i>
@@ -35,30 +35,30 @@
                 </div>
                 
                 <!-- Active Users -->
-                <div class="bg-dark-half rounded-lg p-4 flex flex-col">
+                <div class="bg-dark-half rounded-lg p-4 flex flex-col transition-all text-light-success dark:text-dark-success dark:hover:text-dark-text hover:text-dark-text duration-300 hover:scale-[1.02] dark:hover:bg-dark-accent hover:bg-light-accent">
                     <div class="flex justify-between mb-2">
                         <span class="text-dark-text opacity-80">Active Users</span>
                         <i class="fas fa-user-check text-dark-text opacity-80"></i>
                     </div>
-                    <div class="text-4xl font-bold text-green-500">1,120</div>
+                    <div class="text-4xl font-bold ">1,120</div>
                 </div>
                 
                 <!-- Banned Users -->
-                <div class="bg-dark-half rounded-lg p-4 flex flex-col">
+                <div class="bg-dark-half rounded-lg p-4 flex flex-col text-light-error dark:text-dark-error transition-all duration-300 dark:hover:text-dark-text hover:text-dark-text hover:scale-[1.02] dark:hover:bg-dark-accent hover:bg-light-accent">
                     <div class="flex justify-between mb-2">
                         <span class="text-dark-text opacity-80">Banned Users</span>
                         <i class="fas fa-user-slash text-dark-text opacity-80"></i>
                     </div>
-                    <div class="text-4xl font-bold text-red-500">128</div>
+                    <div class="text-4xl font-bold">128</div>
                 </div>
                 
                 <!-- Events Created -->
-                <div class="bg-dark-half rounded-lg p-4 flex flex-col">
+                <div class="bg-dark-half rounded-lg p-4 flex flex-col text-dark-primary transition-all duration-300 dark:hover:text-dark-text hover:text-dark-text hover:scale-[1.02] dark:hover:bg-dark-accent hover:bg-light-accent">
                     <div class="flex justify-between mb-2">
                         <span class="text-dark-text opacity-80">Total Events Created</span>
                         <i class="fas fa-calendar-alt text-dark-text opacity-80"></i>
                     </div>
-                    <div class="text-4xl font-bold text-dark-primary">5,843</div>
+                    <div class="text-4xl font-bold ">5,843</div>
                 </div>
             </div>
             
