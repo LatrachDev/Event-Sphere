@@ -44,10 +44,10 @@
 
 
         <!-- Events Table -->
-        <div class="overflow-x-auto shadow-md">
-            <table class="w-full table-auto border-collapse bg-light-half dark:bg-dark-half rounded-lg">
+        <div class="overflow-x-auto rounded-lg">
+            <table class="w-full table-auto border-collapse bg-light-half dark:bg-dark-half rounded-lg shadow-md">
                 <thead>
-                <tr class="text-left border-b border-gray-300 dark:border-gray-700">
+                <tr class="text-left border-b border-gray-300 dark:border-gray-700 bg-light-hvr dark:bg-dark-hvr">
                     <th class="p-4">#</th>
                     <th class="p-4">Image</th>
                     <th class="p-4">Title</th>
@@ -60,7 +60,7 @@
                 </thead>
                 @forelse ($events as $event)
                     <tbody>
-                    <tr class="border-b border-gray-200 dark:border-gray-700">
+                    <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-light-hvr dark:hover:bg-dark-hvr duration-300">
                         <td class="p-4">{{ $event->id }}</td>
 
                         <td class="p-4">

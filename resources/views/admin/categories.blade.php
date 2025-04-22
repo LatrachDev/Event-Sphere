@@ -35,10 +35,11 @@
       @endif
 
       <!-- Table -->
-      <div class="overflow-x-auto">
-        <table class="w-full table-auto border-collapse bg-light-half dark:bg-dark-half rounded-lg">
+      <div class="overflow-x-auto ">
+         <div class="overflow-x-auto shadow-md rounded-lg">
+        <table class="w-full table-auto border-collapse bg-light-half dark:bg-dark-half rounded-lg shadow-md">
           <thead>
-            <tr class="text-left border-b border-gray-300 dark:border-gray-700">
+            <tr class="text-left border-b border-gray-300 dark:border-gray-700 bg-light-hvr dark:bg-dark-hvr">
               <th class="p-4">#</th>
               <th class="p-4">Category Name</th>
               <th class="p-4 text-right">Actions</th>
@@ -47,7 +48,7 @@
           @forelse ($categories as $category)
           <tbody>
      
-              <tr class="border-b border-gray-200 dark:border-gray-700">
+              <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-light-hvr dark:hover:bg-dark-hvr duration-300">
                 <td class="p-4">{{ $category->id }}</td>
                 <td class="p-4">{{ $category->name }}</td>
                 <td class="p-4 text-right">
