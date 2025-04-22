@@ -30,23 +30,26 @@
 
 
         <!-- Requested Events Table -->
-        <div class="overflow-x-auto">
-            <table class="w-full table-auto border-collapse bg-light-half dark:bg-dark-half rounded-lg">
+        <div class="overflow-x-auto shadow-md rounded-lg">
+            <table class="w-full table-auto border-collapse bg-light-half dark:bg-dark-half rounded-md shadow-md">
                 <thead>
-                <tr class="text-left border-b border-gray-300 dark:border-gray-700">
+                <tr class="text-left border-b border-gray-300 dark:border-gray-700  bg-light-hvr dark:bg-dark-hvr">
                     <th class="p-4">#</th>
                     <th class="p-4">Title</th>
+                    <th class="p-4">Tickets</th>
+                    <th class="p-4">Price</th>
                     <th class="p-4">Submitted By</th>
                     <th class="p-4">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
                 @forelse ($requestedEvents as $event)
-                    <tr class="border-b border-gray-200 dark:border-gray-700">
-                        <td class="p-4">id</td>
-                        <td class="p-4">{{ $event->name }}</td>
-                        <td class="p-4">title</td>
-                        <td class="p-4">name</td>
+                    <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-light-hvr dark:hover:bg-dark-hvr duration-300">
+                        <td class="p-4">{{ $event->id }}</td>
+                        <td class="p-4">{{ $event->title }}</td>
+                        <td class="p-4">{{ $event->number_of_tickets }}</td>
+                        <td class="p-4">{{ $event->price }}$</td>
+                        <td class="p-4">Sender</td>
                         <td class="p-4">
                             <form  method="POST" class="inline">
                                 @csrf
