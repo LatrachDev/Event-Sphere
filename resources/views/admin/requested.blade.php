@@ -51,13 +51,15 @@
                         <td class="p-4">{{ $event->price }}$</td>
                         <td class="p-4">Sender</td>
                         <td class="p-4">
+                            <!-- approved -->
                             <form  method="POST" class="inline">
                                 @csrf
-                                <button type="submit" class="text-green-500 hover:underline">Approve</button>
+                                <button type="submit" class="text-green-500 hover:underline"><i class="fas fa-check"></i></button>
                             </form>
+                            <!-- rejected -->
                             <form  method="POST" class="inline ml-4">
                                 @csrf
-                                <button type="submit" class="text-red-500 hover:underline">Reject</button>
+                                <button type="submit" class="text-red-500 hover:underline"><i class="fas fa-ban"></i></button>
                             </form>
                         </td>
                     </tr>
