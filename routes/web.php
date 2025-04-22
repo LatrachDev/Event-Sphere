@@ -39,7 +39,11 @@ Route::middleware('admin')->controller(AdminController::class)->group(function (
         return view('admin.users');
     })->name('users.index');
 
+    Route::post('/requested/{id}/approve', [RequestedController::class, 'approve'])->name('requested.approve');
+    Route::post('/requested/{id}/reject', [RequestedController::class, 'reject'])->name('requested.reject');
+
     Route::resource(('/requested'), RequestedController::class);
+
     Route::resource(('/categories'), CategoryController::class)->except(['show', 'edit']);
     Route::resource('/events', EventController::class)->except(['show', 'edit']);
     // Route::post('events/test', [EventController::class, 'test'])->name('events.test');

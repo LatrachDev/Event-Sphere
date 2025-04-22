@@ -17,6 +17,23 @@ class RequestedController extends Controller
         return view('admin.requested', ['requestedEvents' => $requestedEvents]);
     }
 
+    public function approve($id)
+    {
+        $event = Event::findOrFail($id);
+        $event->status = 'approved';
+        $event->save();
+
+        return redirect()->back()->with('success', 'Event approved successfully');
+    }
+
+    public function reject($id)
+    {
+        $event = Event::findOrFail($id);
+        $event->delete();
+
+        return redirect()->back()->with('success', 'Event rejected successfully');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

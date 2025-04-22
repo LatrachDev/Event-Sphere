@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,11 +78,11 @@
                         <td class="p-4">{{ $event->number_of_tickets }}</td>
                         <td class="p-4 text-right">
 
-                        <button onclick='openEditPopup(@json($event))' class="text-light-primary dark:text-dark-primary hover:underline"><i class="fas fa-edit"></i></button>
+                        <button onclick='openEditPopup(@json($event))' class="text-light-primary dark:text-dark-primary hover:scale-125 duration-300"><i class="fas fa-edit"></i></button>
                             <form action="{{ route('events.destroy', $event) }}" method="POST" class="inline-block">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="ml-4 text-red-500 hover:underline"><i class="fas fa-trash"></i></button>
+                                <button type="submit" class="ml-4 text-red-500 hover:scale-125 duration-300"><i class="fas fa-trash"></i></button>
                             </form>
                         </td>
                     </tr>

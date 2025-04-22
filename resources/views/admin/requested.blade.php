@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,12 +52,12 @@
                         <td class="p-4">Sender</td>
                         <td class="p-4">
                             <!-- approved -->
-                            <form  method="POST" class="inline">
+                            <form action="{{ route('requested.approve', $event->id) }}"  method="POST" class="inline">
                                 @csrf
                                 <button type="submit" class="text-green-500 hover:underline"><i class="fas fa-check"></i></button>
                             </form>
                             <!-- rejected -->
-                            <form  method="POST" class="inline ml-4">
+                            <form action="{{ route('requested.reject', $event->id) }}" method="POST" class="inline ml-4">
                                 @csrf
                                 <button type="submit" class="text-red-500 hover:underline"><i class="fas fa-ban"></i></button>
                             </form>
@@ -65,7 +65,7 @@
                     </tr>
                 @empty
                     <tr class="border-b border-gray-200 dark:border-gray-700">
-                        <td colspan="4" class="p-4 text-center">No requested events found.</td>
+                        <td colspan="6" class="p-10 text-center">No requested events found.</td>
                     </tr>
                 @endforelse
                 </tbody>
