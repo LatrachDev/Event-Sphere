@@ -40,6 +40,7 @@
                 </svg>
             </div>
             <span>Request</span>
+            <div class="rounded-full bg-light-error w-6 h-6 flex justify-center items-center ml-2">{{$requestedCount}}</div>
         </a>
     </nav>
 

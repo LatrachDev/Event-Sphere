@@ -11,12 +11,38 @@ class RequestedController extends Controller
     /**
      * Display a listing of the resource.
      */
+    // public function index()
+    // {
+    //     $requestedEvents = Event::where('status', 'pending')->get();
+    //     // $requestedCount = $requestedEvents->count(); 
+    //     return view('admin.requested', ['requestedEvents' => $requestedEvents]);
+    // }
+
     public function index()
     {
         $requestedEvents = Event::where('status', 'pending')->get();
-        return view('admin.requested', ['requestedEvents' => $requestedEvents]);
+        $requestedCount = $requestedEvents->count(); 
+        // dd( $requestedEvents);
+        return view('admin.requested', [
+            
+            'requestedCount' => $requestedCount,
+            'requestedEvents' => $requestedEvents
+        
+        ]);
     }
 
+    public function requestedCount()
+    {
+        $count = Event::where('status', 'pending')->count();
+       
+        // dd( $requestedEvents);
+        return view('partials.sidebar', [
+            
+            'requestedCount' => $requestedCount,
+            'requestedEvents' => $requestedEvents
+        
+        ]);
+    }
     public function approve($id)
     {
         $event = Event::findOrFail($id);

@@ -12,52 +12,52 @@
 
     <div class="flex min-h-screen">
 
-        @include('partials.sidebar')
+    @include('partials.sidebar', ['requestedCount' => $requestedCount])
         <!-- Main content -->
         <div class="flex-1 p-8 font-montserrat">
             <h1 class="text-3xl font-semibold my-10">Admin Dashboard</h1>
             
             <h2 class="text-lg mb-6">Statistics</h2>
             
-<!-- Stat cards -->
-<div class="grid grid-cols-4 gap-4 mb-6">
-    <!-- Total Users -->
-    <div class="bg-dark-accent py-7 bg-opacity-90 rounded-lg p-4 flex flex-col transition-all duration-300 hover:scale-[1.02] dark:hover:bg-dark-accent hover:bg-light-accent">
-        <div class="flex justify-between mb-2">
-            <span class="text-[#ddeffa] opacity-80 dark:text-[#ddeffa] ">Total Users</span>
-            <i class="fas fa-users text-[#ddeffa] opacity-80 dark:text-[#ddeffa] "></i>
-        </div>
-        <div class="text-4xl font-bold text-dark-text opacity-80 dark:text-dark-text">92,680</div>
-    </div>
-    
-    <!-- Total Events -->
-    <div class="bg-dark-half py-7 rounded-lg p-4 flex flex-col transition-all duration-300 hover:scale-[1.02] dark:hover:bg-dark-accent hover:bg-light-accent">
-        <div class="flex justify-between mb-2">
-            <span class="text-dark-text opacity-80 dark:text-dark-text ">Total Events</span>
-            <i class="fas fa-eye text-dark-text opacity-80 dark:text-dark-text "></i>
-        </div>
-        <div class="text-4xl font-bold text-dark-text opacity-80 dark:text-dark-text">580.5K</div>
-    </div>
-    
-    <!-- Incoming Events -->
-    <div class="bg-dark-half py-7 rounded-lg p-4 flex flex-col transition-all duration-300 hover:scale-[1.02] dark:hover:bg-dark-accent hover:bg-light-accent">
-        <div class="flex justify-between mb-2">
-            <span class="text-dark-text opacity-80 dark:text-dark-text ">Incomming events</span>
-            <i class="fas fa-chart-line text-dark-text opacity-80 dark:text-dark-text "></i>
-        </div>
-        <div class="text-4xl font-bold text-dark-text opacity-80 dark:text-dark-text">15.43%</div>
-    </div>
-    
-    <!-- Closed Events -->
-    <div class="bg-dark-half py-7 rounded-lg p-4 flex flex-col transition-all duration-300 hover:scale-[1.02] dark:hover:bg-dark-accent hover:bg-light-accent">
-        <div class="flex justify-between mb-2">
-            <span class="text-dark-text opacity-80 dark:text-dark-text ">Closed event</span>
-            <i class="fas fa-chart-line text-dark-text opacity-80 dark:text-dark-text "></i>
-        </div>
-        <div class="text-4xl font-bold text-dark-text opacity-80 dark:text-dark-text ">15.43%</div>
-    </div>
-</div>
-            
+            <!-- Stat cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <!-- Total Users -->
+                <div class="bg-dark-accent py-7 hover:text-dark-text rounded-lg p-4 flex flex-col transition-all duration-300 hover:scale-[1.02] dark:hover:bg-dark-accent hover:bg-light-accent">
+                    <div class="flex justify-between mb-2">
+                        <span>Total Users</span>
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="text-4xl font-bold">{{ $totalUsers }}</div>
+                </div>
+
+                <!-- Total Events -->
+                <div class="bg-dark-half py-7 rounded-lg p-4 flex flex-col transition-all text-dark-text hover:text-dark-text duration-300 hover:scale-[1.02] dark:hover:bg-dark-accent hover:bg-light-accent">
+                    <div class="flex justify-between mb-2">
+                        <span class="dark:text-dark-text">Total Events</span>
+                        <i class="fas fa-eye dark:text-dark-text"></i>
+                    </div>
+                    <div class="text-4xl font-bold dark:text-dark-text">{{ $totalEvents }}</div>
+                </div>
+
+                <!-- Incoming Events -->
+                <div class="bg-dark-half py-7 rounded-lg p-4 flex flex-col transition-all duration-300 hover:scale-[1.02] dark:hover:bg-dark-accent hover:bg-light-accent">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-dark-text dark:text-dark-text">Incoming Events</span>
+                        <i class="fas fa-chart-line text-dark-text dark:text-dark-text"></i>
+                    </div>
+                    <div class="text-4xl font-bold text-dark-text dark:text-dark-text">15.43%</div>
+                </div>
+
+                <!-- Closed Events -->
+                <div class="bg-dark-half py-7 rounded-lg p-4 flex flex-col transition-all duration-300 hover:scale-[1.02] dark:hover:bg-dark-accent hover:bg-light-accent">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-dark-text dark:text-dark-text">Closed Events</span>
+                        <i class="fas fa-chart-line text-dark-text dark:text-dark-text"></i>
+                    </div>
+                    <div class="text-4xl font-bold text-dark-text dark:text-dark-text">15.43%</div>
+                </div>
+            </div>
+
             <!-- Charts Row -->
             <div class="grid grid-cols-3 gap-4">
                 <!-- Pie Chart -->

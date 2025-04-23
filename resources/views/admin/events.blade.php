@@ -11,7 +11,7 @@
 <body class="bg-light-background text-light-text dark:bg-dark-background dark:text-dark-text font-poppins">
 <div class="flex min-h-screen">
 
-    @include('partials.sidebar')
+    @include('partials.sidebar', ['requestedCount' => $requestedCount])
 
     <div class="flex-1 p-8 font-montserrat">
         <h1 class="text-3xl font-semibold my-10">Manage Events</h1>

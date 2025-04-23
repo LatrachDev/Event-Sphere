@@ -11,7 +11,7 @@
 <body class="bg-light-background text-light-text dark:bg-dark-background dark:text-dark-text font-poppins">
 
     <div class="flex min-h-screen">
-        @include('partials.sidebar')
+    @include('partials.sidebar', ['requestedCount' => $requestedCount])
         
         <!-- Main content -->
         <div class="flex-1 px-8 py-6 font-montserrat">
@@ -31,7 +31,7 @@
                         <span class="text-[#ddeffa] opacity-80">Total Users</span>
                         <i class="fas fa-users text-[#ddeffa] opacity-80"></i>
                     </div>
-                    <div class="text-4xl text-[#ddeffa] font-bold">1,248</div>
+                    <div class="text-4xl text-[#ddeffa] font-bold">{{ $totalUsers }}</div>
                 </div>
                 
                 <!-- Active Users -->
@@ -40,7 +40,7 @@
                         <span class="text-dark-text opacity-80">Active Users</span>
                         <i class="fas fa-user-check text-dark-text opacity-80"></i>
                     </div>
-                    <div class="text-4xl font-bold ">1,120</div>
+                    <div class="text-4xl font-bold ">{{ $activeUsers }}</div>
                 </div>
                 
                 <!-- Banned Users -->
@@ -49,7 +49,7 @@
                         <span class="text-dark-text opacity-80">Banned Users</span>
                         <i class="fas fa-user-slash text-dark-text opacity-80"></i>
                     </div>
-                    <div class="text-4xl font-bold">128</div>
+                    <div class="text-4xl font-bold">{{ $bannedUsers }}</div>
                 </div>
                 
                 <!-- Events Created -->
@@ -58,7 +58,7 @@
                         <span class="text-dark-text opacity-80">Total Events Created</span>
                         <i class="fas fa-calendar-alt text-dark-text opacity-80"></i>
                     </div>
-                    <div class="text-4xl font-bold ">5,843</div>
+                    <div class="text-4xl font-bold ">{{ $totalEvents }}</div>
                 </div>
             </div>
             

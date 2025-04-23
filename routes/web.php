@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController as AdminAdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\RequestedController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
@@ -35,9 +36,8 @@ Route::middleware('user')->controller(AuthController::class)->group(function (){
 Route::middleware('admin')->controller(AdminController::class)->group(function (){
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
     
-    Route::get('/users', function () {
-        return view('admin.users');
-    })->name('users.index');
+
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
 
     Route::post('/requested/{id}/approve', [RequestedController::class, 'approve'])->name('requested.approve');
     Route::post('/requested/{id}/reject', [RequestedController::class, 'reject'])->name('requested.reject');
