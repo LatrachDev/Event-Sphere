@@ -42,10 +42,10 @@
                 <!-- Incoming Events -->
                 <div class="bg-dark-half py-7 rounded-lg p-4 flex flex-col transition-all duration-300 hover:scale-[1.02] dark:hover:bg-dark-accent hover:bg-light-accent">
                     <div class="flex justify-between mb-2">
-                        <span class="text-dark-text dark:text-dark-text">Incoming Events</span>
+                        <span class="text-dark-text dark:text-dark-text">Incoming Events <span class="text-xs">(30days Left)</span> </span>
                         <i class="fas fa-chart-line text-dark-text dark:text-dark-text"></i>
                     </div>
-                    <div class="text-4xl font-bold text-dark-text dark:text-dark-text">15.43%</div>
+                    <div class="text-4xl font-bold text-dark-text dark:text-dark-text">{{ $incomingEvents }}</div>
                 </div>
 
                 <!-- Closed Events -->
@@ -54,7 +54,7 @@
                         <span class="text-dark-text dark:text-dark-text">Closed Events</span>
                         <i class="fas fa-chart-line text-dark-text dark:text-dark-text"></i>
                     </div>
-                    <div class="text-4xl font-bold text-dark-text dark:text-dark-text">15.43%</div>
+                    <div class="text-4xl font-bold text-dark-text dark:text-dark-text">{{ $pastEventsCount  }}</div>
                 </div>
             </div>
 

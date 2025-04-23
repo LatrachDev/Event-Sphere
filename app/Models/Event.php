@@ -27,18 +27,6 @@ class Event extends Model
         return $this->belongsTo(User::class);
     }
 
-    protected static function booted()
-    {
-        static::created(function ($event) {
-            $event->user->increment('events_count');
-        });
-
-        static::deleted(function ($event) {
-            $event->user->decrement('events_count');
-        });
-    }
-
-
     // public function tickets()
     // {
     //     return $this->hasMany(Ticket::class);
