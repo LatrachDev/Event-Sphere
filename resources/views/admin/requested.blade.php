@@ -7,6 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script>
+      if (
+        localStorage.getItem("theme") === "dark" ||
+        (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
 </head>
 <body class="bg-light-background text-light-text dark:bg-dark-background dark:text-dark-text font-poppins">
 <div class="flex min-h-screen">
@@ -79,16 +87,9 @@
 
 <script>
 
-    // dark mode toggle
     function toggleDarkMode() {
         document.documentElement.classList.toggle("dark");
         localStorage.setItem("theme", document.documentElement.classList.contains("dark") ? "dark" : "light");
-    }
-
-    // check for saved theme preference
-    if (localStorage.getItem("theme") === "dark" || 
-        (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-        document.documentElement.classList.add("dark");
     }
 </script>
 
