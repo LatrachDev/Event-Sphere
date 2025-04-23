@@ -8,12 +8,10 @@ use Illuminate\View\Component;
 
 class Sidebar extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
+    public $requestedCount;
+    public function __construct($requestedCount = 0)
     {
-        //
+        $this->requestedCount = $requestedCount;
     }
 
     /**

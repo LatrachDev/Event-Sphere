@@ -11,7 +11,9 @@
 <body class="bg-light-background text-light-text dark:bg-dark-background dark:text-dark-text font-poppins">
 <div class="flex min-h-screen">
 
-    @include('partials.sidebar', ['requestedCount' => $requestedCount])
+    <!-- include('partials.sidebar', ['requestedCount' => $requestedCount]) -->
+    <x-sidebar :requested-count="$requestedCount" />
+
 
 
     <div class="flex-1 p-8 font-montserrat">

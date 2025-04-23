@@ -16,7 +16,8 @@ class EventController extends Controller
     {
         $events = Event::paginate(5);
         $categories = Category::all();
-        return view('admin.events', compact(['events', 'categories']));
+        $requestedCount = Event::where('status', 'pending')->count();
+        return view('admin.events', compact(['events', 'categories', 'requestedCount']));
     }
 
     /**

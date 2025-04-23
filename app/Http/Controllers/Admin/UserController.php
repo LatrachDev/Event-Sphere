@@ -22,7 +22,9 @@ class UserController extends Controller
         $bannedUsers = User::where('status', 'banned')->count();
         $totalEvents = Event::count();
 
-        return view('admin.users', compact('totalUsers', 'activeUsers', 'bannedUsers', 'totalEvents'));
+        $requestedCount = Event::where('status', 'pending')->count();
+
+        return view('admin.users', compact('totalUsers', 'activeUsers', 'bannedUsers', 'totalEvents', 'requestedCount'));
     }
 
     public function userEvents($id)

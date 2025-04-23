@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryStoreRequest;
 use App\Http\Requests\CategoryUpdateRequest;
 use App\Models\Category;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -16,7 +17,10 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::paginate(5);
-        return view('admin.categories', compact('categories'));
+
+        $requestedCount = Event::where('status', 'pending')->count();
+
+        return view('admin.categories', compact(['categories', 'requestedCount']));
     }
 
     /**

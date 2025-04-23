@@ -13,6 +13,8 @@ class AdminController extends Controller
         $totalUsers = User::count();
         $totalEvents = Event::count();
 
-        return view('admin.dashboard', compact('totalUsers', 'totalEvents'));
+        $requestedCount = Event::where('status', 'pending')->count();
+
+        return view('admin.dashboard', compact('totalUsers', 'totalEvents', 'requestedCount'));
     }
 }
