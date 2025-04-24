@@ -79,67 +79,39 @@
     </div>
 
     <!-- events card -->
-    <div class="px-4 sm:px-8 mt-5 font-poppins mb-10">
+     @forelse ($allEvents as $event)
+     <div class="px-4 sm:px-8 mt-5 font-poppins mb-10">
         <div class="relative max-w-[1000px] mx-auto bg-cover bg-center sm:aspect-[2/1] aspect-[4/3] max-h-[500px] sm:max-h-[500px] overflow-hidden rounded-xl drop-shadow-lg"
-            style="background-image: url('{{ asset('images/event-pic.jpg') }}')">
-            
+        style="background-image: url('{{ asset('storage/' . $event->image) }}')">
+
             <!-- Overlay gradient -->
             <div class="absolute inset-0 bg-gradient-to-r from-black/100 to-black/0 z-10"></div>
 
             <!-- Content -->
             <div class="relative z-20 p-6 text-white flex flex-col justify-center h-full max-w-[60%] space-y-5">
-                <p class="text-sm mb-1">July 27/05/2026</p>
-                <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight mb-2">MUSIC FEST 2025</h2>
-                <p class="text-base sm:text-lg mb-4">An unforgettable night of live performances and entertainment.</p>
+                <p class="text-sm mb-1">{{ $event->start_time }}</p>
+                <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight mb-2">{{ $event->title }}</h2>
+                <p class="text-base sm:text-lg mb-4">{{ $event->description }}</p>
                 <button class="px-5 py-2 border font-light  border-white tracking-widest text-white hover:bg-white hover:text-black transition-all duration-300 w-fit">
                     VIEW DETAILS
                 </button>
             </div>
-            
+        </div>
+    </div>
+    @empty
+        <div class="w-full flex justify-center items-center mt-10">
+            <p class="text-xl text-gray-500">No events available at the moment.</p>
+        </div>
+    @endforelse
+    
+    <div class="w-full">
+        <div class="mt-4 mx-auto w-8/12">
+            {{ $allEvents->links() }}
         </div>
     </div>
 
-    <!-- events card 2 -->
-    <div class="px-4 sm:px-8 mt-5 font-poppins mb-10">
-        <div class="relative max-w-[1000px] mx-auto bg-cover bg-center sm:aspect-[2/1] aspect-[4/3] max-h-[500px] sm:max-h-[500px] overflow-hidden rounded-xl drop-shadow-lg"
-            style="background-image: url('{{ asset('images/rock.jpg') }}')">
-            
-            <!-- Overlay gradient -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/100 to-black/0 z-10"></div>
 
-            <!-- Content -->
-            <div class="relative z-20 p-6 text-white flex flex-col justify-center h-full max-w-[60%]">
-                <p class="text-sm mb-1">September 3, 2025</p>
-                <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight mb-2">Rock & Roll Live Night</h2>
-                <p class="text-base sm:text-lg mb-4">Experience the energy of live rock bands performing your favorite hits in an unforgettable concert!</p>
-                <button class="px-5 py-2 border font-light  border-white tracking-widest text-white hover:bg-white hover:text-black transition-all duration-300 w-fit">
-                    VIEW DETAILS
-                </button>
-            </div>
-            
-        </div>
-    </div>
 
-    <!-- events card 3 -->
-    <div class="px-4 sm:px-8 mt-5 font-poppins mb-10">
-        <div class="relative max-w-[1000px] mx-auto bg-cover bg-center sm:aspect-[2/1] aspect-[4/3] max-h-[500px] sm:max-h-[500px] overflow-hidden rounded-xl drop-shadow-lg"
-            style="background-image: url('{{ asset('images/event-pic.jpg') }}')">
-            
-            <!-- overlay gradient -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/100 to-black/0 z-10"></div>
-
-            <!-- content -->
-            <div class="relative z-20 p-6 text-white flex flex-col justify-center h-full max-w-[60%]">
-                <p class="text-sm mb-1">27/05/2026</p>
-                <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight mb-2">MUSIC FEST 2025</h2>
-                <p class="text-base sm:text-lg mb-4">An unforgettable night of live performances and entertainment.</p>
-                <button class="px-5 py-2 border font-light  border-white tracking-widest text-white hover:bg-white hover:text-black transition-all duration-300 w-fit">
-                    VIEW DETAILS
-                </button>
-            </div>
-            
-        </div>
-    </div>
 
 
         
