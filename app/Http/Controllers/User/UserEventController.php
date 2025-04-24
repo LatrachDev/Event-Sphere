@@ -11,8 +11,9 @@ class UserEventController extends Controller
 {
     public function home()
     {
-        $allEvents = Event::paginate(5);
-
+        // $allEvents = Event::paginate(5);
+        $allEvents = Event::orderBy('start_time', 'desc')->paginate(5);
+        $totalEvents = Event::count();
         
         $now = Carbon::now();
         $monthLater = Carbon::now()->addDays(30);
@@ -21,6 +22,6 @@ class UserEventController extends Controller
         $pastEventsCount = Event::where('start_time', '<', Carbon::now())->count();
 
 
-        return view('home', compact(['allEvents']));
+        return view('home', compact(['allEvents', 'incomingEvents', 'pastEventsCount', 'totalEvents']));
     }
 }
