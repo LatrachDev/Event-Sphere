@@ -47,5 +47,9 @@ Route::middleware('admin')->controller(AdminController::class)->group(function (
     Route::resource(('/categories'), CategoryController::class)->except(['show', 'edit']);
     Route::resource('/events', EventController::class)->except(['show', 'edit']);
     // Route::post('events/test', [EventController::class, 'test'])->name('events.test');
+
+    Route::post('/users/{id}', [UserController::class, 'toggleStatus'])->name('admin.users.toggleStatus');
+    
+
     
 });

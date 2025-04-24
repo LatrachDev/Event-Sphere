@@ -69,10 +69,23 @@
                     <div class="text-4xl font-bold ">{{ $totalEvents }}</div>
                 </div>
             </div>
+
+            @if (session('success'))
+                <div id="successMessage" class="bg-green-100 border border-green-400 text-dark-success px-4 py-3 rounded mb-4">
+                    {{ session('success') }}
+                </div>
+                <script>
+                    setTimeout(() => {
+                        const msg = document.getElementById('successMessage');
+                        if (msg) msg.style.display = 'none';
+                    }, 5000);
+                </script>
+            @endif
             
             <!-- User Table -->
             <div class="bg-white dark:bg-dark-half rounded-lg shadow overflow-hidden">
                 <div class="overflow-x-auto">
+
                     <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                         <thead class="bg-gray-50 dark:bg-gray-800">
                             <tr>
@@ -106,21 +119,18 @@
                                 
                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full uppercase {{ $user->status === 'active' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200' }}">{{ $user->status }}</span>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium flex">
-        
-                                @if ($user->status === 'active')
-                                <button class="mx-auto text-red-500 hover:text-red-700">
-                                    <i class="fas fa-ban"></i>
-                                </button>
-                                @else
-                                <button class="mx-auto text-green-500 hover:text-green-700">
-                                        <i class="fas fa-check"></i>
-                                </button>
-                                @endif
+                            <td>
+
+                                <form class="px-6 py-4 whitespace-nowrap text-sm font-medium flex" action="{{ route('admin.users.toggleStatus', $user->id) }}" method="POST">
+                                    @csrf
+                                    <button type="submit"
+                                        class="{{ $user->status === 'active' ? 'text-red-500 hover:text-red-700 mx-auto' : 'mx-auto text-green-500 hover:text-green-700' }}">
+                                        <i class="fas {{ $user->status === 'active' ? 'fa-ban' : 'fa-check' }}"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                         
-
                         @empty
                         <p>NO user</p>
                        

@@ -30,10 +30,15 @@ class UserController extends Controller
         return view('admin.users', compact('totalUsers', 'activeUsers', 'bannedUsers', 'totalEvents', 'requestedCount', 'users'));
     }
 
-    public function userEvents($id)
+    public function toggleStatus($id)
     {
         $user = User::findOrFail($id);
-        $event_count = $user->events()->count();
-        return view('admin.users', compact('user', 'event_count'));
+
+        $user->status = $user->status === 'active' ? 'banned' : 'active';
+        $user->save();
+
+        return back()->with('success', 'User status updated successfully.');
     }
+
+
 }
