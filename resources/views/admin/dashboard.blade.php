@@ -110,7 +110,7 @@
             labels: ['Approved', 'Pending', 'Rejected'],
             datasets: [{
                 label: 'Event Status',
-                data: pieData, // Dynamic counts
+                data: pieData, 
                 backgroundColor: ['#C228F6', '#721093', '#F44336'],
                 borderWidth: 1
             }]
