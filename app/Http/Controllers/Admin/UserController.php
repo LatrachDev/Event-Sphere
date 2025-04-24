@@ -18,13 +18,16 @@ class UserController extends Controller
     public function index()
     {
         $totalUsers = User::count();
+        $users = User::where('role', '!=', 'admin')->paginate(5);
+        // $users = User::where('role' !== 'admin')->paginate(5);
+        // dd($users);
         $activeUsers = User::where('status', 'active')->count();
         $bannedUsers = User::where('status', 'banned')->count();
         $totalEvents = Event::count();
 
         $requestedCount = Event::where('status', 'pending')->count();
 
-        return view('admin.users', compact('totalUsers', 'activeUsers', 'bannedUsers', 'totalEvents', 'requestedCount'));
+        return view('admin.users', compact('totalUsers', 'activeUsers', 'bannedUsers', 'totalEvents', 'requestedCount', 'users'));
     }
 
     public function userEvents($id)
