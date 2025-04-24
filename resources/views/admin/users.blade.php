@@ -81,6 +81,16 @@
                     }, 5000);
                 </script>
             @endif
+
+            @if ($errors->any())
+                <div class="bg-red-100 text-red-700 p-4 mb-4 rounded">
+                    <ul class="list-disc pl-5">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             
             <!-- User Table -->
             <div class="bg-white dark:bg-dark-half rounded-lg shadow overflow-hidden">
@@ -138,6 +148,9 @@
                     </tbody>
                             
                     </table>
+                    <div class="mt-4">
+                        {{ $users->links() }}
+                    </div>
                 </div>
                 
                 <!-- Pagination -->
