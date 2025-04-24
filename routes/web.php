@@ -36,6 +36,7 @@ Route::middleware('guest')->controller(AuthController::class)->group(function ()
 
 Route::middleware('user')->controller(UserEventController::class)->group(function (){
     Route::get('/home', [UserEventController::class, 'home'])->name('home');
+    Route::get('/event/{id}', [UserEventController::class, 'show'])->name('details');
 });
 
 Route::middleware('admin')->controller(AdminController::class)->group(function (){

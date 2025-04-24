@@ -152,9 +152,9 @@
                 CLOSED
             </div>
             @else
-            <button class="px-5 py-2 border font-light  border-white tracking-widest text-white hover:bg-white hover:text-black transition-all duration-300 w-fit">
+            <a href="{{ route('details', ['id' => $event->id]) }}" class="px-5 py-2 border font-light  border-white tracking-widest text-white hover:bg-white hover:text-black transition-all duration-300 w-fit">
                 VIEW DETAILS
-            </button>
+            </a>
             @endif
             
         </div>

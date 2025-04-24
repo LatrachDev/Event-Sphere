@@ -24,4 +24,10 @@ class UserEventController extends Controller
 
         return view('home', compact(['allEvents', 'incomingEvents', 'pastEventsCount', 'totalEvents']));
     }
+
+    public function show($id)
+    {
+        $event = Event::findOrFail($id); 
+        return view('event.details', compact('event'));
+    }
 }
