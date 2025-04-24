@@ -12,7 +12,28 @@
     @vite('resources/css/app.css')
 </head>
 <body class="bg-light-background dark:bg-dark-background dark:text-dark-text transition-colors duration-2000 overflow-x-hidden">
+@if (session('success'))
+                <div id="successMessage" class="bg-green-100 border border-green-400 text-dark-success px-4 py-3 rounded mb-4">
+                    {{ session('success') }}
+                </div>
+                <script>
+                    setTimeout(() => {
+                        const msg = document.getElementById('successMessage');
+                        if (msg) msg.style.display = 'none';
+                    }, 5000);
+                </script>
+            @endif
 
+            @if ($errors->any())
+                <div class="bg-red-100 text-red-700 p-4 mb-4 rounded">
+                    <ul class="list-disc pl-5">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            
    <section style="background-image: url({{ asset('images/mainBGlogin.jpg') }})" 
         class="flex flex-col md:flex-row w-full min-h-screen text-dark-text justify-center items-center bg-cover bg-center p-4 font-montserrat">
         

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\RequestedController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\User\UserEventController;
 use Illuminate\Support\Facades\Route;
 
 // authentification routes
@@ -28,9 +29,13 @@ Route::middleware('guest')->controller(AuthController::class)->group(function ()
 });
 
 
-Route::middleware('user')->controller(AuthController::class)->group(function (){
-    Route::get('/home', [AuthController::class, 'home'])->name('home');
+// Route::middleware('user')->controller(AuthController::class)->group(function (){
+//     Route::get('/home', [AuthController::class, 'home'])->name('home');
 
+// });
+
+Route::middleware('user')->controller(UserEventController::class)->group(function (){
+    Route::get('/home', [UserEventController::class, 'home'])->name('home');
 });
 
 Route::middleware('admin')->controller(AdminController::class)->group(function (){

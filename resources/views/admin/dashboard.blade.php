@@ -30,12 +30,12 @@
             <!-- Stat cards -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                 <!-- Total Users -->
-                <div class="bg-dark-accent py-7 hover:text-dark-text rounded-lg p-4 flex flex-col transition-all duration-300 hover:scale-[1.02] dark:hover:bg-dark-accent hover:bg-light-accent">
+                <div class="bg-dark-accent text-dark-text py-7 hover:text-dark-text rounded-lg p-4 flex flex-col transition-all duration-300 hover:scale-[1.02] dark:hover:bg-dark-accent hover:bg-light-accent">
                     <div class="flex justify-between mb-2">
                         <span>Total Users</span>
                         <i class="fas fa-users"></i>
                     </div>
-                    <div class="text-4xl font-bold">{{ $totalUsers }}</div>
+                    <div class="text-4xl font-bold ">{{ $totalUsers }}</div>
                 </div>
 
                 <!-- Total Events -->

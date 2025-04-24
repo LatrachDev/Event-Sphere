@@ -14,10 +14,10 @@ class AuthController extends Controller
         return view('welcome');
     }
 
-    public function home()
-    {
-        return view('home');
-    }
+    // public function home()
+    // {
+    //     return view('home');
+    // }
     public function showRegister()
     {
         return view('auth.register');
@@ -56,7 +56,7 @@ class AuthController extends Controller
             $request->session()->regenerate();
 
             if (Auth::user()->role === 'admin') {
-            return redirect()->route('dashboard');
+                return redirect()->route('dashboard');
             }
 
             return redirect()->route('home');

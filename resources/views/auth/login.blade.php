@@ -13,8 +13,9 @@
 </head>
 <body class="bg-light-background dark:bg-dark-background dark:text-dark-text transition-colors duration-2000 overflow-x-hidden">
 
-   <section style="background-image: url({{ asset('images/mainBGlogin.jpg') }})" 
-        class="flex flex-col md:flex-row w-full min-h-screen text-dark-text justify-center items-center bg-cover bg-center p-4 font-montserrat">
+    
+    <section style="background-image: url({{ asset('images/mainBGlogin.jpg') }})" 
+    class="flex flex-col md:flex-row w-full min-h-screen text-dark-text justify-center items-center bg-cover bg-center p-4 font-montserrat">
         
         <!-- left image - hidden on mobile -->
         <div class="hidden md:block md:w-full lg:w-4/12 h-[400px] md:h-[500px] lg:h-[600px] mr-0 md:mr-2">
