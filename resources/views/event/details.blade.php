@@ -27,7 +27,29 @@
         </nav>
     </header>
 
+    
+    
     <div class=" mx-auto bg-cover bg-center h-[90vh] rounded-xl drop-shadow-lg mt-20" style="background-image: url('{{ asset('storage/' . $event->image) }}')">
+    @if (session('error'))
+        <div class="fixed top-24 left-1/2 transform -translate-x-1/2 w-[90%] max-w-md z-50">
+            <div id="errorMessage" class="flex items-start justify-between gap-4 bg-red-100 text-red-800 dark:bg-red-200 dark:text-red-900 border border-red-300 dark:border-red-400 p-4 rounded-xl shadow-lg animate-slide-down">
+                <div class="flex-1">
+                    <strong class="block font-semibold">Oops!</strong>
+                    <span class="block text-sm mt-1">{{ session('error') }}</span>
+                </div>
+            </div>
+        </div>
+
+
+
+        <style>
+            @keyframes slide-down {
+                from { opacity: 0; transform: translateY(-20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        </style>
+    @endif
+        
         <!-- Overlay gradient -->
         <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-black/100 to-black/0 z-10"></div>
         

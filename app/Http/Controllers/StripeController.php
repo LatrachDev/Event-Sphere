@@ -46,6 +46,20 @@ class StripeController extends Controller
             'cancel_url' => route('payment.cancel'),
         ]);
 
+        $event_id = $request->get('event_id');
+
+        if (!$event_id) {
+            return redirect()->route('home')->with('error', 'Invalid event');
+        }
+
+        $alreadyHasTicket = Ticket::where('user_id', auth()->id())
+                                ->where('event_id', $event_id)
+                                ->exists();
+
+        if ($alreadyHasTicket) {
+            return redirect()->back()->with('error', 'You already have a ticket for this event.');
+        }
+
         return redirect($checkout_session->url);
     }
 
@@ -53,11 +67,7 @@ class StripeController extends Controller
     {
         $session_id = $request->get('session_id');
         $event_id = $request->get('event_id');
-
-        if (!$event_id) {
-            return redirect()->route('home')->with('error', 'Invalid event');
-        }
-
+        
         $exists = Ticket::where('stripe_id', $session_id)->exists();
         if ($exists) {
             return redirect()->route('home')->with('success', 'Payment already completed.');

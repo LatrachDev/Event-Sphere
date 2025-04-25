@@ -116,7 +116,27 @@
             <button class="text-xs text-right text-dark-text"><i class="fas fa-eye mr-2"></i>view</button>
         </div>
     </div>
+    @if (session('error'))
+        <div id="successMessage" class="bg-red-100 text-dark-error p-4 mb-4 rounded">
+            {{ session('error') }}
+        </div>
+        <script>
+            setTimeout(() => {
+                const msg = document.getElementById('successMessage');
+                if (msg) msg.style.display = 'none';
+            }, 5000);
+        </script>
+    @endif
 
+    @if ($errors->any())
+        <div class="bg-red-100 text-red-700 p-4 mb-4 rounded">
+            <ul class="list-disc pl-5">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="w-8/12 mx-auto mt-10">
         <h1 class="text-2xl md:text-4xl uppercase font-semibold text-center font-poppins">upcoming Events</h1>
         <p class="font-poppins text-center text-sm md:text-xl font-light my-10">Don't miss out on the best concerts, club nights, and sporting action book your spot now and make memories that last a lifetime!</p>
