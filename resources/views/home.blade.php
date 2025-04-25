@@ -16,9 +16,11 @@
     <header class="fixed top-0 w-full flex items-center justify-between px-4 sm:px-10 py-5 font-poppins bg-dark-background/50 backdrop-blur-xl z-50">
         
         <!-- desktop -->
-        <img src="{{ asset('images/EventSphere_Logo.png') }}" alt="Logo" class="w-32 sm:w-48">
+        <a href="{{ route('home') }}"><img src="{{ asset('images/EventSphere_Logo.png') }}" alt="Logo" class="w-32 sm:w-48"></a>
         <nav class="text-dark-text hidden md:flex space-x-6 lg:space-x-8 items-center">
-            <a href="#main" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">My tickets</a>
+            <a href="{{ route('ticket') }}" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">My tickets</a>
+            <a href="{{ route('pastEvents') }}" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Closed</a>
+            <a href="{{ route('incomingEvents') }}" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Incoming</a>
             
             
             <button class="dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300" onclick="toggleDarkMode()">
@@ -45,10 +47,9 @@
                     <i class="fa-solid fa-xmark"></i>
                 </button>
 
-                <a href="#main" class="text-light-text dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Home</a>
-                <a href="#events" class="text-light-text dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Explore</a>
-                <a href="#contact" class="text-light-text dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Contact</a>
-                <a href="#about" class="text-light-text dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">About</a>
+                <a href="{{ route('ticket') }}" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">My tickets</a>
+                <a href="{{ route('pastEvents') }}" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Closed</a>
+                <a href="{{ route('incomingEvents') }}" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Incoming</a>
                 
                 <button class="mx-auto text-light-text dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300 flex items-center" onclick="toggleDarkMode()">
                     <i class="fa-solid fa-sun mr-2"></i> Dark Mode
@@ -103,7 +104,7 @@
                 <i class="fas fa-arrow-circle-down text-dark-text dark:text-dark-text"></i>
             </div>
             <div class="text-4xl font-bold text-dark-text dark:text-dark-text">{{ $incomingEvents }}</div>
-            <button class="text-xs text-right text-dark-text"><i class="fas fa-eye mr-2"></i>view</button>
+            <a href="{{ route('incomingEvents') }}" class="text-xs text-right text-dark-text"><i class="fas fa-eye mr-2"></i>view</a>
         </div>
 
         <!-- Closed Events -->
@@ -113,7 +114,7 @@
                 <i class="fas fa-ban text-dark-text dark:text-dark-text"></i>
             </div>
             <div class="text-4xl font-bold text-dark-text dark:text-dark-text">{{ $pastEventsCount  }}</div>
-            <button class="text-xs text-right text-dark-text"><i class="fas fa-eye mr-2"></i>view</button>
+            <a href="{{ route('pastEvents') }}" class="text-xs text-right text-dark-text"><i class="fas fa-eye mr-2"></i>view</a>
         </div>
     </div>
     @if (session('error'))
@@ -190,13 +191,7 @@
         <div class="mt-4 mx-auto w-8/12">
             {{ $allEvents->links() }}
         </div>
-    </div>
-
-
-
-
-
-        
+    </div>       
 
     <!-- footer -->
     <footer class="bg-[#721093] text-dark-text py-6 font-poppins mt-10">

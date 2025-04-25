@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\StripeController;
+use App\Http\Controllers\User\TicketController;
 use App\Http\Controllers\User\UserEventController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,7 +39,9 @@ Route::middleware('guest')->controller(AuthController::class)->group(function ()
 Route::middleware('user')->controller(UserEventController::class)->group(function (){
     Route::get('/home', [UserEventController::class, 'home'])->name('home');
     Route::get('/event/{id}', [UserEventController::class, 'show'])->name('details');
-    
+    Route::get('/incomingEvents', [UserEventController::class, 'incomingEvents'])->name('incomingEvents');
+    Route::get('/pastEvents', [UserEventController::class, 'pastEvents'])->name('pastEvents');
+    Route::get('ticket', [TicketController::class, 'index'])->name('ticket');
     // payment
     Route::post('/checkout/session', [StripeController::class, 'session'])->name('checkout.session');
     Route::get('/payment/success', [StripeController::class, 'success'])->name('payment.success');

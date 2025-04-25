@@ -30,4 +30,42 @@ class UserEventController extends Controller
         $event = Event::findOrFail($id); 
         return view('event.details', compact('event'));
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $events = Event::where('title', 'LIKE', "%{$search}%")
+            ->orWhere('description', 'LIKE', "%{$search}%")
+            ->orderBy('start_time', 'desc')
+            ->paginate(5);
+
+        return view('home', compact('events'));
+    }
+    public function filter(Request $request)
+    {
+        $category = $request->input('category');
+        $events = Event::where('category_id', $category)
+            ->orderBy('start_time', 'desc')
+            ->paginate(5);
+
+        return view('home', compact('events'));
+    }
+
+    public function incomingEvents()
+    {
+        $now = Carbon::now();
+        $monthLater = Carbon::now()->addDays(30);
+
+        $incomingEvents = Event::whereBetween('start_time', [$now, $monthLater])->paginate(5);
+
+        return view('event.incoming', compact('incomingEvents'));
+    }
+
+    public function pastEvents()
+    {
+        $pastEvents = Event::where('start_time', '<', Carbon::now())->paginate(5);
+
+        return view('event.closed', compact('pastEvents'));
+    }
+
 }
