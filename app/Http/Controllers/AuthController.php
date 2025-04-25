@@ -52,7 +52,9 @@ class AuthController extends Controller
             'password' => 'required|string',
         ]);
 
-        if (Auth::attempt($validated)) {
+        $remember = $request->has('remember');
+
+        if (Auth::attempt($validated, $remember)) {
             $request->session()->regenerate();
 
             if (Auth::user()->role === 'admin') {
