@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\RequestedController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\StripeController;
 use App\Http\Controllers\User\UserEventController;
 use Illuminate\Support\Facades\Route;
 
@@ -58,3 +59,9 @@ Route::middleware('admin')->controller(AdminController::class)->group(function (
 
     
 });
+
+
+Route::get('/checkout', [StripeController::class, 'checkout'])->name('checkout');
+Route::post('/checkout/session', [StripeController::class, 'session'])->name('checkout.session');
+Route::get('/payment/success', [StripeController::class, 'success'])->name('payment.success');
+Route::get('/payment/cancel', [StripeController::class, 'cancel'])->name('payment.cancel');
