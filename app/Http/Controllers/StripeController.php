@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Stripe\Checkout\Session as CheckoutSession;
@@ -41,7 +42,7 @@ class StripeController extends Controller
                 'quantity' => 1,
             ]],
             'mode' => 'payment',
-            'success_url' => route('payment.success'),
+            'success_url' => route('payment.success') . '?session_id={CHECKOUT_SESSION_ID}&event_id=' . $id,
             'cancel_url' => route('payment.cancel'),
         ]);
 
@@ -51,6 +52,23 @@ class StripeController extends Controller
     public function success(Request $request)
     {
         $session_id = $request->get('session_id');
+        $event_id = $request->get('event_id');
+
+        if (!$event_id) {
+            return redirect()->route('home')->with('error', 'Invalid event');
+        }
+
+        $exists = Ticket::where('stripe_id', $session_id)->exists();
+        if ($exists) {
+            return redirect()->route('home')->with('success', 'Payment already completed.');
+        } 
+
+        Ticket::create([
+            'user_id' => auth()->id(),
+            'event_id' => $event_id,
+            'stripe_id' => $session_id,
+        ]);
+    
 
         return view('payment.success');
     }
