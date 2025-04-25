@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Stripe\Checkout\Session as CheckoutSession;
@@ -21,6 +22,9 @@ class StripeController extends Controller
 
     public function session(Request $request)
     {
+        $id = $request->input('event_id');
+        $event = Event::findOrFail($id);
+
         Stripe::setApiKey(config('services.stripe.secret'));
 
         $checkout_session = CheckoutSession::create([
@@ -28,9 +32,10 @@ class StripeController extends Controller
             'line_items' => [[
                 'price_data' => [
                     'currency' => 'usd',
-                    'unit_amount' => 1500, // price in cents ($15.00)
+                    'unit_amount' => $event->price * 100, 
                     'product_data' => [
-                        'name' => 'Event Ticket',
+                        'name' => $event->title,
+                        'description' => $event->description,
                     ],
                 ],
                 'quantity' => 1,
@@ -43,33 +48,10 @@ class StripeController extends Controller
         return redirect($checkout_session->url);
     }
 
-    // public function checkout()
-    // {
-    //     \Stripe\Stripe::setApiKey(config('stripe.sk'));
-
-    //     $session = \Stripe\Checkout\Session::create([
-    //         'line_items' => [
-    //             [
-
-    //                 'price_data' => [
-    //                     'currency' => 'gbp',
-    //                     'product_data' => [
-    //                         'name' => 'Send me money',
-    //                     ],
-    //                     'unit_amount' => 500,
-    //                 ],
-    //                 'quantity' => 1,
-    //             ],
-    //         ],
-    //         'mode' => 'payment',
-    //         'success_url' => route('sucess'),
-    //         'cancel_url' => route('home'),
-    //     ]);
-    //     return redirect()->away($session->url);
-    // }
-
-    public function success()
+    public function success(Request $request)
     {
+        $session_id = $request->get('session_id');
+
         return view('payment.success');
     }
 

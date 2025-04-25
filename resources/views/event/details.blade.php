@@ -50,9 +50,11 @@
                 CLOSED
             </div>
             @else
-            <button class="px-5 py-2 border font-light border-white tracking-widest text-white hover:bg-white hover:text-black transition-all duration-300 w-fit">
-                BOOK NOW
-            </button>
+            <form action="{{ route('checkout.session') }}" method="POST" class="px-5 py-2 border font-light border-white tracking-widest text-white hover:bg-white hover:text-black transition-all duration-300 w-fit">
+                @csrf
+                <input type="hidden" name="event_id" value="{{ $event->id }}">
+                <button type="submit">BOOK NOW</button>    
+            </form>
             @endif
         </div>
     </div>

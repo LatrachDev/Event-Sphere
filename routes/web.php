@@ -38,6 +38,11 @@ Route::middleware('guest')->controller(AuthController::class)->group(function ()
 Route::middleware('user')->controller(UserEventController::class)->group(function (){
     Route::get('/home', [UserEventController::class, 'home'])->name('home');
     Route::get('/event/{id}', [UserEventController::class, 'show'])->name('details');
+    
+    // payment
+    Route::post('/checkout/session', [StripeController::class, 'session'])->name('checkout.session');
+    Route::get('/payment/success', [StripeController::class, 'success'])->name('payment.success');
+    Route::get('/payment/cancel', [StripeController::class, 'cancel'])->name('payment.cancel');
 });
 
 Route::middleware('admin')->controller(AdminController::class)->group(function (){
@@ -60,9 +65,3 @@ Route::middleware('admin')->controller(AdminController::class)->group(function (
 
     
 });
-
-
-Route::get('/checkout', [StripeController::class, 'checkout'])->name('checkout');
-Route::post('/checkout/session', [StripeController::class, 'session'])->name('checkout.session');
-Route::get('/payment/success', [StripeController::class, 'success'])->name('payment.success');
-Route::get('/payment/cancel', [StripeController::class, 'cancel'])->name('payment.cancel');
