@@ -26,7 +26,6 @@ class AdminController extends Controller
         $eventsStatus = [
             'approved' => Event::where('status', 'approved')->count(),
             'pending' => Event::where('status', 'pending')->count(),
-            'rejected' => Event::where('status', 'rejected')->count(),
         ];
 
         $year = Carbon::now()->year;

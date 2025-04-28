@@ -107,11 +107,11 @@
     new Chart(pieCtx, {
         type: 'pie',
         data: {
-            labels: ['Approved', 'Pending', 'Rejected'],
+            labels: ['Approved', 'Pending'],
             datasets: [{
                 label: 'Event Status',
                 data: pieData, 
-                backgroundColor: ['#C228F6', '#721093', '#F44336'],
+                backgroundColor: ['#C228F6', '#721093'],
                 borderWidth: 1
             }]
         },
