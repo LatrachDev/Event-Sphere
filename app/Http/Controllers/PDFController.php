@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ticket;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 class PDFController extends Controller
 {
-    public function generatePDF()
+    public function download($id)
     {
-        $data = [
-            'title' => 'Welcome to Laravel PDF Generation',
-            
-            'date' => date('m/d/Y')
-        ];
-        $pdf = \PDF::loadView('pdf.invoice', $data);
-        return $pdf->download('invoice.pdf');
+        $ticket = Ticket::with('event', 'user')->findOrFail($id);
+
+        $pdf = Pdf::loadView('event.pdf', compact('ticket'));
+
+        return $pdf->download('ticket-' . $ticket->id . '.pdf');
     }
 }

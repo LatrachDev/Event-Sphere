@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "0943736492514a4a9195de5ad0f4adc3",
+=======
+    "content-hash": "5a38463d68d88ee2d72d348e7e27d21b",
+>>>>>>> 8f342f0dd735c71de2b79088c630732a94e8d545
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -3586,6 +3590,7 @@
             "time": "2024-04-27T21:32:50+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "sabberworm/php-css-parser",
             "version": "v8.8.0",
             "source": {
@@ -3608,16 +3613,49 @@
             },
             "suggest": {
                 "ext-mbstring": "for parsing UTF-8 CSS"
+=======
+            "name": "stripe/stripe-php",
+            "version": "v17.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stripe/stripe-php.git",
+                "reference": "01ca9b5fdd899b8e4b69f83b85e09d96f6240220"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/01ca9b5fdd899b8e4b69f83b85e09d96f6240220",
+                "reference": "01ca9b5fdd899b8e4b69f83b85e09d96f6240220",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "3.72.0",
+                "phpstan/phpstan": "^1.2",
+                "phpunit/phpunit": "^5.7 || ^9.0"
+>>>>>>> 8f342f0dd735c71de2b79088c630732a94e8d545
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-main": "9.0.x-dev"
+=======
+                    "dev-master": "2.0-dev"
+>>>>>>> 8f342f0dd735c71de2b79088c630732a94e8d545
                 }
             },
             "autoload": {
                 "psr-4": {
+<<<<<<< HEAD
                     "Sabberworm\\CSS\\": "src/"
+=======
+                    "Stripe\\": "lib/"
+>>>>>>> 8f342f0dd735c71de2b79088c630732a94e8d545
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -3626,6 +3664,7 @@
             ],
             "authors": [
                 {
+<<<<<<< HEAD
                     "name": "Raphael Schweikert"
                 },
                 {
@@ -3649,6 +3688,24 @@
                 "source": "https://github.com/MyIntervals/PHP-CSS-Parser/tree/v8.8.0"
             },
             "time": "2025-03-23T17:59:05+00:00"
+=======
+                    "name": "Stripe and contributors",
+                    "homepage": "https://github.com/stripe/stripe-php/contributors"
+                }
+            ],
+            "description": "Stripe PHP Library",
+            "homepage": "https://stripe.com/",
+            "keywords": [
+                "api",
+                "payment processing",
+                "stripe"
+            ],
+            "support": {
+                "issues": "https://github.com/stripe/stripe-php/issues",
+                "source": "https://github.com/stripe/stripe-php/tree/v17.1.1"
+            },
+            "time": "2025-04-05T00:09:14+00:00"
+>>>>>>> 8f342f0dd735c71de2b79088c630732a94e8d545
         },
         {
             "name": "symfony/clock",
