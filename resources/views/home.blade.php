@@ -13,68 +13,43 @@
 </head>
 <body class="bg-light-background dark:bg-dark-background dark:text-dark-text transition-colors duration-2000 overflow-x-hidden">
 
-    <header class="fixed top-0 w-full flex items-center justify-between px-4 sm:px-10 py-5 font-poppins bg-dark-background/50 backdrop-blur-xl z-50">
-        
-        <!-- desktop -->
-        <a href="{{ route('home') }}"><img src="{{ asset('images/EventSphere_Logo.png') }}" alt="Logo" class="w-32 sm:w-48"></a>
-        <nav class="text-dark-text hidden md:flex space-x-6 lg:space-x-8 items-center">
-            <a href="{{ route('ticket') }}" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">My tickets</a>
-            <a href="{{ route('pastEvents') }}" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Closed</a>
-            <a href="{{ route('incomingEvents') }}" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Incoming</a>
-            
-            
-            <button class="dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300" onclick="toggleDarkMode()">
-                <i class="fa-solid fa-sun"></i> <span class="hidden sm:inline">Mode</span>
-            </button>
-
-            <form action="{{ route('logout') }}" method="POST" class="text-light-background bg-light-accent py-2 px-4 sm:px-6 rounded-full dark:text-dark-text dark:bg-dark-accent hover:bg-light-primary dark:hover:bg-light-primary duration-300">
-                @csrf
-                <button>logout</button>
-            </form>
-            
-        </nav>
-        
-        <!-- mobile button -->
-        <button id="menu-button" class="md:hidden text-2xl text-dark-text">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-
-        <!-- mobile -->
-        <div id="mobile-menu" class="absolute top-0 left-0 w-full h-screen bg-light-background dark:bg-dark-background shadow-lg md:hidden transform -translate-y-full transition duration-500 ease-in-out">  
-            <div class="flex flex-col space-y-10 p-6 mt-16 text-center">
-                
-            <button id="close-button" class="absolute right-6 px-6 top-10 text-2xl">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-
-                <a href="{{ route('ticket') }}" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">My tickets</a>
-                <a href="{{ route('pastEvents') }}" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Closed</a>
-                <a href="{{ route('incomingEvents') }}" class="text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Incoming</a>
-                
-                <button class="mx-auto text-light-text dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300 flex items-center" onclick="toggleDarkMode()">
-                    <i class="fa-solid fa-sun mr-2"></i> Dark Mode
-                </button>
-
-                <a href="{{ route('show.login') }}" class="bg-light-accent text-dark-text px-6 py-2 rounded-full">Login</a>
-            
-            </div>
-        </div>
-    </header>
+    <x-header />
 
     <!-- Welcome -->
-    <h3 class="text-center text-3xl text-light-text dark:text-dark-text mt-40">welcome back <span class="font-bold">{{ explode(' ', Auth::user()->name)[0] }} !</span></h3>
+    <h3 class="text-center text-3xl text-light-text dark:text-dark-text mt-40">
+        Welcome back <span class="font-bold">{{ explode(' ', Auth::user()->name)[0] }}!</span>
+    </h3>
 
-    <!-- search -->
+    <!-- Search and Filter in One Line -->
     <div class="flex justify-center my-10">
-        <div class="flex items-center bg-gray-300 shadow-md rounded-full px-4 py-2 w-10/12 max-w-xl border">
-            <div class="flex-shrink-0">
+        <form method="GET" class="flex items-center bg-gray-300 shadow-md rounded-full px-6 py-2 w-10/12 max-w-4xl border space-x-4">
+
+            <!-- Search Input -->
+            <div class="flex items-center w-full">
                 <svg width="24" height="24" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-black">
                     <path d="M31.85 34.125L21.6125 23.8875C20.8 24.5375 19.8656 25.0521 18.8094 25.4313C17.7531 25.8104 16.6292 26 15.4375 26C12.4854 26 9.98698 24.9776 7.94219 22.9328C5.8974 20.888 4.875 18.3896 4.875 15.4375C4.875 12.4854 5.8974 9.98698 7.94219 7.94219C9.98698 5.8974 12.4854 4.875 15.4375 4.875C18.3896 4.875 20.888 5.8974 22.9328 7.94219C24.9776 9.98698 26 12.4854 26 15.4375C26 16.6292 25.8104 17.7531 25.4313 18.8094C25.0521 19.8656 24.5375 20.8 23.8875 21.6125L34.125 31.85L31.85 34.125ZM15.4375 22.75C17.4688 22.75 19.1953 22.0391 20.6172 20.6172C22.0391 19.1953 22.75 17.4688 22.75 15.4375C22.75 13.4062 22.0391 11.6797 20.6172 10.2578C19.1953 8.83594 17.4688 8.125 15.4375 8.125C13.4062 8.125 11.6797 8.83594 10.2578 10.2578C8.83594 11.6797 8.125 13.4062 8.125 15.4375C8.125 17.4688 8.83594 19.1953 10.2578 20.6172C11.6797 22.0391 13.4062 22.75 15.4375 22.75Z" fill="#1D1B20"/>
                 </svg>
+                <input name="search" type="text" placeholder="Search for Events..." class="ml-4 bg-gray-300 placeholder:text-gray-500 focus:outline-none text-gray-800 w-full">
             </div>
-            <input type="text" placeholder="Search For Events.." class="ml-4 bg-gray-300 placeholder:text-gray-400 placeholder:tracking-widest focus:outline-none text-gray-800 w-full">
-        </div>
+
+            <!-- Category Filter -->
+            <select name="category" class="px-4 py-2 rounded-full bg-gray-300 text-dark-half focus:outline-none">
+                <option value="" selected>All Categories</option>
+                @forelse ($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @empty
+                    <option value="">No Categories Available</option>
+                @endforelse
+            </select>
+
+            <!-- Submit Button -->
+            <button type="submit" class="bg-dark-accent hover:bg-dark-secondary duration-300 text-white font-bold py-2 px-6 rounded-full shadow">
+                Search
+            </button>
+
+        </form>
     </div>
+
 
     <!-- Stat cards -->
     <div class="px-4 sm:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
@@ -193,26 +168,7 @@
         </div>
     </div>       
 
-    <!-- footer -->
-    <footer class="bg-[#721093] text-dark-text py-6 font-poppins mt-10">
-        <div class="text-center text-sm">
-            <p>Copyright: EventSphere © 2025</p>
-            <div class="flex justify-center space-x-4 mt-4">
-                <a href="https://facebook.com" target="_blank" class="hover:text-dark-accent">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://instagram.com" target="_blank" class="hover:text-dark-accent">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://twitter.com" target="_blank" class="hover:text-dark-accent">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://linkedin.com" target="_blank" class="hover:text-dark-accent">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-            </div>
-        </div>
-    </footer>
+    <x-footer />
     
     <script>
         const menu = document.getElementById('mobile-menu');

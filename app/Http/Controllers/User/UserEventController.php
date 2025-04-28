@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Event;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -14,6 +15,8 @@ class UserEventController extends Controller
         // $allEvents = Event::paginate(5);
         $allEvents = Event::orderBy('start_time', 'desc')->paginate(5);
         $totalEvents = Event::count();
+
+        $categories = Category::all();
         
         $now = Carbon::now();
         $monthLater = Carbon::now()->addDays(30);
@@ -22,7 +25,7 @@ class UserEventController extends Controller
         $pastEventsCount = Event::where('start_time', '<', Carbon::now())->count();
 
 
-        return view('home', compact(['allEvents', 'incomingEvents', 'pastEventsCount', 'totalEvents']));
+        return view('home', compact(['allEvents', 'incomingEvents', 'pastEventsCount', 'totalEvents', 'categories']));
     }
 
     public function show($id)

@@ -16,7 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::paginate(5);
+        $categories = Category::all();
 
         $requestedCount = Event::where('status', 'pending')->count();
 
