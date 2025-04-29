@@ -15,7 +15,7 @@
 
     <x-header />
     
-    <div class=" mx-auto bg-cover bg-center h-[90vh] rounded-xl drop-shadow-lg mt-20" style="background-image: url('{{ asset('storage/' . $event->image) }}')">
+    <div class=" mx-auto bg-cover bg-center h-[89vh] drop-shadow-lg mt-20" style="background-image: url('{{ asset('storage/' . $event->image) }}')">
     @if (session('error'))
         <div class="fixed top-24 left-1/2 transform -translate-x-1/2 w-[90%] max-w-md z-50">
             <div id="errorMessage" class="flex items-start justify-between gap-4 bg-red-100 text-red-800 dark:bg-red-200 dark:text-red-900 border border-red-300 dark:border-red-400 p-4 rounded-xl shadow-lg animate-slide-down">
@@ -37,7 +37,8 @@
     @endif
         
         <!-- Overlay gradient -->
-        <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-black/100 to-black/0 z-10"></div>
+        <div class="absolute inset-0
+         bg-gradient-to-r from-black/100 to-black/0 z-10"></div>
         
         <!-- Event Details -->
         <div class="relative z-20 p-10 text-white flex flex-col justify-center h-full max-w-[50%] space-y-5">
@@ -66,55 +67,6 @@
             @endif
         </div>
     </div>
-
-    <div class="w-full flex justify-center items-center mt-28 px-4 sm:px-10">
-        <!-- Comments Section -->
-        <div class="mt-16 max-w-7xl mx-auto px-4 sm:px-10">
-            <h3 class="text-2xl font-semibold text-light-text dark:text-dark-text mb-4">Comments</h3>
-            
-            <!-- Static Comments -->
-            <div class="space-y-6">
-                <!-- Comment 1 -->
-                <div class="p-4 border border-light-accent rounded-lg shadow-md bg-gray-50 dark:bg-dark-background dark:border-dark-accent">
-                    <p class="font-bold text-light-text dark:text-dark-text">John Doe</p>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">March 25, 2025 2:15 PM</p>
-                    <p class="mt-2 text-gray-700 dark:text-dark-text">This event looks amazing! I'm so excited to attend it. Hope to see you all there!</p>
-                </div>
-                
-                <!-- Comment 2 -->
-                <div class="p-4 border border-light-accent rounded-lg shadow-md bg-gray-50 dark:bg-dark-background dark:border-dark-accent">
-                    <p class="font-bold text-light-text dark:text-dark-text">Jane Smith</p>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">March 26, 2025 11:30 AM</p>
-                    <p class="mt-2 text-gray-700 dark:text-dark-text">I have a question about the tickets. Are there any discounts for group bookings?</p>
-                </div>
-                
-                <!-- Comment 3 -->
-                <div class="p-4 border border-light-accent rounded-lg shadow-md bg-gray-50 dark:bg-dark-background dark:border-dark-accent">
-                    <p class="font-bold text-light-text dark:text-dark-text">Mike Johnson</p>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">March 27, 2025 8:50 AM</p>
-                    <p class="mt-2 text-gray-700 dark:text-dark-text">Looking forward to this event! Do we need to bring printed tickets or can we show them on our phones?</p>
-                </div>
-            </div>
-
-            <!-- Comment Form -->
-            <div class="mt-8">
-                <h4 class="text-xl font-semibold text-light-text dark:text-dark-text mb-4">Leave a Comment</h4>
-                
-                <form  method="POST" class="space-y-4">
-                    @csrf
-                    <textarea name="comment" rows="4" class="shadow-md w-full p-4 border rounded-lg bg-gray-100 text-light-text dark:bg-dark-background dark:text-dark-text placeholder-gray-500 placeholder:text-sm" placeholder="Write your comment..."></textarea>
-                    
-                    <div class="text-right">
-                        <button type="submit" class="px-6 py-2 bg-light-accent text-light-text rounded-full hover:bg-light-primary dark:text-dark-text dark:bg-dark-accent dark:hover:bg-light-primary duration-300">
-                            Submit Comment
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <x-footer />
 
     <script>
         // dark mode toggle
