@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PaymentSuccessNotification;
 use App\Models\Event;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Stripe\Checkout\Session as CheckoutSession;
 use Stripe\Stripe;
@@ -73,12 +75,20 @@ class StripeController extends Controller
             return redirect()->route('home')->with('success', 'Payment already completed.');
         } 
 
-        Ticket::create([
+        $ticket = Ticket::create([
             'user_id' => auth()->id(),
             'event_id' => $event_id,
             'stripe_id' => $session_id,
         ]);
     
+        $event = Event::findOrFail($event_id);
+        $event->number_of_tickets -= 1;
+        $event->save();
+
+
+        $user = auth()->user();
+
+        Mail::to($user->email)->send(new PaymentSuccessNotification($user, $ticket));
 
         return view('payment.success');
     }
