@@ -48,6 +48,12 @@ Route::middleware('user')->controller(UserEventController::class)->group(functio
     Route::get('/payment/success', [StripeController::class, 'success'])->name('payment.success');
     Route::get('/payment/cancel', [StripeController::class, 'cancel'])->name('payment.cancel');
 
+    // search
+    Route::get('/search', [UserEventController::class, 'search'])->name('search');
+
+    // send request for creating event
+    Route::post('/store', [UserEventController::class, 'store'])->name('store.requested');
+
     // pdf
     Route::get('/download-ticket/{id}', [PDFController::class, 'download'])->name('download.ticket');
 
