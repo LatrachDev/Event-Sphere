@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\EventStatusNotification;
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class RequestedController extends Controller
 {
@@ -31,23 +33,13 @@ class RequestedController extends Controller
         ]);
     }
 
-    public function requestedCount()
-    {
-        $count = Event::where('status', 'pending')->count();
-       
-        // dd( $requestedEvents);
-        return view('partials.sidebar', [
-            
-            'requestedCount' => $requestedCount,
-            'requestedEvents' => $requestedEvents
-        
-        ]);
-    }
     public function approve($id)
     {
         $event = Event::findOrFail($id);
         $event->status = 'approved';
         $event->save();
+
+        Mail::to($event->user->email)->send(new EventStatusNotification($event, 'approved'));
 
         return redirect()->back()->with('success', 'Event approved successfully');
     }
@@ -55,6 +47,9 @@ class RequestedController extends Controller
     public function reject($id)
     {
         $event = Event::findOrFail($id);
+
+        Mail::to($event->user->email)->send(new EventStatusNotification($event, 'rejected'));
+
         $event->delete();
 
         return redirect()->back()->with('success', 'Event rejected successfully');
