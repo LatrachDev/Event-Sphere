@@ -8,6 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Address;
 
 class EventStatusNotification extends Mailable
 {
@@ -31,7 +32,7 @@ class EventStatusNotification extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: 'no-reply@eventsphere.com',
+            from: new Address('no-reply@eventsphere.com', 'EventSphere'),
             subject: 'Event Status Notification',
         );
     }
