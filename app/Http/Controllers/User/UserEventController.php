@@ -12,14 +12,14 @@ class UserEventController extends Controller
 {
     public function home()
     {
-        $allEvents = Event::orderBy('start_time', 'desc')->paginate(5);
+        $allEvents = Event::whereNot('status', 'pending')->orderBy('start_time', 'desc')->paginate(5);
 
         $categories = Category::all();
         
         $now = Carbon::now();
         $monthLater = Carbon::now()->addDays(30);
 
-        $incomingEvents = Event::whereBetween('start_time', [$now, $monthLater])->count();
+        $incomingEvents = Event::whereBetween('start_time', [$now, $monthLater])->whereNot('status', 'pending')->count();
         $pastEventsCount = Event::where('start_time', '<', Carbon::now())->count();
 
 
@@ -69,7 +69,7 @@ class UserEventController extends Controller
         $now = Carbon::now();
         $monthLater = Carbon::now()->addDays(30);
 
-        $incomingEvents = Event::whereBetween('start_time', [$now, $monthLater])->paginate(5);
+        $incomingEvents = Event::whereBetween('start_time', [$now, $monthLater])->whereNot('status', 'pending')->paginate(5);
 
         return view('event.incoming', compact('incomingEvents'));
     }
@@ -109,7 +109,7 @@ class UserEventController extends Controller
         
         $events = Event::create($data);
         
-        return redirect()->back()->with('success', 'Event created successfully');
+        return redirect()->back()->with('success', 'Request sent successfully');
     }
 
 }

@@ -14,6 +14,11 @@
 <body class="bg-light-background dark:bg-dark-background dark:text-dark-text transition-colors duration-2000 overflow-x-hidden">
 
     <x-header />
+    @if(session('success'))
+        <div class="alert alert-success text-green-600 font-bold mb-2">
+            {{ session('success') }}
+        </div>
+    @endif
 
     <!-- Welcome -->
     <h3 class="text-center text-3xl text-light-text dark:text-dark-text mt-40">
