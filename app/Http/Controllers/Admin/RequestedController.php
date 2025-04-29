@@ -31,18 +31,6 @@ class RequestedController extends Controller
         ]);
     }
 
-    public function requestedCount()
-    {
-        $count = Event::where('status', 'pending')->count();
-       
-        // dd( $requestedEvents);
-        return view('partials.sidebar', [
-            
-            'requestedCount' => $requestedCount,
-            'requestedEvents' => $requestedEvents
-        
-        ]);
-    }
     public function approve($id)
     {
         $event = Event::findOrFail($id);
