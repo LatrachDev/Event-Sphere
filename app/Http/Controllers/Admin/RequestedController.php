@@ -20,7 +20,7 @@ class RequestedController extends Controller
 
     public function index()
     {
-        $requestedEvents = Event::where('status', 'pending')->get();
+        $requestedEvents = Event::with('user')->where('status', 'pending')->get();
         $requestedCount = $requestedEvents->count(); 
         // dd( $requestedEvents);
         return view('admin.requested', [

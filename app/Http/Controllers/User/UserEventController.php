@@ -107,6 +107,8 @@ class UserEventController extends Controller
             $data['status'] = 'pending';
         }
         
+        $data['user_id'] = auth()->id(); 
+
         $events = Event::create($data);
         
         return redirect()->back()->with('success', 'Request sent successfully');

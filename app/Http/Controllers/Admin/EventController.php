@@ -50,6 +50,8 @@ class EventController extends Controller
             $data['image'] = $path;
         }
 
+        $data['user_id'] = auth()->id(); 
+
         if (auth()->user()->role == 'admin') {
             $data['status'] = 'approved';
             
