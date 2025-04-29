@@ -20,6 +20,8 @@
         Welcome, {{ Auth::user()->name }} 👋
     </h1>
 
+    <p class="text-xs sm:text-sm font-normal mb-8 dark:text-dark-text text-center">you have successfully completed your purchase! Thank you for booking with us. We look forward to seeing you at the event!</p>
+
     @forelse ($tickets as $ticket)
         <div class="max-w-4xl mx-auto bg-dark-secondary rounded-xl shadow-lg mb-8 overflow-hidden transition transform hover:scale-[1.01] duration-300">
             <div class="grid sm:grid-cols-3">
