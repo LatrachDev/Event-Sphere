@@ -10,6 +10,7 @@ class Event extends Model
         'title',
         'user_id',
         'description',
+        'location',
         'start_time',
         'category_id',
         'price',

@@ -26,37 +26,41 @@
     </h3>
 
     <!-- Search and Filter in One Line -->
-    <div class="flex justify-center my-10">
-        <form method="GET" action="{{ route('search') }}" class="flex items-center bg-gray-300 shadow-md rounded-full px-6 py-2 w-10/12 max-w-4xl border space-x-4">
+
+
+    <div class="flex justify-center my-10 px-4">
+        <form method="GET" action="{{ route('search') }}" class="flex flex-col md:flex-row items-stretch md:items-center bg-gray-300 shadow-md rounded-2xl md:rounded-full px-4 py-4 md:px-6 md:py-2 w-full max-w-4xl border space-y-4 md:space-y-0 md:space-x-4">
 
             <!-- Search Input -->
-            <div class="flex items-center w-full">
+            <div class="flex items-center bg-gray-300 w-full md:w-auto">
                 <svg width="24" height="24" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-black">
                     <path d="M31.85 34.125L21.6125 23.8875C20.8 24.5375 19.8656 25.0521 18.8094 25.4313C17.7531 25.8104 16.6292 26 15.4375 26C12.4854 26 9.98698 24.9776 7.94219 22.9328C5.8974 20.888 4.875 18.3896 4.875 15.4375C4.875 12.4854 5.8974 9.98698 7.94219 7.94219C9.98698 5.8974 12.4854 4.875 15.4375 4.875C18.3896 4.875 20.888 5.8974 22.9328 7.94219C24.9776 9.98698 26 12.4854 26 15.4375C26 16.6292 25.8104 17.7531 25.4313 18.8094C25.0521 19.8656 24.5375 20.8 23.8875 21.6125L34.125 31.85L31.85 34.125ZM15.4375 22.75C17.4688 22.75 19.1953 22.0391 20.6172 20.6172C22.0391 19.1953 22.75 17.4688 22.75 15.4375C22.75 13.4062 22.0391 11.6797 20.6172 10.2578C19.1953 8.83594 17.4688 8.125 15.4375 8.125C13.4062 8.125 11.6797 8.83594 10.2578 10.2578C8.83594 11.6797 8.125 13.4062 8.125 15.4375C8.125 17.4688 8.83594 19.1953 10.2578 20.6172C11.6797 22.0391 13.4062 22.75 15.4375 22.75Z" fill="#1D1B20"/>
                 </svg>
                 <input value="{{ request('search') }}" name="search" type="text" placeholder="Search for Events..." class="ml-4 bg-gray-300 placeholder:text-gray-500 focus:outline-none text-gray-800 w-full">
             </div>
 
-            <!-- Category Filter -->
-            <select name="category" class="px-4 py-2 rounded-full bg-gray-300 text-dark-half focus:outline-none">
-                <option value="" selected>All Categories</option>
-                @forelse ($categories as $category)
-                <option value="{{ $category->id }}" {{ request('category') == $category->id ? 'selected' : '' }}>
-                    {{ $category->name }}
-                </option>
-
-                @empty
-                    <option value="">No Categories Available</option>
-                @endforelse
-            </select>
-
+            
             <!-- Submit Button -->
-            <button type="submit" class="bg-dark-accent hover:bg-dark-secondary duration-300 text-white font-bold py-2 px-6 rounded-full shadow">
-                Search
-            </button>
+            <div class="flex flex-col md:flex-row w-full justify-center md:justify-end">
+                <!-- Category Filter -->
+                <select name="category" class="px-4 py-2 rounded-full bg-gray-300 text-dark-half focus:outline-none w-full md:w-auto">
+                    <option value="" selected>All Categories</option>
+                    @forelse ($categories as $category)
+                    <option value="{{ $category->id }}" {{ request('category') == $category->id ? 'selected' : '' }}>
+                        {{ $category->name }}
+                    </option>
+                    @empty
+                        <option value="">No Categories Available</option>
+                    @endforelse
+                </select>
+                <button type="submit" class="bg-dark-accent md:ml-3 hover:bg-dark-secondary duration-300 justify-end text-white font-bold py-2 px-6 rounded-full shadow w-full md:w-auto">
+                    Search
+                </button>
+            </div>
 
         </form>
     </div>
+
 
 
     <!-- Stat cards -->
@@ -184,6 +188,8 @@
             <h2 class="text-xl font-semibold mb-4">Add New Event</h2>
 
             <input type="text" name="title" placeholder="Title" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2" />
+            
+            <input type="text" name="location" placeholder="Location" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2" />
 
             <textarea name="description" placeholder="Description" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2"></textarea>
 

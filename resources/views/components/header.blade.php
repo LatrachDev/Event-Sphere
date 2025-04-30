@@ -33,6 +33,7 @@
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
+            <a href="{{ route('home') }}" class="text-light-text dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Home</a>
             <a href="{{ route('ticket') }}" class="text-light-text dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">My tickets</a>
             <a href="{{ route('pastEvents') }}" class="text-light-text dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Closed</a>
             <a href="{{ route('incomingEvents') }}" class="text-light-text dark:text-dark-text hover:text-dark-accent dark:hover:text-dark-accent duration-300">Incoming</a>

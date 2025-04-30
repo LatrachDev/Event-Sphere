@@ -86,6 +86,7 @@ class UserEventController extends Controller
         $data = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
+            'location' => 'required|string|max:255',
             'start_time' => 'required|date',
             'category_id' => 'required|exists:categories,id',
             'price' => 'required|numeric|min:0',
