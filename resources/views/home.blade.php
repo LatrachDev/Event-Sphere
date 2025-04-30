@@ -202,7 +202,7 @@
             </select>
 
             <!-- Price -->
-            <input type="number" name="price" placeholder="Leave empty for Free" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2">
+            <input type="number" name="price" placeholder="0 for Free" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2">
 
             <!-- Number of Tickets -->
             <input type="number" name="number_of_tickets" placeholder="Number of Tickets" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2">

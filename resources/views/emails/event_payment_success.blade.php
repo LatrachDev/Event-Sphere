@@ -5,7 +5,7 @@
 <p>You have successfully purchased a ticket for the event:</p>
 <ul>
     <li><strong>Event Title:</strong> {{ $ticket->event->title }}</li>
-    <li><strong>Date:</strong> {{ $ticket->event->date }}</li>
+    <li><strong>Date:</strong> {{ $ticket->event->start_time }}</li>
     <li><strong>Location:</strong> {{ $ticket->event->location }}</li>
 </ul>
 
