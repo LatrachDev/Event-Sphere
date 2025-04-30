@@ -59,6 +59,7 @@
                     <th class="p-4">#</th>
                     <th class="p-4">Image</th>
                     <th class="p-4">Title</th>
+                    <th class="p-4">Location</th>
                     <th class="p-4">Category</th>
                     <th class="p-4">Start Time</th>
                     <th class="p-4">Price</th>
@@ -80,6 +81,7 @@
                         </td>
 
                         <td class="p-4">{{ $event->title }}</td>
+                        <td class="p-4">{{ $event->location }}</td>
                         <td class="p-4">{{ $event->category->name }}</td>
                         <td class="p-4">{{ $event->start_time }}</td>
                         <td class="p-4">{{ $event->price ?? 'Free' }} $</td>
@@ -115,6 +117,7 @@
                 @method('PUT')
                 <h2 class="text-xl font-semibold mb-4">Edit Event</h2>
                 <input type="text" name="title" id="editTitle" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2" />
+                <input type="text" name="location" id="editLocation" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2" />
                 <textarea name="description" id="editDescription" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2"></textarea>
                 <input type="datetime-local" name="start_time" id="editStartTime" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2" />
                 <select name="category_id" id="editCategory" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2">
@@ -140,6 +143,8 @@
                 <h2 class="text-xl font-semibold mb-4">Add New Event</h2>
 
                 <input type="text" name="title" placeholder="Title" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2" />
+                
+                <input type="text" name="location" placeholder="Location" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2" />
 
                 <textarea name="description" placeholder="Description" class="w-full p-2 rounded-lg border dark:bg-dark-background dark:text-dark-text mb-2"></textarea>
 
@@ -173,6 +178,7 @@
 <script>
     function openEditPopup(event) {
         document.getElementById('editTitle').value = event.title;
+        document.getElementById('editLocation').value = event.location;
         document.getElementById('editDescription').value = event.description;
         document.getElementById('editStartTime').value = event.start_time.slice(0, 16); // fixes datetime-local input
         document.getElementById('editCategory').value = event.category_id;
