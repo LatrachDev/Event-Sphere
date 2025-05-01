@@ -80,4 +80,9 @@ class AuthController extends Controller
         return redirect()->route('show.login')->with('success', 'Logout successful!');
     }
 
+    public function banned()
+    {
+        return view('banned');
+    }
+
 }

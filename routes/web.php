@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/banned', [AuthController::class, 'banned'])->name('banned');
 
 // Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
 
@@ -37,7 +38,7 @@ Route::middleware('guest')->controller(AuthController::class)->group(function ()
 
 // });
 
-Route::middleware('user')->controller(UserEventController::class)->group(function (){
+Route::middleware(['user', 'banned'])->controller(UserEventController::class)->group(function (){
     Route::get('/home', [UserEventController::class, 'home'])->name('home');
     Route::get('/event/{id}', [UserEventController::class, 'show'])->name('details');
     Route::get('/incomingEvents', [UserEventController::class, 'incomingEvents'])->name('incomingEvents');

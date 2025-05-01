@@ -18,7 +18,7 @@ class UserController extends Controller
     public function index()
     {
         $totalUsers = User::count();
-        $users = User::where('role', '!=', 'admin')->paginate(5);
+        $users = User::withCount('events')->where('role', '!=', 'admin')->paginate(5);
         // $users = User::where('role' !== 'admin')->paginate(5);
         // dd($users);
         $activeUsers = User::where('status', 'active')->count();

@@ -23,13 +23,8 @@
         
         <!-- Main content -->
         <div class="flex-1 px-8 py-6 font-montserrat">
-            <div class="flex justify-between items-center mb-10">
-                <h1 class="text-3xl font-semibold">User Management</h1>
-                <div class="relative">
-                    <input type="text" placeholder="Search users..." class="pl-10 pr-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-dark-half focus:outline-none focus:ring-2 focus:ring-dark-primary">
-                    <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
-                </div>
-            </div>
+           
+            <h1 class="text-3xl font-semibold my-10">User Management</h1>
             
             <!-- Stat cards -->
             <div class="grid grid-cols-4 gap-4 mb-6">
