@@ -18,6 +18,7 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/banned', [AuthController::class, 'banned'])->name('banned');
+Route::get('/contact', [AuthController::class, 'contact'])->name('contact');
 
 // Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
 

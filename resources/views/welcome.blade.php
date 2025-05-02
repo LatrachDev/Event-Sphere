@@ -76,9 +76,9 @@
             </p>
             
         </div>
-        <button class="font-bold text-sm h-10 md:text-xl md:h-12 bg-gradient-to-r from-dark-accent to-dark-secondary text-light-background px-4 px-2 py-1 text-xs md:text-sm md:px-6 md:py-2 rounded-md mt-8 md:mt-10 transition-all hover:bg-gradient-to-r hover:from-dark-secondary hover:to-dark-secondary hover:shadow-lg duration-300" data-aos="zoom-in">
+        <a href="#events" class="font-bold text-sm h-10 md:text-xl md:h-12 bg-gradient-to-r from-dark-accent to-dark-secondary text-light-background px-4 px-2 py-1 text-xs md:text-sm md:px-6 md:py-2 rounded-md mt-8 md:mt-10 transition-all hover:bg-gradient-to-r hover:from-dark-secondary hover:to-dark-secondary hover:shadow-lg duration-300" data-aos="zoom-in">
             Discover Events
-        </button>
+        </a>
         
        
         <!-- <p style="-webkit-text-stroke: 2px white;" class="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-extrabold uppercase text-transparent stroke-white tracking-wide">Exciting Events</p> -->
@@ -111,65 +111,36 @@
     <section id="events" class="px-5 md:px-10 py-10 sm:px-20 sm:py-10 font-poppins" data-aos="fade-up">
         <h3 class="uppercase font-semibold text-center text-xl sm:text-2xl lg:text-4xl" >Trending Events</h3>
         <p class="text-center px-4 font-light text-sm sm:text-xl my-5 sm:my-10" >Stay updated with the most popular events happening around you.</p>
-        
+
         <!-- cards container -->
         <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6 justify-center items-center px-0 sm:px-6">
-            
-            <!-- card 1 -->
-            <div class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-11/12 sm:w-8/12 lg:w-full rounded-lg shadow-md mx-auto border border-light-accent dark:border-dark-text hover:!scale-105 duration-300" data-aos="fade-right">
-                <img src="{{ asset('images/singers-singing-studio.jpg') }}" alt="Event" class="w-full h-40 sm:h-44 object-cover rounded-t-lg">
+
+        @forelse ($threeEvents as $event)
+            <div id="#events" class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-11/12 sm:w-8/12 lg:w-full rounded-lg shadow-md mx-auto border border-light-accent dark:border-dark-text hover:!scale-105 duration-300" data-aos="fade-up">
+                <img src="{{ asset('storage/' . $event->image) }}" alt="Event" class="w-full h-40 sm:h-44 object-cover rounded-t-lg">
                 
-                <h4 class="px-3 pt-2 font-semibold text-lg w-full sm:text-xl text-dark-text">Rock & Roll Live Night</h4>
-                
-                <div class="px-4 py-2 flex justify-between items-end text-xs sm:text-sm">   
-                    <p class="font-light text-[10px] lg:text-[0.8rem] text-dark-text pr-2">An unforgettable night of live performances and entertainment.</p>
-                    
-                    <div class="text-right">
-                        <p class="text-xs sm:text-sm font-light text-dark-text">27/05/2026</p>
-                        <a href="" class="text-[10px] sm:text-xs font-semibold text-dark-text">View details</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- card 2 -->
-            <div class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-11/12 sm:w-8/12 lg:w-full rounded-lg shadow-md mx-auto border border-light-accent dark:border-dark-text hover:!scale-105 duration-300" data-aos="fade-up">
-                <img src="{{ asset('images/crowd-people-concert-with-their-hands-air.jpg') }}" alt="Event" class="w-full h-40 sm:h-44 object-cover rounded-t-lg">
-                
-                <h4 class="px-3 pt-2 font-semibold text-lg w-full sm:text-xl text-dark-text">Music Fest 2025</h4>
+                <h4 class="px-3 pt-2 font-semibold text-lg w-full sm:text-xl text-dark-text">{{ $event->title }}</h4>
                 
                 <div class="px-3 py-2 flex justify-between items-end text-xs sm:text-sm">   
-                    <p class="font-light text-[10px] lg:text-[0.8rem] text-dark-text pr-2">An unforgettable night of live performances and entertainment.</p>
+                    <p class="font-light text-[10px] lg:text-[0.8rem] text-dark-text pr-2">{{ Str::limit($event->description, 50) }}</p>
                     
                     <div class="text-right">
-                        <p class="text-xs sm:text-sm font-light text-dark-text">27/05/2026</p>
-                        <a href="" class="text-[10px] sm:text-xs font-semibold text-dark-text">View details</a>
+                        <p class="text-xs sm:text-sm font-light text-dark-text">{{ \Carbon\Carbon::parse($event->start_date)->format('d/m/Y') }}</p>
+                        <a href="{{ route('show.login') }}" class="text-[10px] sm:text-xs font-semibold text-dark-text">View details</a>
                     </div>
                 </div>
             </div>
-            
-            <!-- card 3 -->
-            <div class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-11/12 sm:w-8/12 lg:w-full rounded-lg shadow-md mx-auto border border-light-accent dark:border-dark-text hover:!scale-105 duration-300" data-aos="fade-left">
-                <img src="{{ asset('images/people.jpg') }}" alt="Event" class="w-full h-40 sm:h-44 object-cover rounded-t-lg">
-                
-                <h4 class="px-3 pt-2 font-semibold text-lg w-full sm:text-xl text-dark-text">Street Football Cup</h4>
-                
-                <div class="px-3 py-2 flex justify-between items-end text-xs sm:text-sm">   
-                    <p class="font-light text-[10px]  lg:text-[0.8rem] text-dark-text pr-2">An unforgettable night of live performances and entertainment.</p>
-                    
-                    <div class="text-right">
-                        <p class="text-xs sm:text-sm font-light text-dark-text">27/05/2026</p>
-                        <a href="" class="text-[10px] sm:text-xs font-semibold text-dark-text">View details</a>
-                    </div>
-                </div>
-            </div>
-            
-            
+        @empty
+            @include('components.static-events')
+        @endforelse
+
         </div>
+
         
         <div class="w-full flex" data-aos="fade-up">
-            <button class="mx-auto font-bold text-sm h-10 md:text-xl md:h-12 bg-gradient-to-r from-dark-accent to-dark-secondary text-light-background px-4 md:px-6 py-2 rounded-full mt-8 md:mt-10 transition-all hover:bg-gradient-to-r hover:from-dark-secondary hover:to-dark-secondary hover:shadow-lg duration-300">
+            <a href="{{ route('show.login') }}" class="mx-auto font-bold text-sm h-10 md:text-xl md:h-12 bg-gradient-to-r from-dark-accent to-dark-secondary text-light-background px-4 md:px-6 py-2 rounded-full mt-8 md:mt-10 transition-all hover:bg-gradient-to-r hover:from-dark-secondary hover:to-dark-secondary hover:shadow-lg duration-300">
                 View all Events
-            </button>
+            </a>
         </div> 
     </section>
 
@@ -444,13 +415,32 @@
                 Ready To Join the Fun?
             </h3>
             <div class="flex justify-between mt-5 font-montserrat">
-                <button data-aos="fade-up" class="tracking-wide font-bold px-2 py-1 text-xs md:text-sm md:px-8 md:py-3 bg-[#a409d7] hover:bg-[#721093] duration-300">SIGN UP NOW</button>
-                <button data-aos="fade-up" class="tracking-wide font-bold px-2 py-1 text-xs md:text-sm md:px-8 md:py-3 border-[#a409d7] border-2 hover:bg-[#a409d7] duration-300">CONTACT US</button>
+                <a href="{{ route('show.register') }}" data-aos="fade-up" class="tracking-wide font-bold px-2 py-1 text-xs md:text-sm md:px-8 md:py-3 bg-[#a409d7] hover:bg-[#721093] duration-300">SIGN UP NOW</a>
+                <a href="{{ route('contact') }}" data-aos="fade-up" class="tracking-wide font-bold px-2 py-1 text-xs md:text-sm md:px-8 md:py-3 border-[#a409d7] border-2 hover:bg-[#a409d7] duration-300">CONTACT US</a>
             </div>
         </div>
     </section>
 
-    <x-footer />
+    <!-- footer -->
+    <footer class="bg-[#721093] text-dark-text py-6 font-poppins">
+        <div class="text-center text-sm">
+            <p>Copyright: EventSphere © 2025</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="https://facebook.com" target="_blank" class="hover:text-dark-accent">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="hover:text-dark-accent">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" class="hover:text-dark-accent">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="hover:text-dark-accent">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
     
     <script>
         const menu = document.getElementById('mobile-menu');
