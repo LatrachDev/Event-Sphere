@@ -25,9 +25,6 @@
         Welcome back <span class="font-bold">{{ explode(' ', Auth::user()->name)[0] }}!</span>
     </h3>
 
-    <!-- Search and Filter in One Line -->
-
-
     <div class="flex justify-center my-10 px-4">
         <form method="GET" action="{{ route('search') }}" class="flex flex-col md:flex-row items-stretch md:items-center bg-gray-300 shadow-md rounded-2xl md:rounded-full px-4 py-4 md:px-6 md:py-2 w-full max-w-4xl border space-y-4 md:space-y-0 md:space-x-4">
 
@@ -60,8 +57,6 @@
 
         </form>
     </div>
-
-
 
     <!-- Stat cards -->
     <div class="px-4 sm:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
