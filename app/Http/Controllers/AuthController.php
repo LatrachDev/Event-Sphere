@@ -96,4 +96,5 @@ class AuthController extends Controller
         return view('banned');
     }
 
+
 }

@@ -8,55 +8,49 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     @vite('resources/css/app.css')
 </head>
-<body class="bg-light-background dark:bg-dark-background text-dark-text dark:text-light-text font-montserrat min-h-screen flex flex-col justify-between">
+<body class="bg-light-background text-center dark:bg-dark-background font-montserrat min-h-screen flex flex-col justify-between">
 
-    <div class="w-full text-center mt-10">
-        <h1 class="text-4xl sm:text-6xl font-bold text-light-accent dark:text-dark-accent uppercase">Contact Us</h1>
+    <div class="w-full overflow-hidden whitespace-nowrap">
+        <p class="w-full font-poppins text-4xl sm:text-6xl uppercase font-bold tracking-wider text-transparent mt-5 text-center" style="-webkit-text-stroke: 1px #c228f6;">
+            CONTACT US - EVENT SPHERE - CONTACT US
+        </p>
     </div>
 
-    <div class="w-6/12 mx-auto text-light-text dark:text-dark-text flex flex-col items-center justify-center flex-grow space-y-8 mt-10">
-        <div class="flex items-center space-x-4">
-            <i class="fas fa-envelope text-2xl text-dark-accent"></i>
-            <span class="text-lg">m.latrach.youcode@gmail.com</span>
-        </div>
+    <div class="flex flex-col space-y-5 items-center justify-center flex-grow">
+        
+        <div class="flex flex-col text-light-text dark:text-dark-text justify-center flex-grow space-y-8 mt-10">
+            <h1 class="font-extrabold text-6xl text-light-accent dark:text-dark-accent uppercase">Contact us</h1>
+            <div class="flex space-x-4">
+                <i class="fas fa-envelope text-2xl text-dark-accent"></i>
+                <span class="text-lg">m.latrach.youcode@gmail.com</span>
+            </div>
 
-        <div class="flex items-center space-x-4">
-            <i class="fas fa-phone text-2xl text-dark-accent"></i>
-            <span class="text-lg">+212 645 338 599</span>
-        </div>
+            <div class="flex space-x-4">
+                <i class="fas fa-phone text-2xl text-dark-accent"></i>
+                <span class="text-lg">+212 645 338 599</span>
+            </div>
 
-        <div class="flex items-center space-x-4">
-            <i class="fas fa-map-marker-alt text-2xl text-dark-accent"></i>
-            <span class="text-lg">123 YouCode Morocco, Nador City</span>
-        </div>
+            <div class="flex space-x-4">
+                <i class="fas fa-map-marker-alt text-2xl text-dark-accent"></i>
+                <span class="text-lg">123 YouCode Morocco, Nador City</span>
+            </div>
 
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@eventsphere.com" target="_blank"
-           class="mt-6 px-6 py-3 bg-dark-accent text-white font-bold rounded-md hover:bg-opacity-90 mx-auto transition-all duration-300 flex items-center space-x-2">
+            
+            
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@eventsphere.com" target="_blank"
+            class="mt-6 px-6 py-3 bg-dark-accent text-white font-bold rounded-md hover:bg-opacity-90 mx-auto transition-all duration-300 flex items-center space-x-2">
             <i class="fas fa-paper-plane"></i>
             <span>Email Us</span>
-        </a>
+             </a>
+        </div>
     </div>
 
-    <!-- footer -->
-    <footer class="bg-[#721093] text-dark-text py-6 font-poppins mt-10">
-        <div class="text-center text-sm">
-            <p>Copyright: EventSphere © 2025</p>
-            <div class="flex justify-center space-x-4 mt-4">
-                <a href="https://facebook.com" target="_blank" class="hover:text-dark-accent">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://instagram.com" target="_blank" class="hover:text-dark-accent">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://twitter.com" target="_blank" class="hover:text-dark-accent">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://linkedin.com" target="_blank" class="hover:text-dark-accent">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-            </div>
-        </div>
-    </footer>
+    <div class="w-full overflow-hidden whitespace-nowrap">
+        <p class="w-full font-poppins text-4xl sm:text-6xl uppercase font-bold tracking-wider text-transparent mb-5 text-center" style="-webkit-text-stroke: 1px #c228f6;">
+            EVENT SPHERE - CONTACT US - EVENT SPHERE
+        </p>
+    </div>
 
 </body>
 </html>
+

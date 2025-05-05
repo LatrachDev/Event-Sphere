@@ -15,6 +15,8 @@ class UserEventController extends Controller
         $allEvents = Event::whereNot('status', 'pending')->orderBy('start_time', 'desc')->paginate(5);
 
         $categories = Category::all();
+
+        $myTickets = auth()->user()->tickets()->count();
         
         $now = Carbon::now();
         $monthLater = Carbon::now()->addDays(30);
@@ -23,7 +25,7 @@ class UserEventController extends Controller
         $pastEventsCount = Event::where('start_time', '<', Carbon::now())->count();
 
 
-        return view('home', compact(['allEvents', 'incomingEvents', 'pastEventsCount', 'categories']));
+        return view('home', compact(['allEvents', 'incomingEvents', 'pastEventsCount', 'categories', 'myTickets']));
     }
 
     public function show($id)
@@ -50,7 +52,7 @@ class UserEventController extends Controller
             $events->where('category_id', $category);
         }
     
-        $allEvents = $events->orderBy('start_time', 'desc')->paginate(5); // ✅ final result into $allEvents
+        $allEvents = Event::whereNot('status', 'pending')->orderBy('start_time', 'desc')->paginate(5);
     
         $categories = Category::all();
         $now = Carbon::now();

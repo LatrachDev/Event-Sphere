@@ -28,9 +28,8 @@ Route::middleware('guest')->controller(AuthController::class)->group(function ()
     Route::get('/index', [AuthController::class, 'index'])->name('index');
 
     Route::get('/', function () {
-        return view('welcome');
+        return redirect()->route('index');
     });
-    
 });
 
 

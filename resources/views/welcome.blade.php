@@ -113,10 +113,10 @@
         <p class="text-center px-4 font-light text-sm sm:text-xl my-5 sm:my-10" >Stay updated with the most popular events happening around you.</p>
 
         <!-- cards container -->
-        <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6 justify-center items-center px-0 sm:px-6">
+        <div  data-aos="fade-up" class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6 justify-center items-center px-0 sm:px-6">
 
         @forelse ($threeEvents as $event)
-            <div id="#events" class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-11/12 sm:w-8/12 lg:w-full rounded-lg shadow-md mx-auto border border-light-accent dark:border-dark-text hover:!scale-105 duration-300" data-aos="fade-up">
+            <div id="#events" class="bg-gradient-to-r from-[#C228F6] to-[#721093] text-dark-text w-11/12 sm:w-8/12 lg:w-full rounded-lg shadow-md mx-auto border border-light-accent dark:border-dark-text hover:!scale-105 duration-300">
                 <img src="{{ asset('storage/' . $event->image) }}" alt="Event" class="w-full h-40 sm:h-44 object-cover rounded-t-lg">
                 
                 <h4 class="px-3 pt-2 font-semibold text-lg w-full sm:text-xl text-dark-text">{{ $event->title }}</h4>

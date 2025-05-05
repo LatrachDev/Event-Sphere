@@ -24,7 +24,7 @@
             Your account has been banned due to a violation of our terms. Please contact support if you believe this is a mistake.
         </p>
 
-        <a href="{{ route('index') }}" class="px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-lg font-bold bg-dark-accent text-white rounded-md hover:bg-opacity-90 transition-all duration-300 flex items-center">
+        <a href="{{ route('contact') }}" class="px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-lg font-bold bg-dark-accent text-white rounded-md hover:bg-opacity-90 transition-all duration-300 flex items-center">
             <i class="fas fa-envelope mr-2"></i> Contact Support
         </a>
     </div>

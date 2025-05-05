@@ -15,10 +15,11 @@ EventSphere is an event management application designed to streamline the proces
 Input fields:
 - Event Name  
 - Event Description  
+- Event Location  
 - Event Date  
 - Number of Tickets  
-- Image of the event  
-- Quantity  
+- Price  
+- Image of the event    
 - Category  
 
 #### **Read Events:**  
@@ -48,7 +49,7 @@ Input fields:
 - Display all upcoming events in a list or grid format.  
 - Search and filter events by:  
   - Category  
-  - Name  
+  - Name or description
 
 #### **View Event Details:**  
 - Display detailed information for a selected event, including:  
@@ -59,13 +60,6 @@ Input fields:
 #### **Reserve a Ticket:**  
 - Select a ticket if available.  
 - Confirmation message upon successful reservation.  
-
-#### **User Profiles:**  
-- Save favorite events for quick access.  
-
-#### **Event Ratings and Reviews:**  
-- Allow users to rate and review events they attended.  
-- Display average ratings and reviews on event detail pages.  
 
 ---
 
@@ -80,13 +74,13 @@ Input fields:
 ## **4. Technical Requirements**  
 
 ### **4.1 Back-End Development**  
-- **Language/Framework:** PHP MVC or Laravel  
+- **Language/Framework:** Laravel 11
 - **Database:** MySQL  
 - **Tools:** phpMyAdmin  
 
 ### **4.2 Front-End Development**  
 - **Languages/Frameworks:**  
-  - HTML, CSS, Tailwind CSS, JavaScript  
+  - HTML, Tailwind CSS, JavaScript  
 - **Tools:** Figma for design and prototyping  
 
 ### **4.3 Project Management and Design**  
@@ -126,9 +120,9 @@ Input fields:
 
 ### **6.2 Class Diagram**  
 **Classes:**  
-- **Event:** id, name, description, date, ticketsAvailable  
-- **User:** id, name, email  
-- **Reservation:** id, userId, eventId, ticketsReserved  
+- **Event:** title, description, date, number of tickets, location, price  
+- **User:** name, email, password role, status
+- **Reservation:** userId, eventId  
 
 ---
 

@@ -71,8 +71,8 @@
                 <span>Your tickets</span>
                 <i class="fas fa-ticket"></i>
             </div>
-            <div class="text-4xl font-bold ">4</div>
-            <button class="text-xs text-right"><i class="fas fa-eye mr-2"></i>view</button>
+            <div class="text-4xl font-bold ">{{ $myTickets }}</div>
+            <a href="{{ route('ticket') }}" class="text-xs text-right"><i class="fas fa-eye mr-2"></i>view</a>
         </div>
 
         <!-- Create New Event -->
